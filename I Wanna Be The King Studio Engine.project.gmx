@@ -8,24 +8,48 @@
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_playerIdle</sprite>
-    <sprite>sprites\spr_playerRunning</sprite>
-    <sprite>sprites\spr_playerJump</sprite>
-    <sprite>sprites\spr_playerFall</sprite>
-    <sprite>sprites\spr_maskPlayer</sprite>
     <sprite>sprites\spr_block</sprite>
+    <sprites name="Player">
+      <sprite>sprites\spr_playerIdle</sprite>
+      <sprite>sprites\spr_playerRunning</sprite>
+      <sprite>sprites\spr_playerJump</sprite>
+      <sprite>sprites\spr_playerFall</sprite>
+      <sprite>sprites\spr_maskPlayer</sprite>
+      <sprite>sprites\spr_bow</sprite>
+      <sprite>sprites\spr_bullet</sprite>
+      <sprite>sprites\spr_bloodEmitter</sprite>
+      <sprite>sprites\spr_blood</sprite>
+    </sprites>
+    <sprite>sprites\spr_playerStart</sprite>
+    <sprite>sprites\spr_gameOver</sprite>
+    <sprite>sprites\spr_playerKiller</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_initGlobals.gml</script>
-    <script>scripts\scr_playerJump.gml</script>
-    <script>scripts\scr_playerVJump.gml</script>
+    <scripts name="System">
+      <script>scripts\scr_initGlobals.gml</script>
+      <script>scripts\scr_defaultControls.gml</script>
+    </scripts>
+    <scripts name="Player">
+      <script>scripts\scr_playerJump.gml</script>
+      <script>scripts\scr_playerVJump.gml</script>
+      <script>scripts\scr_playerShoot.gml</script>
+      <script>scripts\scr_killPlayer.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\obj_world</object>
-    <object>objects\obj_player</object>
     <object>objects\obj_block</object>
+    <object>objects\obj_playerStart</object>
+    <objects name="Player">
+      <object>objects\obj_player</object>
+      <object>objects\obj_bullet</object>
+      <object>objects\obj_bloodEmitter</object>
+      <object>objects\obj_blood</object>
+    </objects>
+    <object>objects\obj_gameOver</object>
+    <object>objects\obj_playerKiller</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
