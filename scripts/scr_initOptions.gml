@@ -1,5 +1,9 @@
 ///scr_initOptions()
 global.gameName = "I Wanna Be The King Studio Engine";
+global.difficultyNames = new_array("Medium", "Hard", "Very Hard", "Impossible", "Load Game");
 
+global.totalSaves = 3;
 global.totalItems = 8;
 global.totalBosses = 8;
+
+global.startRoom = rm_test;

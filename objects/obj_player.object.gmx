@@ -38,6 +38,9 @@ gravity = 0.4;
 
 frozen = false;
 
+if (global.gameStarted &amp;&amp; global.difficulty == 0 &amp;&amp; !instance_exists(obj_bow))
+    instance_create(x, y, obj_bow);
+
 if (global.autosave) {
     scr_saveGame(true);
     global.autosave = false;
@@ -64,8 +67,8 @@ if (global.autosave) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var L = keyboard_check(global.leftButton);
-var R = keyboard_check(global.rightButton);
+            <string>var L = scr_buttonHeld(global.leftButton);
+var R = scr_buttonHeld(global.rightButton);
 var h = 0;
 
 if (!frozen) {
@@ -99,16 +102,16 @@ if (abs(vspeed) &gt; maxVSpeed)
     vspeed = sign(vspeed) * maxVSpeed;
 
 if (!frozen) {
-    if (keyboard_check_pressed(global.jumpButton))
+    if (scr_buttonPressed(global.jumpButton))
         scr_playerJump();
 
-    if (keyboard_check_released(global.jumpButton))
+    if (scr_buttonReleased(global.jumpButton))
         scr_playerVJump();
         
-    if (keyboard_check_pressed(global.shootButton))
+    if (scr_buttonPressed(global.shootButton))
         scr_playerShoot();
         
-    if (keyboard_check_pressed(ord("Q")))
+    if (scr_buttonPressed(ord("Q")))
         scr_killPlayer();
 }
 </string>

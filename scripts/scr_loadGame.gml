@@ -1,4 +1,6 @@
-///scr_loadGame()
+///scr_loadGame(normal)
+var normal = argument[0];
+
 if (instance_exists(obj_player)) {
     with (obj_player) {
         instance_destroy();
@@ -21,6 +23,10 @@ for (var i = 0; i < global.totalItems; i++)
     global.bosses[i] = saveMap[? string_interp("Bosses{0}", i)];
     
 global.clear = saveMap[? "Clear"];
-    
-instance_create(global.savingX, global.savingY, obj_player);
-room_goto(saveMap[? "CurrentRoom"]);
+
+if (normal) {
+    global.gameStarted = true;
+    global.autosave = false;
+    instance_create(global.savingX, global.savingY, obj_player);
+    room_goto(saveMap[? "CurrentRoom"]);
+}

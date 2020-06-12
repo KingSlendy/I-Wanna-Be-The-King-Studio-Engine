@@ -37,8 +37,17 @@
       <sprite>sprites\spr_save</sprite>
       <sprite>sprites\spr_saveVeryHard</sprite>
     </sprites>
+    <sprite>sprites\spr_warp</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <backgrounds name="Backgrounds">
+      <background>background\bgr_guy</background>
+    </backgrounds>
+    <backgrounds name="Tiles">
+      <background>background\tls_default</background>
+      <background>background\tls_menuBar</background>
+    </backgrounds>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="System">
@@ -47,8 +56,13 @@
       <script>scripts\scr_initOptions.gml</script>
       <script>scripts\scr_setCaption.gml</script>
       <script>scripts\scr_formattedTime.gml</script>
+      <script>scripts\scr_buttonHeld.gml</script>
+      <script>scripts\scr_buttonPressed.gml</script>
+      <script>scripts\scr_buttonReleased.gml</script>
+      <script>scripts\scr_saveName.gml</script>
       <script>scripts\scr_saveGame.gml</script>
       <script>scripts\scr_loadGame.gml</script>
+      <script>scripts\scr_resetSave.gml</script>
     </scripts>
     <scripts name="Player">
       <script>scripts\scr_playerJump.gml</script>
@@ -57,11 +71,17 @@
       <script>scripts\scr_killPlayer.gml</script>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_menu1</font>
+    <font>fonts\fnt_menu2</font>
+    <font>fonts\fnt_menu3</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_world</object>
     <object>objects\obj_block</object>
     <objects name="Player">
       <object>objects\obj_player</object>
+      <object>objects\obj_bow</object>
       <object>objects\obj_bullet</object>
       <object>objects\obj_bloodEmitter</object>
       <object>objects\obj_blood</object>
@@ -81,9 +101,15 @@
       <object>objects\obj_saveVeryHard</object>
     </objects>
     <object>objects\obj_gameOver</object>
+    <object>objects\obj_titleButton</object>
+    <object>objects\obj_menuSelect</object>
+    <object>objects\obj_warpStart</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
+    <room>rooms\rm_title</room>
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_selectDif</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_template</room>
   </rooms>

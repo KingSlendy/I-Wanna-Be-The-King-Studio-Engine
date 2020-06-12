@@ -1,5 +1,5 @@
-///scr_formattedTime()
-var time = floor(global.time);
+///scr_formattedTime(time)
+var time = floor(argument[0]);
 var ss1 = time mod 10;
 var ss2 = (time div 10) mod 6;
 var mm1 = (time div 60) mod 10;

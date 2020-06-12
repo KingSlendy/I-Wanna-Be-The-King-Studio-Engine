@@ -2,9 +2,11 @@
 var roomCaption = global.gameName;
 
 if (global.gameStarted) {
-    roomCaption += string_interp(" - Deaths: {0} | Time: {1}",
+    difficulties = new_array("Medium", "Hard", "Very Hard", "Impossible");
+    roomCaption += string_interp(" - {0} | Deaths: {1} | Time: {2}",
+    difficulties[global.difficulty],
     global.deaths,
-    scr_formattedTime());
+    scr_formattedTime(global.time));
 }
 
 if (roomCaption != global.roomCaptionLast)

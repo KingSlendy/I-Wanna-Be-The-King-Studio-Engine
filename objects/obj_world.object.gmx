@@ -50,8 +50,10 @@ timeMicro = 0;
           <argument>
             <kind>1</kind>
             <string>if (global.gameStarted) {
-    if (keyboard_check_pressed(global.restartButton))
-        scr_loadGame();
+    if (scr_buttonPressed(global.restartButton)) {
+        scr_saveGame(false);
+        scr_loadGame(true);
+    }
 
     timeMicro += delta_time;
     global.time += timeMicro div 1000000;
@@ -82,6 +84,29 @@ scr_setCaption();
           <argument>
             <kind>1</kind>
             <string>room_goto_next();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="113">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>game_restart();
 </string>
           </argument>
         </arguments>
