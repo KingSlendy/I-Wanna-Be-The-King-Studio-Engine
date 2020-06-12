@@ -51,7 +51,7 @@ timeMicro = 0;
             <kind>1</kind>
             <string>if (global.gameStarted) {
     if (keyboard_check_pressed(global.restartButton))
-        scr_loadGame(false);
+        scr_loadGame();
 
     timeMicro += delta_time;
     global.time += timeMicro div 1000000;

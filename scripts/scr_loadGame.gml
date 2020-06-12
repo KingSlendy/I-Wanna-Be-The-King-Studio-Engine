@@ -1,23 +1,26 @@
-///scr_loadGame(load_file)
-var loadFile = argument[0];
-
-if (loadFile) {
-    var saveMap = ds_map_secure_load(string_interp("SaveData{0}", global.saveNum + 1));
-    
-    global.savingRoom = saveMap[? "SavingRoom"];
-    global.savingX = saveMap[? "SavingX"];
-    global.savingY = saveMap[? "SavingY"];
-    
-    global.deaths = saveMap[? "Deaths"];
-    global.time = saveMap[? "Time"];
+///scr_loadGame()
+if (instance_exists(obj_player)) {
+    with (obj_player) {
+        instance_destroy();
+    } 
 }
 
-if (!instance_exists(obj_player))
-    instance_create(0, 0, obj_player);
+var saveMap = ds_map_secure_load(string_interp("SaveData{0}", global.saveNum + 1));
 
-obj_player.x = global.savingX;
-obj_player.y = global.savingY;
-obj_player.vspeed = 0;
-obj_player.jumpsLeft = obj_player.jumpsNum - 1;
+global.savingX = saveMap[? "SavingX"];
+global.savingY = saveMap[? "SavingY"];
 
-room_goto(global.savingRoom);
+global.difficulty = saveMap[? "Difficulty"];
+global.deaths = saveMap[? "Deaths"];
+global.time = saveMap[? "Time"];
+
+for (var i = 0; i < global.totalItems; i++)
+    global.items[i] = saveMap[? string_interp("Items{0}", i)];
+    
+for (var i = 0; i < global.totalItems; i++)
+    global.bosses[i] = saveMap[? string_interp("Bosses{0}", i)];
+    
+global.clear = saveMap[? "Clear"];
+    
+instance_create(global.savingX, global.savingY, obj_player);
+room_goto(saveMap[? "CurrentRoom"]);
