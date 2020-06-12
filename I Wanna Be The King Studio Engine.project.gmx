@@ -8,6 +8,7 @@
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprite>sprites\spr_world</sprite>
     <sprite>sprites\spr_block</sprite>
     <sprites name="Player">
       <sprite>sprites\spr_playerIdle</sprite>
@@ -21,8 +22,21 @@
       <sprite>sprites\spr_blood</sprite>
     </sprites>
     <sprite>sprites\spr_playerStart</sprite>
+    <sprites name="Killers">
+      <sprite>sprites\spr_playerKiller</sprite>
+      <sprite>sprites\spr_cherry</sprite>
+      <sprite>sprites\spr_spikeDown</sprite>
+      <sprite>sprites\spr_spikeLeft</sprite>
+      <sprite>sprites\spr_spikeRight</sprite>
+      <sprite>sprites\spr_spikeUp</sprite>
+    </sprites>
     <sprite>sprites\spr_gameOver</sprite>
-    <sprite>sprites\spr_playerKiller</sprite>
+    <sprites name="Saves">
+      <sprite>sprites\spr_saveMask</sprite>
+      <sprite>sprites\spr_saveMedium</sprite>
+      <sprite>sprites\spr_save</sprite>
+      <sprite>sprites\spr_saveVeryHard</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -30,6 +44,11 @@
     <scripts name="System">
       <script>scripts\scr_initGlobals.gml</script>
       <script>scripts\scr_defaultControls.gml</script>
+      <script>scripts\scr_initOptions.gml</script>
+      <script>scripts\scr_setCaption.gml</script>
+      <script>scripts\scr_formattedTime.gml</script>
+      <script>scripts\scr_saveGame.gml</script>
+      <script>scripts\scr_loadGame.gml</script>
     </scripts>
     <scripts name="Player">
       <script>scripts\scr_playerJump.gml</script>
@@ -41,15 +60,27 @@
   <objects name="objects">
     <object>objects\obj_world</object>
     <object>objects\obj_block</object>
-    <object>objects\obj_playerStart</object>
     <objects name="Player">
       <object>objects\obj_player</object>
       <object>objects\obj_bullet</object>
       <object>objects\obj_bloodEmitter</object>
       <object>objects\obj_blood</object>
     </objects>
+    <objects name="Killers">
+      <object>objects\obj_playerKiller</object>
+      <object>objects\obj_cherry</object>
+      <object>objects\obj_spikeDown</object>
+      <object>objects\obj_spikeLeft</object>
+      <object>objects\obj_spikeRight</object>
+      <object>objects\obj_spikeUp</object>
+    </objects>
+    <object>objects\obj_playerStart</object>
+    <objects name="Saves">
+      <object>objects\obj_saveMedium</object>
+      <object>objects\obj_save</object>
+      <object>objects\obj_saveVeryHard</object>
+    </objects>
     <object>objects\obj_gameOver</object>
-    <object>objects\obj_playerKiller</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>

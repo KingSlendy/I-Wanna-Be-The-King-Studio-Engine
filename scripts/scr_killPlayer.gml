@@ -6,6 +6,6 @@ if (instance_exists(obj_player)) {
     }
     
     instance_create(0, 0, obj_gameOver);
-    //global.death += 1; 
-    //scr_saveGame();
+    global.deaths++; 
+    scr_saveGame(false);
 }
