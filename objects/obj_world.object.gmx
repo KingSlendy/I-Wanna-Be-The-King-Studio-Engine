@@ -51,8 +51,16 @@ timeMicro = 0;
             <kind>1</kind>
             <string>if (global.gameStarted) {
     if (scr_buttonPressed(global.restartButton)) {
-        scr_saveGame(false);
+        if (global.deathMusic) {
+            audio_stop_sound(bgm_onDeath);
+            audio_resume_sound(global.currentMusic);
+        }
+    
+        var deaths = global.deaths;
+        var time = global.time;
         scr_loadGame(true);
+        global.deaths = deaths;
+        global.time = time;
     }
 
     timeMicro += delta_time;
@@ -61,6 +69,29 @@ timeMicro = 0;
 }
 
 scr_setCaption();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_getMusic();
 </string>
           </argument>
         </arguments>

@@ -17,10 +17,10 @@ global.deaths = saveMap[? "Deaths"];
 global.time = saveMap[? "Time"];
 
 for (var i = 0; i < global.totalItems; i++)
-    global.items[i] = saveMap[? string_interp("Items{0}", i)];
+    global.items[i] = saveMap[? string_interp("Items[{0}]", i)];
     
-for (var i = 0; i < global.totalItems; i++)
-    global.bosses[i] = saveMap[? string_interp("Bosses{0}", i)];
+for (var i = 0; i < global.totalBossItems; i++)
+    global.bossItems[i] = saveMap[? string_interp("BossItems[{0}]", i)];
     
 global.clear = saveMap[? "Clear"];
 

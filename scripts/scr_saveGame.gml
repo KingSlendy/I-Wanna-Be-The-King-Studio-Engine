@@ -27,8 +27,8 @@ ds_map_add(saveMap, "Time", global.time);
 for (var i = 0; i < global.totalItems; i++)
     ds_map_add(saveMap, string_interp("Items[{0}]", i), global.items[i]);
     
-for (var i = 0; i < global.totalBosses; i++)
-    ds_map_add(saveMap, string_interp("Bosses[{0}]", i), global.bosses[i]);
+for (var i = 0; i < global.totalBossItems; i++)
+    ds_map_add(saveMap, string_interp("BossItems[{0}]", i), global.bossItems[i]);
 
 ds_map_add(saveMap, "Clear", global.clear);
     

@@ -65,7 +65,7 @@
     <instance objName="obj_warpStart" x="272" y="448" name="inst_6D1C2C6E" locked="0" code="diff = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpStart" x="400" y="416" name="inst_BED152B7" locked="0" code="diff = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpStart" x="528" y="384" name="inst_CE6C8899" locked="0" code="diff = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warpStart" x="656" y="352" name="inst_1330B179" locked="0" code="diff = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpStart" x="656" y="352" name="inst_1330B179" locked="0" code="diff = 3;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_default" x="64" y="512" w="32" h="32" xo="0" yo="32" id="10000004" name="inst_02B06231" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -6,9 +6,15 @@ if (global.gameStarted) {
             instance_destroy();
         }
         
+        audio_play_sound(snd_death, 0, false);
+        
+        if (global.deathMusic) {
+            audio_pause_sound(global.currentMusic);
+            audio_play_sound(bgm_onDeath, 0, false);
+        }
+        
         instance_create(0, 0, obj_gameOver);
         global.deaths++; 
-        scr_saveGame(false);
     }
 } else {
     with (obj_player)

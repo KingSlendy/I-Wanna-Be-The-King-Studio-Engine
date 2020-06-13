@@ -6,11 +6,24 @@
   <NewExtensions>
     <extension index="0">extensions\ext_codeExtension</extension>
   </NewExtensions>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="BGM">
+      <sound>sound\bgm_onDeath</sound>
+      <sound>sound\bgm_guyRock</sound>
+    </sounds>
+    <sounds name="SFX">
+      <sound>sound\snd_jump</sound>
+      <sound>sound\snd_doubleJump</sound>
+      <sound>sound\snd_shoot</sound>
+      <sound>sound\snd_death</sound>
+      <sound>sound\snd_item</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_world</sprite>
     <sprite>sprites\spr_block</sprite>
     <sprites name="Player">
+      <sprite>sprites\spr_playerStart</sprite>
       <sprite>sprites\spr_playerIdle</sprite>
       <sprite>sprites\spr_playerRunning</sprite>
       <sprite>sprites\spr_playerJump</sprite>
@@ -21,7 +34,6 @@
       <sprite>sprites\spr_bloodEmitter</sprite>
       <sprite>sprites\spr_blood</sprite>
     </sprites>
-    <sprite>sprites\spr_playerStart</sprite>
     <sprites name="Killers">
       <sprite>sprites\spr_playerKiller</sprite>
       <sprite>sprites\spr_cherry</sprite>
@@ -38,6 +50,17 @@
       <sprite>sprites\spr_saveVeryHard</sprite>
     </sprites>
     <sprite>sprites\spr_warp</sprite>
+    <sprites name="Items">
+      <sprite>sprites\spr_item1</sprite>
+      <sprite>sprites\spr_item2</sprite>
+      <sprite>sprites\spr_item3</sprite>
+      <sprite>sprites\spr_item4</sprite>
+      <sprite>sprites\spr_item5</sprite>
+      <sprite>sprites\spr_item6</sprite>
+      <sprite>sprites\spr_item7</sprite>
+      <sprite>sprites\spr_item8</sprite>
+    </sprites>
+    <sprite>sprites\spr_trigger</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Backgrounds">
@@ -63,6 +86,9 @@
       <script>scripts\scr_saveGame.gml</script>
       <script>scripts\scr_loadGame.gml</script>
       <script>scripts\scr_resetSave.gml</script>
+      <script>scripts\scr_getMusic.gml</script>
+      <script>scripts\scr_playMusic.gml</script>
+      <script>scripts\scr_stopMusic.gml</script>
     </scripts>
     <scripts name="Player">
       <script>scripts\scr_playerJump.gml</script>
@@ -80,6 +106,7 @@
     <object>objects\obj_world</object>
     <object>objects\obj_block</object>
     <objects name="Player">
+      <object>objects\obj_playerStart</object>
       <object>objects\obj_player</object>
       <object>objects\obj_bow</object>
       <object>objects\obj_bullet</object>
@@ -94,16 +121,28 @@
       <object>objects\obj_spikeRight</object>
       <object>objects\obj_spikeUp</object>
     </objects>
-    <object>objects\obj_playerStart</object>
     <objects name="Saves">
       <object>objects\obj_saveMedium</object>
       <object>objects\obj_save</object>
       <object>objects\obj_saveVeryHard</object>
     </objects>
     <object>objects\obj_gameOver</object>
+    <objects name="Items">
+      <object>objects\obj_item</object>
+      <object>objects\obj_itemView</object>
+      <object>objects\obj_item1</object>
+      <object>objects\obj_item2</object>
+      <object>objects\obj_item3</object>
+      <object>objects\obj_item4</object>
+      <object>objects\obj_item5</object>
+      <object>objects\obj_item6</object>
+      <object>objects\obj_item7</object>
+      <object>objects\obj_item8</object>
+    </objects>
     <object>objects\obj_titleButton</object>
     <object>objects\obj_menuSelect</object>
     <object>objects\obj_warpStart</object>
+    <object>objects\obj_gameClear</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>

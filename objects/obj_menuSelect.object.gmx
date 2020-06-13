@@ -26,18 +26,18 @@
           <argument>
             <kind>1</kind>
             <string>for (var i = 0; i &lt; global.totalSaves; i++) {
-    if (file_exists(string_interp("SaveData{0}", i + 1))) {
+    if (file_exists(scr_saveName(i))) {
         global.saveNum = i;
         scr_loadGame(false);
-        difficulty[i] = global.difficulty;
+        difficulty[i] = global.difficultyNames[global.difficulty];
         deaths[i] = global.deaths;
         time[i] = global.time;
         
         for (var j = 0; j &lt; global.totalItems; j++)
             items[i, j] = global.items[j];
             
-        for (var j = 0; j &lt; global.totalBosses; j++)
-            bosses[i, j] = global.bosses[j];
+        for (var j = 0; j &lt; global.totalBossItems; j++)
+            bossItems[i, j] = global.bossItems[j];
     } else {
         difficulty[i] = "No Data";
         deaths[i] = 0;
@@ -46,8 +46,8 @@
         for (var j = 0; j &lt; global.totalItems; j++)
             items[i, j] = false;
                 
-        for (var j = 0; j &lt; global.totalBosses; j++)
-            bosses[i, j] = false;
+        for (var j = 0; j &lt; global.totalBossItems; j++)
+            bossItems[i, j] = false;
     }
 }
 
@@ -55,6 +55,36 @@ scr_resetSave();
 
 select = 0;
 spacing = 16 * 11;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>itemsImages = new_array(
+    spr_item1,
+    spr_item2,
+    spr_item3,
+    spr_item4,
+    spr_item5,
+    spr_item6,
+    spr_item7,
+    spr_item8
+);
 </string>
           </argument>
         </arguments>
@@ -87,13 +117,23 @@ spacing = 16 * 11;
     
     draw_set_halign(fa_center);
     draw_set_font(fnt_menu2);
-    draw_text(x + 48, y + 46 + spacing * i, global.difficultyNames[difficulty[i]]);
+    draw_text(x + 48, y + 46 + spacing * i, difficulty[i]);
     
-    draw_set_font(fnt_menu3);
     draw_set_halign(fa_left);
+    draw_set_font(fnt_menu3);
     draw_text(x, y + 78 + spacing * i, string_interp("Deaths: {0}", deaths[i]));
     draw_text(x, y + 100 + spacing * i, string_interp("Time: {0}", scr_formattedTime(time[i])));
-
+    var colour = noone;
+    
+    for (var j = 0; j &lt; global.totalItems; j++)
+        draw_sprite_ext(itemsImages[j], 0, x + 160 + 32 * j, y + 16 + spacing * i, 1, 1, 0, cond_exp(items[i, j], c_white, c_black), 1);
+    
+    if (clear[i]) {
+        draw_set_halign(fa_center);
+        draw_set_font(fnt_menu2);
+        draw_text(x + 128, y + 100 + spacing * i, "Clear!");
+    }
+        
     if (select == i) {
         draw_sprite(spr_cherry, 0, 48, y + 60 + spacing * i);
         draw_sprite(spr_cherry, 0, room_width - 80, y + 60 + spacing * i);
@@ -121,15 +161,19 @@ spacing = 16 * 11;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (scr_buttonPressed(global.upButton))
+            <string>audio_play_sound(snd_jump, 0, false);
+
+if (scr_buttonPressed(global.upButton))
     select--;
 
 if (scr_buttonPressed(global.downButton))
     select++;
 
-select += global.totalSaves % global.totalSaves;
+select += global.totalSaves;
+select %= global.totalSaves;
 
 if (scr_buttonPressed(global.jumpButton)) {
+    audio_stop_sound(snd_jump);
     global.saveNum = select;
     room_goto(rm_selectDif);
 }

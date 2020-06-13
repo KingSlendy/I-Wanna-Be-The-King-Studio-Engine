@@ -4,6 +4,8 @@ global.difficultyNames = new_array("Medium", "Hard", "Very Hard", "Impossible", 
 
 global.totalSaves = 3;
 global.totalItems = 8;
-global.totalBosses = 8;
+global.totalBossItems = 8;
+global.autosaveItems = false;
 
 global.startRoom = rm_test;
+global.deathMusic = false;
