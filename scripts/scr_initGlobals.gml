@@ -12,4 +12,5 @@ global.savingX = 0;
 global.savingY = 0;
 scr_resetSave();
 
+global.soundVolume = 1;
 global.currentMusic = -1;

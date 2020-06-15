@@ -175,7 +175,12 @@ select %= global.totalSaves;
 if (scr_buttonPressed(global.jumpButton)) {
     audio_stop_sound(snd_jump);
     global.saveNum = select;
-    room_goto(rm_selectDif);
+    room_goto(rm_selectDiff);
+}
+
+if (scr_buttonPressed(global.shootButton)) {
+    audio_stop_sound(snd_jump);
+    room_goto(rm_title);
 }
 </string>
           </argument>

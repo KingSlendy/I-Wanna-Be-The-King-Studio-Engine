@@ -36,6 +36,8 @@ jumpsLeft = jumpsNum - 1;
 
 gravity = 0.4;
 
+onLand = false;
+onPlatform = false;
 frozen = false;
 
 if (global.gameStarted &amp;&amp; global.difficulty == 0 &amp;&amp; !instance_exists(obj_bow))
@@ -45,6 +47,78 @@ if (global.autosave) {
     scr_saveGame(true);
     global.autosave = false;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with (obj_bow)
+    instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (scr_outsideRoom())
+    scr_killPlayer();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (place_meeting(x, y, obj_block))
+    scr_killPlayer();
 </string>
           </argument>
         </arguments>
@@ -79,6 +153,8 @@ if (!frozen) {
     }
 }
 
+onLand = !place_free(x, y + 1);
+
 if (h != 0) {
     hspeed = maxSpeed * h;
     image_xscale = h;
@@ -92,10 +168,16 @@ if (h != 0) {
     sprite_index = spr_playerIdle;
 }
 
-if (vspeed &lt; -0.05) {
-    sprite_index = spr_playerJump;
-} else if (vspeed &gt; 0.05) {
-    sprite_index = spr_playerFall;
+if (!onPlatform) {
+    if (vspeed &lt; -0.05) {
+        sprite_index = spr_playerJump;
+    } else if (vspeed &gt; 0.05) {
+        sprite_index = spr_playerFall;
+    }
+} else {
+    if (!place_meeting(x, y + 4, obj_platform)) {
+        onPlatform = false;
+    }
 }
 
 if (abs(vspeed) &gt; maxVSpeed)
@@ -113,6 +195,37 @@ if (!frozen) {
         
     if (scr_buttonPressed(ord("Q")))
         scr_killPlayer();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_platform">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (y - vspeed / 2 &lt;= other.y) {
+    if (other.vspeed &gt;= 0) {
+        y = other.y - 9;
+        vspeed = other.vspeed;
+    }
+    
+    onPlatform = true;
+    jumpsLeft = jumpsNum - 1;
 }
 </string>
           </argument>
