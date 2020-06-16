@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_initGlobals();
-timeMicro = 0;
+            <string>timeMicro = 0;
 </string>
           </argument>
         </arguments>
@@ -50,18 +49,8 @@ timeMicro = 0;
           <argument>
             <kind>1</kind>
             <string>if (global.gameStarted) {
-    if (scr_buttonPressed(global.restartButton)) {
-        if (global.deathMusic) {
-            audio_stop_sound(bgm_onDeath);
-            audio_resume_sound(global.currentMusic);
-        }
-    
-        var deaths = global.deaths;
-        var time = global.time;
-        scr_loadGame(true);
-        global.deaths = deaths;
-        global.time = time;
-    }
+    if (scr_buttonPressed(global.restartButton))
+        scr_restartGame();
 
     timeMicro += delta_time;
     global.time += timeMicro div 1000000;
@@ -91,7 +80,19 @@ scr_setCaption();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_getMusic();
+            <string>room_speed = 50;
+
+if (!instance_exists(obj_playMusic))
+    scr_getMusic();
+    
+if (global.grav == -1)
+    scr_flipGrav(false);
+    
+if (room == rm_test) {
+    with (all) {
+        visible = true;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -114,7 +115,8 @@ scr_setCaption();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto_next();
+            <string>scr_initGlobals();
+room_goto_next();
 </string>
           </argument>
         </arguments>

@@ -65,7 +65,7 @@ event_inherited();
         }
     }
     
-    with (instance_place(x, y - 2, obj_player)) {
+    with (instance_place(x, y - 2 * global.grav, obj_player)) {
         y += other.vspeed + other.yspeed;
         
         if (place_free(x + other.hspeed, y))

@@ -3,7 +3,7 @@
   <spriteName>spr_playerIdle</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>spr_maskPlayer</maskName>
@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0.2;
+            <string>mask_index = cond_exp(global.grav == 1, spr_maskPlayer, spr_maskPlayerFlip);
+image_speed = 0.2;
+xScale = 1;
 
 maxSpeed = 3;
 maxVSpeed = 9;
@@ -34,7 +36,7 @@ jumpsHeight = new_array(8.5, 7);
 jumpsNum = 2;
 jumpsLeft = jumpsNum - 1;
 
-gravity = 0.4;
+gravity = 0.4 * global.grav;
 
 onLand = false;
 onPlatform = false;
@@ -100,30 +102,6 @@ if (global.autosave) {
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (place_meeting(x, y, obj_block))
-    scr_killPlayer();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -153,32 +131,65 @@ if (!frozen) {
     }
 }
 
-onLand = !place_free(x, y + 1);
+onLand = !place_free(x, y + global.grav);
+var onSlipBlock = instance_place(x, y + global.grav, obj_slipBlock);
+var onVineL = (place_meeting(x - 1, y, obj_walljumpL) &amp;&amp; !onLand);
+var onVineR = (place_meeting(x + 1, y, obj_walljumpR) &amp;&amp; !onLand);
 
 if (h != 0) {
-    hspeed = maxSpeed * h;
-    image_xscale = h;
+    if (!onVineR &amp;&amp; !onVineL) 
+        xScale = h;
     
-    image_speed = 0.5;
-    sprite_index = spr_playerRunning;
+    if ((h == -1 &amp;&amp; !onVineR) || (h == 1 &amp;&amp; !onVineL)) {
+        if (onSlipBlock == noone) {
+            hspeed = maxSpeed * h;
+        } else {
+            hspeed += (onSlipBlock.slip) * h;
+            
+            if (abs(hspeed) &gt; maxSpeed)
+                hspeed = maxSpeed * h;
+        }
+        
+        image_speed = 0.5;
+        sprite_index = spr_playerRunning;
+    }
 } else {
-    hspeed = 0;
+    if (onSlipBlock == noone) {
+        hspeed = 0;
+    } else {
+        if (hspeed &gt; 0) {
+            hspeed -= onSlipBlock.slip;
+            
+            if (hspeed &lt;= 0)
+                hspeed = 0;
+        } else if (hspeed &lt; 0) {
+            hspeed += onSlipBlock.slip;
+            
+            if (hspeed &gt;= 0)
+                hspeed = 0;
+        }
+    }
     
     image_speed = 0.2;
     sprite_index = spr_playerIdle;
 }
 
 if (!onPlatform) {
-    if (vspeed &lt; -0.05) {
+    if (vspeed * global.grav &lt; -0.05) {
         sprite_index = spr_playerJump;
-    } else if (vspeed &gt; 0.05) {
+    } else if (vspeed * global.grav &gt; 0.05) {
         sprite_index = spr_playerFall;
     }
 } else {
-    if (!place_meeting(x, y + 4, obj_platform)) {
+    if (!place_meeting(x, y + 4 * global.grav, obj_platform)) {
         onPlatform = false;
     }
 }
+
+var onSlideBlock = instance_place(x, y + global.grav, obj_slideBlock);
+
+if (onSlideBlock != noone)
+    hspeed += onSlideBlock.h;
 
 if (abs(vspeed) &gt; maxVSpeed)
     vspeed = sign(vspeed) * maxVSpeed;
@@ -195,37 +206,32 @@ if (!frozen) {
         
     if (scr_buttonPressed(ord("Q")))
         scr_killPlayer();
+        
+    if (scr_buttonPressed(ord("A")))
+        hspeed = -1;
+        
+    if (scr_buttonPressed(ord("D")))
+        hspeed = 1;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_platform">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (y - vspeed / 2 &lt;= other.y) {
-    if (other.vspeed &gt;= 0) {
-        y = other.y - 9;
-        vspeed = other.vspeed;
-    }
+
+if (onVineL || onVineR) {
+    xScale = cond_exp(onVineR, -1, 1); 
+    vspeed = 2 * global.grav;
+    sprite_index = spr_playerSliding;
+    image_speed = 1 / 2;
     
-    onPlatform = true;
-    jumpsLeft = jumpsNum - 1;
+    //pressed away from the vine
+    if ((onVineL &amp;&amp; scr_buttonPressed(global.rightButton)) || (onVineR &amp;&amp; scr_buttonPressed(global.leftButton))) {
+        if (scr_buttonPressed(global.jumpButton)) {
+            hspeed = cond_exp(onVineR, -15, 15);
+            vspeed = -9 * global.grav;
+            audio_play_sound(snd_walljump,0,false);
+            sprite_index = spr_playerJump;
+        } else {
+            hspeed = cond_exp(onVineR, -3, 3);
+            sprite_index = spr_playerFall;
+        }
+    }
 }
 </string>
           </argument>
@@ -255,6 +261,49 @@ if (!frozen) {
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_platform">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.grav == 1) {
+    if (y - vspeed / 2 &lt;= other.y) {
+        if (other.vspeed &gt;= 0) {
+            y = other.y - 9;
+            vspeed = other.vspeed;
+        }
+        
+        onPlatform = true;
+        scr_recoverJumps();
+    }
+} else {
+    if (y - vspeed / 2 &gt;= other.y + other.sprite_height - 1) {
+        if (other.yspeed &lt;= 0) {
+            y = other.y + other.sprite_height + 8;
+            vspeed = other.yspeed;
+        }
+        
+        onPlatform = true;
+        scr_recoverJumps();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_block">
       <action>
         <libid>1</libid>
@@ -273,22 +322,40 @@ if (!frozen) {
           <argument>
             <kind>1</kind>
             <string>if (!place_free(x + hspeed, y)) {
-    if (hspeed &lt;= 0)
-        move_contact_solid(180, abs(hspeed));
-        
-    if (hspeed &gt;= 0)
-        move_contact_solid(0, abs(hspeed));
+    if (global.grav == 1) {
+        if (hspeed &lt;= 0)
+            move_contact_solid(180, abs(hspeed));
+            
+        if (hspeed &gt; 0)
+            move_contact_solid(0, abs(hspeed));
+    } else {
+        if (hspeed &lt; 0)
+            move_contact_solid(180, abs(hspeed));
+            
+        if (hspeed &gt;= 0)
+            move_contact_solid(0, abs(hspeed));
+    }
         
     hspeed = 0;
 }
  
 if (!place_free(x, y + vspeed)) {
-    if (vspeed &lt;= 0)
-        move_contact_solid(90, abs(vspeed));
-        
-    if (vspeed &gt; 0) {
-        move_contact_solid(270, abs(vspeed));
-        jumpsLeft = jumpsNum - 1;
+    if (global.grav == 1) {
+        if (vspeed &lt;= 0)
+            move_contact_solid(90, abs(vspeed));
+            
+        if (vspeed &gt; 0) {
+            move_contact_solid(270, abs(vspeed));
+            scr_recoverJumps();
+        }
+    } else {
+        if (vspeed &lt;= 0) {
+            move_contact_solid(90, abs(vspeed));
+            scr_recoverJumps();
+        }
+            
+        if (vspeed &gt; 0)
+            move_contact_solid(270, abs(vspeed));
     }
         
     vspeed = 0;
@@ -296,6 +363,53 @@ if (!place_free(x, y + vspeed)) {
 
 if (!place_free(x + hspeed, y + vspeed))
     hspeed = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_sprite_ext(sprite_index, image_index, x, y, image_xscale * xScale, image_yscale * global.grav, image_angle, image_blend, image_alpha);
+//draw_sprite_ext(mask_index, 0, x, y, image_xscale, image_yscale, image_angle, c_white, image_alpha);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_flipGrav(true);
 </string>
           </argument>
         </arguments>

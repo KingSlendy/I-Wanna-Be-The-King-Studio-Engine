@@ -11,6 +11,7 @@ var saveMap = ds_map_secure_load(string_interp("SaveData{0}", global.saveNum + 1
 
 global.savingX = saveMap[? "SavingX"];
 global.savingY = saveMap[? "SavingY"];
+global.grav = saveMap[? "Grav"];
 
 global.difficulty = saveMap[? "Difficulty"];
 global.deaths = saveMap[? "Deaths"];

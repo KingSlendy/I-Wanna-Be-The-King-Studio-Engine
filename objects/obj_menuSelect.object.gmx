@@ -25,36 +25,27 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for (var i = 0; i &lt; global.totalSaves; i++) {
-    if (file_exists(scr_saveName(i))) {
-        global.saveNum = i;
-        scr_loadGame(false);
-        difficulty[i] = global.difficultyNames[global.difficulty];
-        deaths[i] = global.deaths;
-        time[i] = global.time;
-        
-        for (var j = 0; j &lt; global.totalItems; j++)
-            items[i, j] = global.items[j];
-            
-        for (var j = 0; j &lt; global.totalBossItems; j++)
-            bossItems[i, j] = global.bossItems[j];
-    } else {
-        difficulty[i] = "No Data";
-        deaths[i] = 0;
-        time[i] = 0;
-        
-        for (var j = 0; j &lt; global.totalItems; j++)
-            items[i, j] = false;
-                
-        for (var j = 0; j &lt; global.totalBossItems; j++)
-            bossItems[i, j] = false;
-    }
-}
+            <string>itemsImages = new_array(
+    spr_item1,
+    spr_item2,
+    spr_item3,
+    spr_item4,
+    spr_item5,
+    spr_item6,
+    spr_item7,
+    spr_item8
+);
 
-scr_resetSave();
-
-select = 0;
-spacing = 16 * 11;
+bossItemsImages = new_array(
+    spr_bossItem1,
+    spr_bossItem2,
+    spr_bossItem3,
+    spr_bossItem4,
+    spr_bossItem5,
+    spr_bossItem6,
+    spr_bossItem7,
+    spr_bossItem8
+);
 </string>
           </argument>
         </arguments>
@@ -75,16 +66,40 @@ spacing = 16 * 11;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>itemsImages = new_array(
-    spr_item1,
-    spr_item2,
-    spr_item3,
-    spr_item4,
-    spr_item5,
-    spr_item6,
-    spr_item7,
-    spr_item8
-);
+            <string>for (var i = 0; i &lt; global.totalSaves; i++) {
+    if (file_exists(scr_saveName(i))) {
+        global.saveNum = i;
+        scr_loadGame(false);
+        difficulty[i] = global.difficultyNames[global.difficulty];
+        deaths[i] = global.deaths;
+        time[i] = global.time;
+        
+        for (var j = 0; j &lt; global.totalItems; j++)
+            items[i, j] = global.items[j];
+            
+        for (var j = 0; j &lt; global.totalBossItems; j++)
+            bossItems[i, j] = global.bossItems[j];
+            
+        clear[i] = global.clear;
+    } else {
+        difficulty[i] = "No Data";
+        deaths[i] = 0;
+        time[i] = 0;
+        
+        for (var j = 0; j &lt; global.totalItems; j++)
+            items[i, j] = false;
+                
+        for (var j = 0; j &lt; global.totalBossItems; j++)
+            bossItems[i, j] = false;
+            
+        clear[i] = false;
+    }
+}
+
+scr_resetSave();
+
+select = 0;
+spacing = 16 * 11;
 </string>
           </argument>
         </arguments>
@@ -128,10 +143,13 @@ spacing = 16 * 11;
     for (var j = 0; j &lt; global.totalItems; j++)
         draw_sprite_ext(itemsImages[j], 0, x + 160 + 32 * j, y + 16 + spacing * i, 1, 1, 0, cond_exp(items[i, j], c_white, c_black), 1);
     
+    for (var j = 0; j &lt; global.totalBossItems; j++)
+        draw_sprite_ext(bossItemsImages[j], 0, x + 160 + 32 * j, y + 48 + spacing * i, 1, 1, 0, cond_exp(bossItems[i, j], c_white, c_black), 1);
+        
     if (clear[i]) {
         draw_set_halign(fa_center);
         draw_set_font(fnt_menu2);
-        draw_text(x + 128, y + 100 + spacing * i, "Clear!");
+        draw_text(x + 284, y + 92 + spacing * i, "Clear!");
     }
         
     if (select == i) {

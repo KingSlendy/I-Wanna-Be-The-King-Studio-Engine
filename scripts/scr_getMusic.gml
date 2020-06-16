@@ -2,7 +2,7 @@
 switch (room) {
     case rm_title:
     case rm_menu:
-    case rm_selectDif:
+    case rm_selectDiff:
     case rm_test:
         song = bgm_guyRock;
         break;

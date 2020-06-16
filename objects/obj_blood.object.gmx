@@ -3,7 +3,7 @@
   <spriteName>spr_blood</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -30,7 +30,7 @@ image_speed = 0;
 
 direction = irandom(35) * 10;
 speed = random(6);
-gravity = 0.1 + random(0.2);
+gravity = (0.1 + random(0.2)) * global.grav;
 </string>
           </argument>
         </arguments>

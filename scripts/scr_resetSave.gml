@@ -1,4 +1,5 @@
 ///scr_resetSave()
+global.grav = 1;
 global.deaths = 0;
 global.time = 0;
 

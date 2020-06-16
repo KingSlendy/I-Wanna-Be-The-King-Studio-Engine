@@ -14,6 +14,7 @@
     <sounds name="SFX">
       <sound>sound\snd_jump</sound>
       <sound>sound\snd_doubleJump</sound>
+      <sound>sound\snd_walljump</sound>
       <sound>sound\snd_shoot</sound>
       <sound>sound\snd_death</sound>
       <sound>sound\snd_item</sound>
@@ -30,7 +31,9 @@
       <sprite>sprites\spr_playerRunning</sprite>
       <sprite>sprites\spr_playerJump</sprite>
       <sprite>sprites\spr_playerFall</sprite>
+      <sprite>sprites\spr_playerSliding</sprite>
       <sprite>sprites\spr_maskPlayer</sprite>
+      <sprite>sprites\spr_maskPlayerFlip</sprite>
       <sprite>sprites\spr_bow</sprite>
       <sprite>sprites\spr_bullet</sprite>
       <sprite>sprites\spr_bloodEmitter</sprite>
@@ -39,6 +42,13 @@
     </sprites>
     <sprites name="Blocks">
       <sprite>sprites\spr_block</sprite>
+      <sprite>sprites\spr_slipBlock</sprite>
+      <sprite>sprites\spr_stopBullet</sprite>
+      <sprite>sprites\spr_slideBlock</sprite>
+      <sprite>sprites\spr_slideBlockL</sprite>
+      <sprite>sprites\spr_slideBlockR</sprite>
+      <sprite>sprites\spr_warlljumpL</sprite>
+      <sprite>sprites\spr_walljumpR</sprite>
     </sprites>
     <sprites name="Platforms">
       <sprite>sprites\spr_platform</sprite>
@@ -51,6 +61,7 @@
       <sprite>sprites\spr_spikeLeft</sprite>
       <sprite>sprites\spr_spikeRight</sprite>
       <sprite>sprites\spr_spikeUp</sprite>
+      <sprite>sprites\spr_killerBlock</sprite>
     </sprites>
     <sprites name="Saves">
       <sprite>sprites\spr_saveMask</sprite>
@@ -79,6 +90,16 @@
       <sprite>sprites\spr_item7</sprite>
       <sprite>sprites\spr_item8</sprite>
     </sprites>
+    <sprites name="Boss Items">
+      <sprite>sprites\spr_bossItem1</sprite>
+      <sprite>sprites\spr_bossItem2</sprite>
+      <sprite>sprites\spr_bossItem3</sprite>
+      <sprite>sprites\spr_bossItem4</sprite>
+      <sprite>sprites\spr_bossItem5</sprite>
+      <sprite>sprites\spr_bossItem6</sprite>
+      <sprite>sprites\spr_bossItem7</sprite>
+      <sprite>sprites\spr_bossItem8</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Backgrounds">
@@ -101,19 +122,22 @@
       <script>scripts\scr_buttonPressed.gml</script>
       <script>scripts\scr_buttonReleased.gml</script>
       <script>scripts\scr_saveName.gml</script>
+      <script>scripts\scr_resetSave.gml</script>
       <script>scripts\scr_saveGame.gml</script>
       <script>scripts\scr_loadGame.gml</script>
-      <script>scripts\scr_resetSave.gml</script>
+      <script>scripts\scr_restartGame.gml</script>
       <script>scripts\scr_getMusic.gml</script>
       <script>scripts\scr_playMusic.gml</script>
       <script>scripts\scr_stopMusic.gml</script>
     </scripts>
     <scripts name="Player">
+      <script>scripts\scr_recoverJumps.gml</script>
       <script>scripts\scr_playerJump.gml</script>
       <script>scripts\scr_playerVJump.gml</script>
       <script>scripts\scr_playerShoot.gml</script>
       <script>scripts\scr_killPlayer.gml</script>
       <script>scripts\scr_outsideRoom.gml</script>
+      <script>scripts\scr_flipGrav.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -139,6 +163,13 @@
     </objects>
     <objects name="Blocks">
       <object>objects\obj_block</object>
+      <object>objects\obj_slipBlock</object>
+      <object>objects\obj_stopBullet</object>
+      <object>objects\obj_slideBlock</object>
+      <object>objects\obj_slideBlockL</object>
+      <object>objects\obj_slideBlockR</object>
+      <object>objects\obj_walljumpL</object>
+      <object>objects\obj_walljumpR</object>
     </objects>
     <objects name="Platforms">
       <object>objects\obj_platform</object>
@@ -151,6 +182,7 @@
       <object>objects\obj_spikeLeft</object>
       <object>objects\obj_spikeRight</object>
       <object>objects\obj_spikeUp</object>
+      <object>objects\obj_killerBlock</object>
     </objects>
     <objects name="Saves">
       <object>objects\obj_saveMedium</object>
@@ -177,7 +209,7 @@
       <object>objects\obj_spikeTriggerUp</object>
     </objects>
     <objects name="Items">
-      <object>objects\obj_itemParent</object>
+      <object>objects\obj_item</object>
       <object>objects\obj_itemView</object>
       <object>objects\obj_item1</object>
       <object>objects\obj_item2</object>
@@ -187,6 +219,18 @@
       <object>objects\obj_item6</object>
       <object>objects\obj_item7</object>
       <object>objects\obj_item8</object>
+    </objects>
+    <objects name="Boss Items">
+      <object>objects\obj_bossItem</object>
+      <object>objects\obj_bossItemView</object>
+      <object>objects\obj_bossItem1</object>
+      <object>objects\obj_bossItem2</object>
+      <object>objects\obj_bossItem3</object>
+      <object>objects\obj_bossItem4</object>
+      <object>objects\obj_bossItem5</object>
+      <object>objects\obj_bossItem6</object>
+      <object>objects\obj_bossItem7</object>
+      <object>objects\obj_bossItem8</object>
     </objects>
   </objects>
   <rooms name="rooms">

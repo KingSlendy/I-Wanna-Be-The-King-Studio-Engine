@@ -19,6 +19,7 @@ var saveMap = ds_map_create();
 ds_map_add(saveMap, "CurrentRoom", room);
 ds_map_add(saveMap, "SavingX", global.savingX);
 ds_map_add(saveMap, "SavingY", global.savingY);
+ds_map_add(saveMap, "Grav", global.grav);
 
 ds_map_add(saveMap, "Difficulty", global.difficulty);
 ds_map_add(saveMap, "Deaths", global.deaths);
