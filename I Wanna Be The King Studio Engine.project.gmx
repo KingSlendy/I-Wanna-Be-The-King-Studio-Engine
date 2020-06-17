@@ -24,6 +24,7 @@
     <sprites name="System">
       <sprite>sprites\spr_world</sprite>
       <sprite>sprites\spr_playMusic</sprite>
+      <sprite>sprites\spr_camera</sprite>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_playerStart</sprite>
@@ -36,6 +37,8 @@
       <sprite>sprites\spr_maskPlayerFlip</sprite>
       <sprite>sprites\spr_bow</sprite>
       <sprite>sprites\spr_bullet</sprite>
+      <sprite>sprites\spr_gravUp</sprite>
+      <sprite>sprites\spr_gravDown</sprite>
       <sprite>sprites\spr_bloodEmitter</sprite>
       <sprite>sprites\spr_blood</sprite>
       <sprite>sprites\spr_gameOver</sprite>
@@ -49,6 +52,7 @@
       <sprite>sprites\spr_slideBlockR</sprite>
       <sprite>sprites\spr_warlljumpL</sprite>
       <sprite>sprites\spr_walljumpR</sprite>
+      <sprite>sprites\spr_water</sprite>
     </sprites>
     <sprites name="Platforms">
       <sprite>sprites\spr_platform</sprite>
@@ -74,6 +78,10 @@
     </sprites>
     <sprites name="Triggers">
       <sprite>sprites\spr_trigger</sprite>
+      <sprite>sprites\spr_trigger2</sprite>
+      <sprite>sprites\spr_trigger3</sprite>
+      <sprite>sprites\spr_trigger4</sprite>
+      <sprite>sprites\spr_trigger5</sprite>
       <sprite>sprites\spr_triggerButton</sprite>
       <sprite>sprites\spr_spikeTriggerDown</sprite>
       <sprite>sprites\spr_spikeTriggerLeft</sprite>
@@ -153,12 +161,16 @@
       <object>objects\obj_menuSelect</object>
       <object>objects\obj_menuSelect2</object>
       <object>objects\obj_playMusic</object>
+      <object>objects\obj_camera</object>
+      <object>objects\obj_smoothCamera</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_playerStart</object>
       <object>objects\obj_player</object>
       <object>objects\obj_bow</object>
       <object>objects\obj_bullet</object>
+      <object>objects\obj_gravUp</object>
+      <object>objects\obj_gravDown</object>
       <object>objects\obj_bloodEmitter</object>
       <object>objects\obj_blood</object>
       <object>objects\obj_gameOver</object>
@@ -166,12 +178,15 @@
     <objects name="Blocks">
       <object>objects\obj_block</object>
       <object>objects\obj_slipBlock</object>
-      <object>objects\obj_stopBullet</object>
       <object>objects\obj_slideBlock</object>
       <object>objects\obj_slideBlockL</object>
       <object>objects\obj_slideBlockR</object>
       <object>objects\obj_walljumpL</object>
       <object>objects\obj_walljumpR</object>
+      <object>objects\obj_water</object>
+      <object>objects\obj_water2</object>
+      <object>objects\obj_water3</object>
+      <object>objects\obj_stopBullet</object>
     </objects>
     <objects name="Platforms">
       <object>objects\obj_platform</object>
@@ -199,10 +214,11 @@
       <object>objects\obj_outsideRoomChanger</object>
     </objects>
     <objects name="Triggers">
-      <object>objects\obj_triggerParent</object>
+      <object>objects\obj_trigger</object>
       <object>objects\obj_triggerTouch</object>
-      <object>objects\obj_triggerTouchBacktrack</object>
       <object>objects\obj_triggerTouchLand</object>
+      <object>objects\obj_triggerTouchBacktrack</object>
+      <object>objects\obj_triggerStop</object>
       <object>objects\obj_triggerButton</object>
       <object>objects\obj_activateTrigger</object>
       <object>objects\obj_spikeTriggerDown</object>

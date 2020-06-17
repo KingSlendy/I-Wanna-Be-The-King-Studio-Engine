@@ -34,7 +34,7 @@ maxVSpeed = 9;
 
 jumpsHeight = new_array(8.5, 7);
 jumpsNum = 2;
-jumpsLeft = jumpsNum - 1;
+scr_recoverJumps();
 
 gravity = 0.4 * global.grav;
 
@@ -199,7 +199,7 @@ if (onVineL || onVineR) {
     image_speed = 1 / 2;
     
     if ((onVineL &amp;&amp; scr_buttonPressed(global.rightButton)) || (onVineR &amp;&amp; scr_buttonPressed(global.leftButton))) {
-        if (scr_buttonPressed(global.jumpButton)) {
+        if (scr_buttonHeld(global.jumpButton)) {
             hspeed = cond_exp(onVineR, -15, 15);
             vspeed = -9 * global.grav;
             audio_play_sound(snd_walljump,0,false);
@@ -360,29 +360,6 @@ if (!place_free(x + hspeed, y + vspeed))
             <kind>1</kind>
             <string>draw_sprite_ext(sprite_index, image_index, x, y, image_xscale * xScale, image_yscale * global.grav, image_angle, image_blend, image_alpha);
 //draw_sprite_ext(mask_index, 0, x, y, image_xscale, image_yscale, image_angle, c_white, image_alpha);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>scr_flipGrav(true);
 </string>
           </argument>
         </arguments>
