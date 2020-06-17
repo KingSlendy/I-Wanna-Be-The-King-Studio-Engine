@@ -7,7 +7,7 @@ if (instance_exists(obj_player)) {
     } 
 }
 
-var saveMap = ds_map_secure_load(string_interp("SaveData{0}", global.saveNum + 1));
+var saveMap = ds_map_secure_load(scr_saveName(global.saveNum));
 
 global.savingX = saveMap[? "SavingX"];
 global.savingY = saveMap[? "SavingY"];

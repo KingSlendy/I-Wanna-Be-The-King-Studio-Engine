@@ -54,30 +54,6 @@ if (global.autosave) {
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>with (obj_bow)
-    instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
@@ -131,7 +107,7 @@ if (!frozen) {
     }
 }
 
-onLand = !place_free(x, y + global.grav);
+onLand = place_meeting(x, y + global.grav, obj_block);
 var onSlipBlock = instance_place(x, y + global.grav, obj_slipBlock);
 var onVineL = (place_meeting(x - 1, y, obj_walljumpL) &amp;&amp; !onLand);
 var onVineR = (place_meeting(x + 1, y, obj_walljumpR) &amp;&amp; !onLand);
@@ -207,11 +183,13 @@ if (!frozen) {
     if (scr_buttonPressed(ord("Q")))
         scr_killPlayer();
         
-    if (scr_buttonPressed(ord("A")))
-        hspeed = -1;
-        
-    if (scr_buttonPressed(ord("D")))
-        hspeed = 1;
+    if (global.debugMode &amp;&amp; onLand) {
+        if (scr_buttonPressed(ord("A")))
+            hspeed = -1;
+            
+        if (scr_buttonPressed(ord("D")))
+            hspeed = 1;
+    }
 }
 
 if (onVineL || onVineR) {
@@ -220,7 +198,6 @@ if (onVineL || onVineR) {
     sprite_index = spr_playerSliding;
     image_speed = 1 / 2;
     
-    //pressed away from the vine
     if ((onVineL &amp;&amp; scr_buttonPressed(global.rightButton)) || (onVineR &amp;&amp; scr_buttonPressed(global.leftButton))) {
         if (scr_buttonPressed(global.jumpButton)) {
             hspeed = cond_exp(onVineR, -15, 15);
@@ -340,22 +317,18 @@ if (onVineL || onVineR) {
 }
  
 if (!place_free(x, y + vspeed)) {
-    if (global.grav == 1) {
-        if (vspeed &lt;= 0)
-            move_contact_solid(90, abs(vspeed));
-            
-        if (vspeed &gt; 0) {
-            move_contact_solid(270, abs(vspeed));
+    if (vspeed &lt;= 0) {
+        move_contact_solid(90, abs(vspeed));
+        
+        if (global.grav == -1)
             scr_recoverJumps();
-        }
-    } else {
-        if (vspeed &lt;= 0) {
-            move_contact_solid(90, abs(vspeed));
+    }
+        
+    if (vspeed &gt; 0) {
+        move_contact_solid(270, abs(vspeed));
+        
+        if (global.grav == 1)
             scr_recoverJumps();
-        }
-            
-        if (vspeed &gt; 0)
-            move_contact_solid(270, abs(vspeed));
     }
         
     vspeed = 0;

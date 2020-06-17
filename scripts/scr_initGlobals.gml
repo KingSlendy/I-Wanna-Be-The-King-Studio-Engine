@@ -1,5 +1,5 @@
 ///scr_initGlobals()
-scr_defaultControls();
+scr_loadConfig();
 scr_initOptions();
 
 global.gameStarted = false;
@@ -13,4 +13,4 @@ global.savingY = 0;
 scr_resetSave();
 
 global.soundVolume = 1;
-global.currentMusic = -1;
+global.currentSong = -1;

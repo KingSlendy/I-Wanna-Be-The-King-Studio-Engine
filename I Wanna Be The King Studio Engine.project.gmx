@@ -114,8 +114,8 @@
   <scripts name="scripts">
     <scripts name="System">
       <script>scripts\scr_initGlobals.gml</script>
-      <script>scripts\scr_defaultControls.gml</script>
       <script>scripts\scr_initOptions.gml</script>
+      <script>scripts\scr_loadConfig.gml</script>
       <script>scripts\scr_setCaption.gml</script>
       <script>scripts\scr_formattedTime.gml</script>
       <script>scripts\scr_buttonHeld.gml</script>
@@ -123,6 +123,7 @@
       <script>scripts\scr_buttonReleased.gml</script>
       <script>scripts\scr_saveName.gml</script>
       <script>scripts\scr_resetSave.gml</script>
+      <script>scripts\scr_startGame.gml</script>
       <script>scripts\scr_saveGame.gml</script>
       <script>scripts\scr_loadGame.gml</script>
       <script>scripts\scr_restartGame.gml</script>
@@ -131,9 +132,9 @@
       <script>scripts\scr_stopMusic.gml</script>
     </scripts>
     <scripts name="Player">
-      <script>scripts\scr_recoverJumps.gml</script>
       <script>scripts\scr_playerJump.gml</script>
       <script>scripts\scr_playerVJump.gml</script>
+      <script>scripts\scr_recoverJumps.gml</script>
       <script>scripts\scr_playerShoot.gml</script>
       <script>scripts\scr_killPlayer.gml</script>
       <script>scripts\scr_outsideRoom.gml</script>
@@ -150,6 +151,7 @@
       <object>objects\obj_world</object>
       <object>objects\obj_titleButton</object>
       <object>objects\obj_menuSelect</object>
+      <object>objects\obj_menuSelect2</object>
       <object>objects\obj_playMusic</object>
     </objects>
     <objects name="Player">
