@@ -59,8 +59,6 @@
         image_yscale = -1;
         y++;
     }
-} else {
-    instance_destroy();
 }
 </string>
           </argument>

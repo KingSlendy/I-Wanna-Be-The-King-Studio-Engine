@@ -124,6 +124,7 @@
       <script>scripts\scr_initGlobals.gml</script>
       <script>scripts\scr_initOptions.gml</script>
       <script>scripts\scr_loadConfig.gml</script>
+      <script>scripts\scr_saveConfig.gml</script>
       <script>scripts\scr_setCaption.gml</script>
       <script>scripts\scr_formattedTime.gml</script>
       <script>scripts\scr_buttonHeld.gml</script>
@@ -153,6 +154,8 @@
     <font>fonts\fnt_menu1</font>
     <font>fonts\fnt_menu2</font>
     <font>fonts\fnt_menu3</font>
+    <font>fonts\fnt_pause1</font>
+    <font>fonts\fnt_pause2</font>
   </fonts>
   <objects name="objects">
     <objects name="System">

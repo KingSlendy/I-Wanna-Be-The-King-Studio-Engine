@@ -11,3 +11,4 @@ global.autosaveItems = false;
 
 global.startRoom = rm_test;
 global.deathMusic = true;
+global.totalPauseDelay = 30;
