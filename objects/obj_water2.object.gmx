@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(obj_player.vspeed * global.grav &gt; 2)
+            <string>if (obj_player.vspeed * global.grav &gt; 2)
     obj_player.vspeed = 2 * global.grav;
 </string>
           </argument>

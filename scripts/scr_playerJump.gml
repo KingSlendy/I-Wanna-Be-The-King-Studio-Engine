@@ -8,7 +8,9 @@ if (onLand || onPlatform || place_meeting(x, y + global.grav, obj_water)) {
     audio_play_sound(snd_doubleJump, 0, false);
     
     if (!place_meeting(x, y + global.grav, obj_water3)) {
-        jumpsLeft--;
+        if (jumpsLeft > 0) {
+            jumpsLeft--;
+        }
     } else {
         scr_recoverJumps();
     }
