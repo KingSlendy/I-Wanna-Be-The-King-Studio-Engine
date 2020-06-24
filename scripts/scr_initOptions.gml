@@ -9,6 +9,6 @@ global.totalItems = 8;
 global.totalBossItems = 8;
 global.autosaveItems = false;
 
-global.startRoom = rm_test;
+global.startRoom = rm_test2;
 global.deathMusic = true;
 global.totalPauseDelay = 30;

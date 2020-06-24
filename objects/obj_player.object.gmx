@@ -33,7 +33,7 @@ maxSpeed = 3;
 maxVSpeed = 9;
 
 jumpsHeight = new_array(8.5, 7);
-jumpsNum = 2;
+jumps = 2;
 scr_recoverJumps();
 
 gravity = 0.4 * global.grav;
