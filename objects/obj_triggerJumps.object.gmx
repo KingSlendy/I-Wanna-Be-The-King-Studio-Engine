@@ -51,6 +51,7 @@
             <string>if (obj_player.jumps != setJumps) {
     obj_player.jumps = setJumps;
     scr_recoverJumps();
+    audio_play_sound(snd_glass, 0, false);
 }
 </string>
           </argument>

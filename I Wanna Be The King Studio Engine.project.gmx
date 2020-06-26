@@ -18,6 +18,11 @@
       <sound>sound\snd_shoot</sound>
       <sound>sound\snd_death</sound>
       <sound>sound\snd_item</sound>
+      <sound>sound\snd_blockChange</sound>
+      <sound>sound\snd_glass</sound>
+      <sound>sound\snd_spikeTrap</sound>
+      <sound>sound\snd_cherry</sound>
+      <sound>sound\snd_bossHit</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
