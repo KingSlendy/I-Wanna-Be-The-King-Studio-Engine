@@ -10,5 +10,6 @@ global.totalBossItems = 8;
 global.autosaveItems = false;
 
 global.startRoom = rm_test;
+global.saveKey = global.shootButton;
 global.deathMusic = true;
 global.totalPauseDelay = 30;

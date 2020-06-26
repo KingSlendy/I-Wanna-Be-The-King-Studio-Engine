@@ -101,7 +101,7 @@ with (other)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (scr_buttonPressed(global.shootButton))
+            <string>if (scr_buttonPressed(global.saveKey))
     event_user(0);
 </string>
           </argument>

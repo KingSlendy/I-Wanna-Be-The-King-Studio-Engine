@@ -228,6 +228,7 @@
       <object>objects\obj_spikeTriggerLeft</object>
       <object>objects\obj_spikeTriggerRight</object>
       <object>objects\obj_spikeTriggerUp</object>
+      <object>objects\obj_triggerJumps</object>
     </objects>
     <objects name="Items">
       <object>objects\obj_item</object>
