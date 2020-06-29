@@ -124,6 +124,8 @@ if (room == rm_test) {
     with (all) {
         visible = true;
     }
+} else {
+    visible = false;
 }
 </string>
           </argument>

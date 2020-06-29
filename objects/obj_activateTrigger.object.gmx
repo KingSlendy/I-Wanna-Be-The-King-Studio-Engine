@@ -51,7 +51,7 @@ vspd = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!triggered &amp;&amp; obj_triggerParent.triggered == trg) {
+            <string>if (!triggered &amp;&amp; obj_trigger.triggered == trg) {
     hspeed = hspd;
     vspeed = vspd;
     triggered = true;
