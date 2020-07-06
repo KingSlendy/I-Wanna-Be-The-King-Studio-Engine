@@ -51,10 +51,12 @@ vspd = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!triggered &amp;&amp; obj_trigger.triggered == trg) {
-    hspeed = hspd;
-    vspeed = vspd;
-    triggered = true;
+            <string>if (instance_exists(obj_trigger)) {
+    if (!triggered &amp;&amp; obj_trigger.triggered == trg) {
+        hspeed = hspd;
+        vspeed = vspd;
+        triggered = true;
+    }
 }
 </string>
           </argument>
