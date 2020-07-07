@@ -131,6 +131,8 @@
     <instance objName="obj_water" x="512" y="448" name="inst_19B0E44A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_water2" x="576" y="448" name="inst_349C4852" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_water3" x="640" y="448" name="inst_5B8D0DD3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spikeTriggerDown" x="288" y="320" name="inst_DCFFA92C" locked="0" code="trg = 1;&#xA;vspd = 3;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_triggerTouch" x="288" y="544" name="inst_EA814886" locked="0" code="trg = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
