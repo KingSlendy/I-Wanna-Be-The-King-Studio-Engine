@@ -49,7 +49,7 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (obj_triggerParent.triggered == trgPrev)
+            <string>if (obj_trigger.triggered == trgPrev)
     event_user(0);
 </string>
           </argument>
