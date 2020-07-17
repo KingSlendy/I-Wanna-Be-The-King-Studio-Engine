@@ -49,7 +49,7 @@
       <sprite>sprites\spr_gameOver</sprite>
     </sprites>
     <sprites name="Blocks">
-      <sprite>sprites\spr_block</sprite>
+      <sprite>sprites\spr_maskBlock</sprite>
       <sprite>sprites\spr_slipBlock</sprite>
       <sprite>sprites\spr_stopBullet</sprite>
       <sprite>sprites\spr_slideBlock</sprite>
@@ -58,6 +58,7 @@
       <sprite>sprites\spr_warlljumpL</sprite>
       <sprite>sprites\spr_walljumpR</sprite>
       <sprite>sprites\spr_water</sprite>
+      <sprite>sprites\spr_block</sprite>
     </sprites>
     <sprites name="Platforms">
       <sprite>sprites\spr_platform</sprite>
@@ -186,6 +187,7 @@
     <objects name="Blocks">
       <object>objects\obj_block</object>
       <object>objects\obj_slipBlock</object>
+      <object>objects\obj_stopBullet</object>
       <object>objects\obj_slideBlock</object>
       <object>objects\obj_slideBlockL</object>
       <object>objects\obj_slideBlockR</object>
@@ -194,11 +196,14 @@
       <object>objects\obj_water</object>
       <object>objects\obj_water2</object>
       <object>objects\obj_water3</object>
-      <object>objects\obj_stopBullet</object>
+      <object>objects\obj_blockAppear</object>
+      <object>objects\obj_blockDisappear</object>
     </objects>
     <objects name="Platforms">
       <object>objects\obj_platform</object>
       <object>objects\obj_movingPlatform</object>
+      <object>objects\obj_blockRise</object>
+      <object>objects\obj_blockFall</object>
     </objects>
     <objects name="Killers">
       <object>objects\obj_playerKiller</object>
