@@ -114,6 +114,10 @@
       <sprite>sprites\spr_bossItem7</sprite>
       <sprite>sprites\spr_bossItem8</sprite>
     </sprites>
+    <sprites name="Extra">
+      <sprite>sprites\spr_extraJump</sprite>
+      <sprite>sprites\spr_sign</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Backgrounds">
@@ -263,6 +267,10 @@
       <object>objects\obj_bossItem6</object>
       <object>objects\obj_bossItem7</object>
       <object>objects\obj_bossItem8</object>
+    </objects>
+    <objects name="Extra">
+      <object>objects\obj_extraJump</object>
+      <object>objects\obj_sign</object>
     </objects>
   </objects>
   <rooms name="rooms">
