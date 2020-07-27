@@ -2,13 +2,18 @@
 var diff = argument[0];
 var save = scr_saveName(global.saveNum);
 
-if (diff == 4) {
+if (diff == array_length_1d(global.difficultyNames) - 1) {
     if (file_exists(save)) {
         scr_loadGame(true);
     } else {
         scr_killPlayer();
     }
 } else {
+    if (diff < 0 || diff >= array_length_1d(global.difficultyNames)) { //To prevent giving an invalid difficulty
+        show_message("Invalid difficulty!");
+        game_end();
+    }
+
     if (file_exists(save))
         file_delete(save);
         

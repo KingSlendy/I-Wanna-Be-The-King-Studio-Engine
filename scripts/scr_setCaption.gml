@@ -2,9 +2,8 @@
 var roomCaption = global.gameName;
 
 if (global.gameStarted) {
-    difficulties = new_array("Medium", "Hard", "Very Hard", "Impossible");
     roomCaption += string_interp(" - {0} | Deaths: {1} | Time: {2}",
-    difficulties[global.difficulty],
+    global.difficultyNames[global.difficulty],
     global.deaths,
     scr_formattedTime(global.time));
 }
