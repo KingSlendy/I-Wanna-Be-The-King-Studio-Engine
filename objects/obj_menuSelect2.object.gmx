@@ -186,7 +186,9 @@ bossItemsImages = new_array(
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (menu == 0) {
+            <string>var length = array_length_1d(global.difficultyNames);
+
+if (menu == 0) {
     if (scr_buttonPressed(global.menuUpButton)) {
         select[menu]--;
         audio_play_sound(snd_doubleJump, 0, false);
@@ -201,7 +203,7 @@ bossItemsImages = new_array(
     select[menu] %= global.totalSaves;
     
     if (scr_buttonPressed(global.menuAcceptButton)) {
-        select[1] = cond_exp(file_exists(scr_saveName(select[menu])), 4, 0);
+        select[1] = cond_exp(file_exists(scr_saveName(select[menu])), length - 1, 0);
         menu = 1;
         audio_play_sound(snd_jump, 0, false);
     }
@@ -218,8 +220,6 @@ bossItemsImages = new_array(
         select[menu]++;
         audio_play_sound(snd_doubleJump, 0, false);
     }
-
-    var length = array_length_1d(global.difficultyNames);
         
     if (!file_exists(scr_saveName(select[0])))
         length--;
