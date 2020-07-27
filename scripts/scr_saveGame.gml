@@ -10,7 +10,7 @@ if (savePosition) {
             global.savingX++;
         
         if (!place_free(global.savingX, floor(global.savingY)))
-            global.savingY--;
+            global.savingY++;
     }
 }
 
