@@ -28,14 +28,7 @@
             <string>image_alpha = 0;
 num = -1;
 state = 0;
-
-imageOffsetX = 8;
-imageOffsetY = 12;
-nameOffsetX = 30;
-nameOffsetY = 15;
-descOffsetX = 30;
-descOffsetY = 40;
-font = fnt_achievement;
+yyn = instance_number(obj_achievement) - 1;
 </string>
           </argument>
         </arguments>
@@ -81,18 +74,18 @@ font = fnt_achievement;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (state == 0 &amp;&amp; instance_number(obj_achievement) &lt; 2) {
-    image_alpha += 0.03;
+            <string>if (state == 0) {
+    image_alpha += 0.02;
     
     if (image_alpha &gt;= 1) {
-        state = -1;
         image_alpha = 1;
-        alarm[0] = 70;
+        state = -1;
+        alarm[0] = 180;
     }
 } else if (state == 1) {
-    image_alpha -= 0.03;
+    image_alpha -= 0.02;
     
-    if (image_alpha &lt;= 1)
+    if (image_alpha &lt;= 0)
         instance_destroy();
 }
 </string>
@@ -117,22 +110,17 @@ font = fnt_achievement;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xx = display_get_gui_width() - sprite_width;
-yy = display_get_gui_height() - sprite_height;
+            <string>yy = sprite_height * yyn;
 
-//Back and image
 draw_set_alpha(image_alpha);
-draw_sprite_ext(sprite_index, 0, xx, yy, 1, 1, 0, c_white, image_alpha);
-draw_sprite(spr_achievementImage, num, xx + imageOffsetX, yy + imageOffsetY);
+draw_sprite(sprite_index, 0, 0, yy);
 
-//Name and description
 draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 draw_set_colour(c_white);
-draw_set_font(font);
-draw_text(xx + nameOffsetX, yy + nameOffsetY, info[0]);
-draw_text(xx + descOffsetX, yy + descOffsetY, info[1]);
+draw_set_font(fnt_achievement);
+draw_text(sprite_width / 2, yy + sprite_height / 2, info[0]);
 draw_set_alpha(1);
-draw_set_halign(fa_left);
 </string>
           </argument>
         </arguments>

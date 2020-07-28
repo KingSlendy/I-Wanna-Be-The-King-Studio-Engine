@@ -31,7 +31,6 @@
       <sprite>sprites\spr_playMusic</sprite>
       <sprite>sprites\spr_camera</sprite>
       <sprite>sprites\spr_achievement</sprite>
-      <sprite>sprites\spr_achievementImage</sprite>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_playerStart</sprite>
@@ -187,6 +186,7 @@
       <object>objects\obj_playMusic</object>
       <object>objects\obj_camera</object>
       <object>objects\obj_smoothCamera</object>
+      <object>objects\obj_achievement</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_playerStart</object>

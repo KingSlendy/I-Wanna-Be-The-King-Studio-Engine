@@ -8,7 +8,6 @@ global.totalSaves = 3;
 global.totalItems = 8;
 global.totalBossItems = 8;
 global.autosaveItems = false;
-global.totalAchievements = 1;
 scr_initAchievements();
 
 global.startRoom = rm_test;
