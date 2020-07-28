@@ -30,6 +30,8 @@
       <sprite>sprites\spr_world</sprite>
       <sprite>sprites\spr_playMusic</sprite>
       <sprite>sprites\spr_camera</sprite>
+      <sprite>sprites\spr_achievement</sprite>
+      <sprite>sprites\spr_achievementImage</sprite>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_playerStart</sprite>
@@ -131,24 +133,32 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="System">
-      <script>scripts\scr_initGlobals.gml</script>
-      <script>scripts\scr_initOptions.gml</script>
-      <script>scripts\scr_loadConfig.gml</script>
-      <script>scripts\scr_saveConfig.gml</script>
-      <script>scripts\scr_setCaption.gml</script>
-      <script>scripts\scr_formattedTime.gml</script>
-      <script>scripts\scr_buttonHeld.gml</script>
-      <script>scripts\scr_buttonPressed.gml</script>
-      <script>scripts\scr_buttonReleased.gml</script>
-      <script>scripts\scr_saveName.gml</script>
-      <script>scripts\scr_resetSave.gml</script>
-      <script>scripts\scr_startGame.gml</script>
-      <script>scripts\scr_saveGame.gml</script>
-      <script>scripts\scr_loadGame.gml</script>
-      <script>scripts\scr_restartGame.gml</script>
-      <script>scripts\scr_getMusic.gml</script>
-      <script>scripts\scr_playMusic.gml</script>
-      <script>scripts\scr_stopMusic.gml</script>
+      <scripts name="Main">
+        <script>scripts\scr_initGlobals.gml</script>
+        <script>scripts\scr_initOptions.gml</script>
+        <script>scripts\scr_initAchievements.gml</script>
+        <script>scripts\scr_setCaption.gml</script>
+        <script>scripts\scr_formattedTime.gml</script>
+        <script>scripts\scr_buttonHeld.gml</script>
+        <script>scripts\scr_buttonPressed.gml</script>
+        <script>scripts\scr_buttonReleased.gml</script>
+      </scripts>
+      <scripts name="Game">
+        <script>scripts\scr_loadConfig.gml</script>
+        <script>scripts\scr_saveConfig.gml</script>
+        <script>scripts\scr_saveName.gml</script>
+        <script>scripts\scr_resetSave.gml</script>
+        <script>scripts\scr_startGame.gml</script>
+        <script>scripts\scr_saveGame.gml</script>
+        <script>scripts\scr_loadGame.gml</script>
+        <script>scripts\scr_restartGame.gml</script>
+        <script>scripts\scr_earnAchievement.gml</script>
+      </scripts>
+      <scripts name="Music">
+        <script>scripts\scr_getMusic.gml</script>
+        <script>scripts\scr_playMusic.gml</script>
+        <script>scripts\scr_stopMusic.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Player">
       <script>scripts\scr_playerJump.gml</script>
@@ -166,6 +176,7 @@
     <font>fonts\fnt_menu3</font>
     <font>fonts\fnt_pause1</font>
     <font>fonts\fnt_pause2</font>
+    <font>fonts\fnt_achievement</font>
   </fonts>
   <objects name="objects">
     <objects name="System">

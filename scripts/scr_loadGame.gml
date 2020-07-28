@@ -23,6 +23,9 @@ for (var i = 0; i < global.totalItems; i++)
 for (var i = 0; i < global.totalBossItems; i++)
     global.bossItems[i] = saveMap[? string_interp("BossItems[{0}]", i)];
     
+for (var i = 0; i < global.totalAchievements; i++)
+    global.achievements[i] = saveMap[? string_interp("Achievements[{0}]", i)]
+    
 global.clear = saveMap[? "Clear"];
 
 if (normal) {

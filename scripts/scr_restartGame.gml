@@ -1,7 +1,7 @@
 ///scr_restartGame()
 if (global.deathMusic) {
     audio_stop_sound(bgm_onDeath);
-    audio_resume_sound(global.currentSong);
+    audio_resume_sound(global.currentMusic);
 }
 
 var deaths = global.deaths;

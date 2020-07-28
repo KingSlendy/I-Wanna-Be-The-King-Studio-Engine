@@ -30,6 +30,9 @@ for (var i = 0; i < global.totalItems; i++)
     
 for (var i = 0; i < global.totalBossItems; i++)
     ds_map_add(saveMap, string_interp("BossItems[{0}]", i), global.bossItems[i]);
+    
+for (var i = 0; i < global.totalAchievements; i++)
+    ds_map_add(saveMap, string_interp("Achievements[{0}]", i), global.achievements[i]);
 
 ds_map_add(saveMap, "Clear", global.clear);
     

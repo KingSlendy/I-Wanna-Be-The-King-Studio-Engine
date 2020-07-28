@@ -17,4 +17,6 @@ global.menuDownButton = vk_down;
 global.menuAcceptButton = vk_shift;
 global.menuBackButton = ord("Z");
 
+global.soundVolume = ini_read_real("System", "SoundVolume", 1);
+
 ini_close();

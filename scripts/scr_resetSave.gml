@@ -8,5 +8,8 @@ for (var i = 0; i < global.totalItems; i++)
     
 for (var i = 0; i < global.totalBossItems; i++)
     global.bossItems[i] = false;
+    
+for (var i = 0; i < global.totalAchievements; i++)
+    global.achievements[i] = false;
 
 global.clear = false;

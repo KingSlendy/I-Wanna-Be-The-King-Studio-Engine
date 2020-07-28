@@ -15,4 +15,4 @@ global.lastxScale = 1;
 scr_resetSave();
 
 global.soundVolume = 1;
-global.currentSong = -1;
+global.currentMusic = -1;
