@@ -145,6 +145,7 @@
       <scripts name="Game">
         <script>scripts\scr_loadConfig.gml</script>
         <script>scripts\scr_saveConfig.gml</script>
+        <script>scripts\scr_setSystem.gml</script>
         <script>scripts\scr_saveName.gml</script>
         <script>scripts\scr_resetSave.gml</script>
         <script>scripts\scr_startGame.gml</script>
@@ -173,6 +174,7 @@
     <font>fonts\fnt_menu1</font>
     <font>fonts\fnt_menu2</font>
     <font>fonts\fnt_menu3</font>
+    <font>fonts\fnt_menu4</font>
     <font>fonts\fnt_pause1</font>
     <font>fonts\fnt_pause2</font>
     <font>fonts\fnt_achievement</font>
@@ -181,8 +183,9 @@
     <objects name="System">
       <object>objects\obj_world</object>
       <object>objects\obj_titleButton</object>
-      <object>objects\obj_menuSelect</object>
-      <object>objects\obj_menuSelect2</object>
+      <object>objects\obj_fileSelect</object>
+      <object>objects\obj_fileSelect2</object>
+      <object>objects\obj_optionsSelect</object>
       <object>objects\obj_playMusic</object>
       <object>objects\obj_camera</object>
       <object>objects\obj_smoothCamera</object>
@@ -285,10 +288,13 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_init</room>
-    <room>rooms\rm_title</room>
-    <room>rooms\rm_menu</room>
-    <room>rooms\rm_selectDiff</room>
+    <rooms name="Start">
+      <room>rooms\rm_init</room>
+      <room>rooms\rm_title</room>
+      <room>rooms\rm_files</room>
+      <room>rooms\rm_options</room>
+      <room>rooms\rm_diffs</room>
+    </rooms>
     <room>rooms\rm_test</room>
     <room>rooms\rm_template</room>
   </rooms>

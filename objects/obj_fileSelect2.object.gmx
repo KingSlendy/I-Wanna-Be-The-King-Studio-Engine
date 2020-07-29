@@ -59,7 +59,7 @@ scr_resetSave();
 
 select = array_repeat(0, 3);
 menu = 0;
-spacing = 16 * 11;
+spacing = 16 * 10;
 </string>
           </argument>
         </arguments>
@@ -155,7 +155,7 @@ bossItemsImages = new_array(
         
     if (clear[i]) {
         draw_set_halign(fa_center);
-        draw_set_font(fnt_menu2);
+        draw_set_font(fnt_menu4);
         draw_text(x + 284, y + 92 + spacing * i, "Clear!");
     }
         
@@ -235,6 +235,9 @@ if (menu == 0) {
     if (scr_buttonPressed(global.menuBackButton))
         menu = 0;
 }
+
+if (scr_buttonPressed(global.menuOptionsButton))
+    room_goto(rm_options);
 </string>
           </argument>
         </arguments>

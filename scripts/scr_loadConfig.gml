@@ -15,8 +15,12 @@ global.menuRightButton = vk_right;
 global.menuUpButton = vk_up;
 global.menuDownButton = vk_down;
 global.menuAcceptButton = vk_shift;
+global.menuOptionsButton = vk_enter;
 global.menuBackButton = ord("Z");
 
 global.soundVolume = ini_read_real("System", "SoundVolume", 1);
+global.fullscreen = ini_read_real("System", "Fullscreen", false);
+global.vsync = ini_read_real("System", "Vsync", false);
 
 ini_close();
+scr_setSystem();

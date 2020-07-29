@@ -1,8 +1,9 @@
 ///scr_getMusic()
 switch (room) {
     case rm_title:
-    case rm_menu:
-    case rm_selectDiff:
+    case rm_files:
+    case rm_options:
+    case rm_diffs:
     case rm_test:
         song = bgm_guyRock;
         break;

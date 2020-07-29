@@ -58,7 +58,7 @@
 scr_resetSave();
 
 select = 0;
-spacing = 16 * 11;
+spacing = 16 * 10;
 </string>
           </argument>
         </arguments>
@@ -148,7 +148,7 @@ bossItemsImages = new_array(
         
     if (clear[i]) {
         draw_set_halign(fa_center);
-        draw_set_font(fnt_menu2);
+        draw_set_font(fnt_menu4);
         draw_text(x + 284, y + 92 + spacing * i, "Clear!");
     }
         
@@ -194,8 +194,11 @@ select %= global.totalSaves;
 
 if (scr_buttonPressed(global.menuAcceptButton)) {
     global.saveNum = select;
-    room_goto(rm_selectDiff);
+    room_goto(rm_diffs);
 }
+
+if (scr_buttonPressed(global.menuOptionsButton))
+    room_goto(rm_options);
 
 if (scr_buttonPressed(global.menuBackButton))
     room_goto(rm_title);
