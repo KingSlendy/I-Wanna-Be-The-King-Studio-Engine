@@ -3,6 +3,7 @@ global.debugMode = false;
 
 global.gameName = "I Wanna Be The King Studio Engine";
 global.difficultyNames = new_array("Medium", "Hard", "Very Hard", "Impossible", "Load Game");
+global.menuMode = 0; //0: File Selection | 1: Difficulty Selection Room
 
 global.totalSaves = 3;
 global.totalItems = 8;

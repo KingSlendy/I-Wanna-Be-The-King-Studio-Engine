@@ -126,7 +126,7 @@
     </backgrounds>
     <backgrounds name="Tiles">
       <background>background\tlsDefault</background>
-      <background>background\tlsMenuBar</background>
+      <background>background\tlsFileBar</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -185,7 +185,6 @@
       <object>objects\objWorld</object>
       <object>objects\objTitleButton</object>
       <object>objects\objFileSelect</object>
-      <object>objects\objFileSelect2</object>
       <object>objects\objOptionSelect</object>
       <object>objects\objPlayMusic</object>
       <object>objects\objCamera</object>

@@ -50,7 +50,13 @@ pauseSurf = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.gameStarted) {
+            <string>if (!global.gamePaused &amp;&amp; scrButtonPressed(vk_f4)) {
+    global.fullscreenMode = !global.fullscreenMode;
+    scrSetDisplay();
+    scrSaveConfig();
+}
+
+if (global.gameStarted) {
     if (!global.gamePaused) {
         //Restarting game
         if (scrButtonPressed(global.restartButton)) {

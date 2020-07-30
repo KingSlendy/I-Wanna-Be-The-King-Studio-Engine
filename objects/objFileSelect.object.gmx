@@ -61,7 +61,8 @@
 
 scrResetSave();
 
-select = 0;
+menu = 0;
+select = array_repeat(0, 3);
 spacing = 16 * 10;
 </string>
           </argument>
@@ -127,6 +128,8 @@ bossItemsImages = new_array(
           <argument>
             <kind>1</kind>
             <string>for (var i = 0; i &lt; global.totalSaves; i++) {
+    draw_background(tlsFileBar, x - 32, y + spacing * i);
+
     draw_set_alpha(1);
     draw_set_colour(c_black);
     draw_set_halign(fa_left);
@@ -136,7 +139,14 @@ bossItemsImages = new_array(
     
     draw_set_halign(fa_center);
     draw_set_font(fntMenu2);
-    draw_text(x + 48, y + 46 + spacing * i, difficulty[i]);
+    
+    var drawDiff = difficulty[i];
+    
+    if (menu == 1 &amp;&amp; select[0] == i) {
+        drawDiff = string_interp("&lt; {0} &gt;", global.difficultyNames[select[menu]]);
+    }
+    
+    draw_text(x + 48, y + 46 + spacing * i, drawDiff);
     
     draw_set_halign(fa_left);
     draw_set_font(fntMenu3);
@@ -146,7 +156,7 @@ bossItemsImages = new_array(
     for (var j = 0; j &lt; global.totalItems; j++) {
         draw_sprite_ext(itemsImages[j], 0, x + 160 + 32 * j, y + 16 + spacing * i, 1, 1, 0, cond_exp(items[i, j], c_white, c_black), 1);
     }
-        
+    
     for (var j = 0; j &lt; global.totalBossItems; j++) {
         draw_sprite_ext(bossItemsImages[j], 0, x + 160 + 32 * j, y + 48 + spacing * i, 1, 1, 0, cond_exp(bossItems[i, j], c_white, c_black), 1);
     }
@@ -157,7 +167,7 @@ bossItemsImages = new_array(
         draw_text(x + 284, y + 92 + spacing * i, "Clear!");
     }
         
-    if (select == i) {
+    if (select[0] == i) {
         draw_sprite(sprCherry, 0, 48, y + 60 + spacing * i);
         draw_sprite(sprCherry, 0, room_width - 80, y + 60 + spacing * i);
     }
@@ -184,30 +194,66 @@ bossItemsImages = new_array(
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (scrButtonPressed(global.menuUpButton)) {
-    select--;
-    audio_play_sound(sndDoubleJump, 0, false);
-}
+            <string>var length = array_length_1d(global.difficultyNames);
 
-if (scrButtonPressed(global.menuDownButton)) {
-    select++;
-    audio_play_sound(sndDoubleJump, 0, false);
-}
+if (menu == 0) {
+    if (scrButtonPressed(global.menuUpButton)) {
+        select[menu]--;
+        audio_play_sound(sndDoubleJump, 0, false);
+    }
+        
+    if (scrButtonPressed(global.menuDownButton)) {
+        select[menu]++;
+        audio_play_sound(sndDoubleJump, 0, false);
+    }
 
-select += global.totalSaves;
-select %= global.totalSaves;
-
-if (scrButtonPressed(global.menuAcceptButton)) {
-    global.saveNum = select;
-    room_goto(rDiffs);
+    select[menu] += global.totalSaves;
+    select[menu] %= global.totalSaves;
+    
+    if (scrButtonPressed(global.menuAcceptButton)) {
+        if (global.menuMode == 0) {
+        select[1] = cond_exp(file_exists(scrSaveName(select[menu])), length - 1, 0);
+        menu = 1;
+        audio_play_sound(sndJump, 0, false);
+        } else {
+            global.savenum = select[menu];
+            room_goto(rDiffs);
+        }
+    }
+    
+    if (scrButtonPressed(global.menuBackButton)) {
+        room_goto(rTitle);
+    }
+} else if (menu == 1) {
+    if (scrButtonPressed(global.menuLeftButton)) {
+        select[menu]--;
+        audio_play_sound(sndDoubleJump, 0, false);
+    }
+    
+    if (scrButtonPressed(global.menuRightButton)) {
+        select[menu]++;
+        audio_play_sound(sndDoubleJump, 0, false);
+    }
+        
+    if (!file_exists(scrSaveName(select[0]))) {
+        length--;
+    }
+        
+    select[menu] += length;
+    select[menu] %= length;
+    
+    if (scrButtonPressed(global.menuAcceptButton)) {
+        global.saveNum = select[0];
+        scrStartGame(select[menu]);
+    }
+    
+    if (scrButtonPressed(global.menuBackButton)) {
+        menu = 0;
+    }
 }
 
 if (scrButtonPressed(global.menuOptionsButton)) {
     room_goto(rOptions);
-}
-
-if (scrButtonPressed(global.menuBackButton)) {
-    room_goto(rTitle);
 }
 </string>
           </argument>
