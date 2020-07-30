@@ -66,6 +66,15 @@ pauseSurf = noone;
         timeMicro += delta_time;
         global.time += timeMicro div 1000000;
         timeMicro %= 1000000;
+    } else {
+        if (scrButtonHeld(global.leftButton)) {
+            global.soundVolume -= 0.01;
+        } else if (scrButtonHeld(global.rightButton)) {
+            global.soundVolume += 0.01;
+        }
+        
+        global.soundVolume = clamp(global.soundVolume, 0, 1);
+        audio_master_gain(global.soundVolume);
     }
 
     //Pausing game
@@ -184,21 +193,21 @@ room_goto(rTitle);
     draw_surface(pauseSurf, 0, 0);
     draw_set_alpha(0.4);
     draw_set_colour(c_black);
-    draw_rectangle(-1, -1, display_get_gui_width(), display_get_gui_height(), 0);
+    draw_rectangle(0, 0, view_wview[0], view_hview[0], 0);
     
     draw_set_alpha(1);
     draw_set_colour(c_white);
     draw_set_halign(fa_center);
     draw_set_valign(fa_top);
     draw_set_font(fntPause1);
-    draw_text(display_get_gui_width() / 2, display_get_gui_height() / 2 - 24, "PAUSE");
+    draw_text(view_wview[0] / 2, view_hview[0] / 2 - 24, "PAUSE");
     
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_set_font(fntPause2);
-    //draw_text(20,516,"Volume: " + string(global.volumeLevel) + "%");
-    draw_text(20, 541, "Deaths: " + string(global.deaths));
-    draw_text(20, 566, "Time: " + scrFormattedTime(global.time));
+    draw_text(20, 516, string_interp("Volume: {0}%", floor(global.soundVolume * 100)));
+    draw_text(20, 541, string_interp("Deaths: {0}", global.deaths));
+    draw_text(20, 566, string_interp("Time: {0}", scrFormattedTime(global.time)));
 }
 </string>
           </argument>

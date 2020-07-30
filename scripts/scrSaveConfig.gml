@@ -11,8 +11,8 @@ ini_write_real("Controls", "RestartButton", global.restartButton);
 ini_write_real("Controls", "PauseButton", global.pauseButton);
 
 ini_write_real("System", "SoundVolume", global.soundVolume);
-ini_write_real("System", "Fullscreen", global.fullscreen);
+ini_write_real("System", "Fullscreen", global.fullscreenMode);
+ini_write_real("System", "VSync", global.vsyncMode);
 ini_write_real("System", "SmoothMode", global.smoothMode);
-ini_write_real("System", "VSync", global.vsync);
 
 ini_close();

@@ -136,6 +136,7 @@
         <script>scripts\scrInitGlobals.gml</script>
         <script>scripts\scrInitOptions.gml</script>
         <script>scripts\scrInitAchievements.gml</script>
+        <script>scripts\scrSetDisplay.gml</script>
         <script>scripts\scrSetCaption.gml</script>
         <script>scripts\scrFormattedTime.gml</script>
         <script>scripts\scrButtonHeld.gml</script>
@@ -145,7 +146,6 @@
       <scripts name="Game">
         <script>scripts\scrLoadConfig.gml</script>
         <script>scripts\scrSaveConfig.gml</script>
-        <script>scripts\scrSetSystem.gml</script>
         <script>scripts\scrSaveName.gml</script>
         <script>scripts\scrResetSave.gml</script>
         <script>scripts\scrStartGame.gml</script>
@@ -175,6 +175,7 @@
     <font>fonts\fntMenu2</font>
     <font>fonts\fntMenu3</font>
     <font>fonts\fntMenu4</font>
+    <font>fonts\fntOptions</font>
     <font>fonts\fntPause1</font>
     <font>fonts\fntPause2</font>
     <font>fonts\fntAchievement</font>

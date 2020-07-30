@@ -71,7 +71,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sprite_index, 0, display_get_gui_width() / 2, display_get_gui_height() / 2);
+            <string>draw_sprite(sprite_index, 0, view_wview[0] / 2, view_hview[0] / 2);
 </string>
           </argument>
         </arguments>

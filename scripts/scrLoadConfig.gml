@@ -19,9 +19,11 @@ global.menuOptionsButton = vk_enter;
 global.menuBackButton = ord("Z");
 
 global.soundVolume = ini_read_real("System", "SoundVolume", 1);
-global.fullscreen = ini_read_real("System", "Fullscreen", false);
+global.fullscreenMode = ini_read_real("System", "Fullscreen", false);
+global.vsyncMode = ini_read_real("System", "VSync", false);
 global.smoothMode = ini_read_real("System", "SmoothMode", false);
-global.vsync = ini_read_real("System", "VSync", false);
 
 ini_close();
-scrSetSystem();
+
+audio_master_gain(global.soundVolume);
+scrSetDisplay();
