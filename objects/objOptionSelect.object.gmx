@@ -157,6 +157,12 @@ if (menu == 0) {
 
 draw_sprite(sprCherry, 0, x - 20, y + 25 + spacing * select[menu]);
 draw_sprite(sprCherry, 0, x + 434, y + 25 + spacing * select[menu]);
+
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_font(fntMenu3);
+draw_text(225, 550, "[Z] Back");
+draw_text(550, 550, "[Shift] Accept");
 </string>
           </argument>
         </arguments>

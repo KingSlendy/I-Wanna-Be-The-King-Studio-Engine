@@ -171,6 +171,7 @@
     </scripts>
   </scripts>
   <fonts name="fonts">
+    <font>fonts\fntTitle</font>
     <font>fonts\fntMenu1</font>
     <font>fonts\fntMenu2</font>
     <font>fonts\fntMenu3</font>
@@ -183,12 +184,13 @@
   <objects name="objects">
     <objects name="System">
       <object>objects\objWorld</object>
-      <object>objects\objTitleButton</object>
+      <object>objects\objTitle</object>
       <object>objects\objFileSelect</object>
       <object>objects\objOptionSelect</object>
       <object>objects\objPlayMusic</object>
       <object>objects\objCamera</object>
       <object>objects\objSmoothCamera</object>
+      <object>objects\objAchievementView</object>
       <object>objects\objAchievement</object>
     </objects>
     <objects name="Player">

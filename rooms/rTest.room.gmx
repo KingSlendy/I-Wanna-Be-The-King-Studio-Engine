@@ -135,6 +135,8 @@
     <instance objName="objSave" x="128" y="320" name="inst_4F149735" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSave" x="192" y="384" name="inst_97F4D1A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="704" y="416" name="inst_406562A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objAchievementView" x="64" y="64" name="inst_7C0B54F9" locked="0" code="num = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objAchievementView" x="512" y="64" name="inst_DF884263" locked="0" code="num = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tlsDefault" x="0" y="576" w="32" h="32" xo="32" yo="96" id="10000220" name="inst_EF323507" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -254,6 +256,7 @@
     <tile bgName="tlsDefault" x="576" y="288" w="32" h="32" xo="0" yo="96" id="10000334" name="inst_23FA0627" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tlsDefault" x="608" y="288" w="32" h="32" xo="0" yo="96" id="10000335" name="inst_124F4C61" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tlsDefault" x="640" y="288" w="32" h="32" xo="0" yo="96" id="10000336" name="inst_4FF849F8" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tlsDefault" x="160" y="416" w="32" h="32" xo="0" yo="96" id="10000609" name="inst_46ED15E2" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

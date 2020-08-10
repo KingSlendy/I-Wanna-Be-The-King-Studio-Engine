@@ -65,6 +65,7 @@ if (global.gameStarted) {
             
         //Resetting game
         if (scrButtonPressed(vk_f2)) {
+            scrSaveGame(false);
             game_restart();
         }
             
@@ -260,7 +261,8 @@ room_goto(rTitle);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_end();
+            <string>scrSaveGame(false);
+game_end();
 </string>
           </argument>
         </arguments>
