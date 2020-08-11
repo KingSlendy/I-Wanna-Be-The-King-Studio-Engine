@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>song = -2;
+            <string>music = -2;
 </string>
           </argument>
         </arguments>
@@ -48,8 +48,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (song != -2) {
-    scrPlayMusic(song, true);
+            <string>if (music != -2) {
+    scrPlayMusic(music, true);
 }
 </string>
           </argument>

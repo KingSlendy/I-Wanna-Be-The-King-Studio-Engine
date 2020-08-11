@@ -8,11 +8,14 @@ global.menuMode = 0; //0: File Selection | 1: Difficulty Selection Room
 global.totalSaves = 3;
 global.totalItems = 8;
 global.totalBossItems = 8;
+global.totalAchievements = 2;
+global.useAchievements = false;
 global.autosaveItems = false;
 global.autosaveAchievements = true;
-scrInitAchievements();
+scrInitAchievementInfo();
 
 global.startRoom = rTest;
 global.saveKey = global.shootButton;
 global.deathMusic = true;
 global.totalPauseDelay = 30;
+global.timeWhenDead = true;

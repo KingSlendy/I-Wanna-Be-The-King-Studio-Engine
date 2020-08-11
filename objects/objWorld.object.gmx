@@ -70,9 +70,11 @@ if (global.gameStarted) {
         }
             
         //Incrementing game time
-        timeMicro += delta_time;
-        global.time += timeMicro div 1000000;
-        timeMicro %= 1000000;
+        if (global.timeWhenDead || instance_exists(objPlayer)) {
+            timeMicro += delta_time;
+            global.time += timeMicro div 1000000;
+            timeMicro %= 1000000;
+        }
     } else {
         if (scrButtonHeld(global.leftButton)) {
             global.soundVolume -= 0.01;

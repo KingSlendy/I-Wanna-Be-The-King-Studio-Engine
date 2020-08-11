@@ -7,7 +7,7 @@ global.gamePaused = false;
 global.roomCaptionLast = "";
 
 global.saveNum = 0;
-global.difficulty = 3;
+global.difficulty = 0;
 global.autosave = false;
 global.savingX = 0;
 global.savingY = 0;
@@ -16,3 +16,4 @@ scrResetSave();
 
 global.soundVolume = 1;
 global.currentMusic = -1;
+global.restartMusic = false;

@@ -1,6 +1,4 @@
-///scrInitAchievements()
-global.totalAchievements = 2; //The number should corresponde with the number of info you've added below
-
+///scrInitAchievementInfo()
 global.lockedInfo = new_array(
     "[?????]#??????????" //When achievement is locked
 );
