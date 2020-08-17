@@ -99,7 +99,14 @@ with (objBow) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.borderKills &amp;&amp; scrOutsideRoom()) {
+            <string>if (global.dotKid) {
+    mask_index = sprDotKid;
+    sprite_index = sprDotKid;
+} else if (mask_index == sprDotKid) {
+    mask_index = cond_exp(global.grav == 1, sprMaskPlayer, sprMaskPlayerFlip);
+}
+
+if (global.borderKills &amp;&amp; scrOutsideRoom()) {
     scrKillPlayer();
 }
 </string>
@@ -221,11 +228,11 @@ if (!frozen) {
     }
         
     if (global.debugMode &amp;&amp; onLand) {
-        if (scrButtonPressed(ord("A"))) {
+        if (scrButtonPressed(global.debugAlignButtonL)) {
             hspeed = -1;
         }
             
-        if (scrButtonPressed(ord("D"))) {
+        if (scrButtonPressed(global.debugAlignButtonR)) {
             hspeed = 1;
         }
     }
@@ -399,34 +406,10 @@ if (!place_free(x + hspeed, y + vspeed)) {
           <argument>
             <kind>1</kind>
             <string>draw_sprite_ext(sprite_index, image_index, x, y, image_xscale * xScale, image_yscale * global.grav, image_angle, image_blend, image_alpha);
-//draw_sprite_ext(mask_index, 0, x, y, image_xscale, image_yscale, image_angle, c_white, image_alpha);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>with (objPlayer) {
-    instance_destroy();
-}
 
-room_goto(rTemplate);
+if (global.dotKid) {
+    draw_sprite(sprBoxDotKid, 0, x, y);
+}
 </string>
           </argument>
         </arguments>

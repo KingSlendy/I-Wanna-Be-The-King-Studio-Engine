@@ -15,8 +15,9 @@ global.savingY = noone;
 global.lastxScale = 1;
 scrResetSave();
 
-global.soundVolume = 1;
 global.currentMusic = -1;
 global.restartMusic = false;
+
+global.currentAvoidance = noone;
 
 randomize();

@@ -1,4 +1,5 @@
 ///scrGetMusic()
+var loop = true;
 global.restartMusic = false;
 
 switch (room) {
@@ -7,12 +8,18 @@ switch (room) {
     case rOptions:
     case rDiffs:
     case rTest:
-        song = bgmGuyRock;
+        music = bgmGuyRock;
         break;
         
-    default: song = -1; break;
+    case rMiku:
+        music = bgmMiku;
+        loop = false;
+        global.restartMusic = true;
+        break;
+        
+    default: music = -1; break;
 }
 
-if (song != -2) {
-    scrPlayMusic(song, true);
+if (music != -2) {
+    scrPlayMusic(music, loop);
 }

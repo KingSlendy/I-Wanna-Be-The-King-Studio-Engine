@@ -10,6 +10,7 @@
     <sounds name="BGM">
       <sound>sound\bgmOnDeath</sound>
       <sound>sound\bgmGuyRock</sound>
+      <sound>sound\bgmMiku</sound>
     </sounds>
     <sounds name="SFX">
       <sound>sound\sndJump</sound>
@@ -41,6 +42,8 @@
       <sprite>sprites\sprPlayerSliding</sprite>
       <sprite>sprites\sprMaskPlayer</sprite>
       <sprite>sprites\sprMaskPlayerFlip</sprite>
+      <sprite>sprites\sprDotKid</sprite>
+      <sprite>sprites\sprBoxDotKid</sprite>
       <sprite>sprites\sprBow</sprite>
       <sprite>sprites\sprBullet</sprite>
       <sprite>sprites\sprGravUp</sprite>
@@ -187,18 +190,21 @@
     </scripts>
     <scripts name="Extra">
       <script>scripts\scrMakeShape.gml</script>
+      <script>scripts\scrDrawTextOutline.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\fntTitle</font>
-    <font>fonts\fntMenu1</font>
-    <font>fonts\fntMenu2</font>
-    <font>fonts\fntMenu3</font>
-    <font>fonts\fntMenu4</font>
-    <font>fonts\fntOptions</font>
-    <font>fonts\fntPause1</font>
-    <font>fonts\fntPause2</font>
-    <font>fonts\fntAchievement</font>
+    <fonts name="System">
+      <font>fonts\fntTitle</font>
+      <font>fonts\fntMenu1</font>
+      <font>fonts\fntMenu2</font>
+      <font>fonts\fntMenu3</font>
+      <font>fonts\fntMenu4</font>
+      <font>fonts\fntOptions</font>
+      <font>fonts\fntPause1</font>
+      <font>fonts\fntPause2</font>
+      <font>fonts\fntAchievement</font>
+    </fonts>
   </fonts>
   <objects name="objects">
     <objects name="System">
@@ -252,6 +258,11 @@
       <object>objects\objSpikeRight</object>
       <object>objects\objSpikeUp</object>
       <object>objects\objKillerBlock</object>
+      <objects name="Bosses">
+        <objects name="Miku">
+          <object>objects\objMiku</object>
+        </objects>
+      </objects>
     </objects>
     <objects name="Saves">
       <object>objects\objSaveMedium</object>
@@ -308,6 +319,11 @@
       <object>objects\objSign</object>
     </objects>
   </objects>
+  <timelines name="timelines">
+    <timelines name="Bosses">
+      <timeline>timelines\tmlMiku</timeline>
+    </timelines>
+  </timelines>
   <rooms name="rooms">
     <rooms name="Start">
       <room>rooms\rInit</room>
@@ -316,6 +332,7 @@
       <room>rooms\rOptions</room>
       <room>rooms\rDiffs</room>
     </rooms>
+    <room>rooms\rMiku</room>
     <room>rooms\rTest</room>
     <room>rooms\rTemplate</room>
   </rooms>

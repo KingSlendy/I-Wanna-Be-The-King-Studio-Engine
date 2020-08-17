@@ -103,7 +103,7 @@ with (other) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (scrButtonPressed(global.saveKey)) {
+            <string>if (scrButtonPressed(global.saveButton)) {
     event_user(0);
 }
 </string>

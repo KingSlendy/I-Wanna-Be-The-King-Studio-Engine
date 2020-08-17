@@ -48,7 +48,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_exists(objPlayer)) {
+            <string>visible = !global.dotKid;
+
+if (instance_exists(objPlayer)) {
     x = objPlayer.x;
     y = objPlayer.y;
     image_xscale = objPlayer.xScale;

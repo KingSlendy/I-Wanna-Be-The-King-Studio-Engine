@@ -50,23 +50,12 @@ pauseSurf = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!global.gamePaused &amp;&amp; scrButtonPressed(vk_f4)) {
-    global.fullscreenMode = !global.fullscreenMode;
-    scrSetDisplay();
-    scrSaveConfig();
-}
-
+            <string>///Main inputs
 if (global.gameStarted) {
     if (!global.gamePaused) {
         //Restarting game
         if (scrButtonPressed(global.restartButton)) {
             scrRestartGame();
-        }
-            
-        //Resetting game
-        if (scrButtonPressed(vk_f2)) {
-            scrSaveGame(false);
-            game_restart();
         }
             
         //Incrementing game time
@@ -89,7 +78,7 @@ if (global.gameStarted) {
     //Pausing game
     if (pauseDelay &lt; global.totalPauseDelay) {
         pauseDelay++;
-    } else if (scrButtonPressed(global.pauseButton)) {
+    } else if (!global.noPause &amp;&amp; scrButtonPressed(global.pauseButton)) {
         if (global.gamePaused) {
             instance_activate_all();
             
@@ -107,6 +96,158 @@ if (global.gameStarted) {
 }
 
 scrSetCaption();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Misc. input
+if (!global.gamePaused) {
+    //Fullscreen window
+    if (scrButtonPressed(vk_f4)) {
+        global.fullscreenMode = !global.fullscreenMode;
+        scrSetDisplay();
+        scrSaveConfig();
+    }
+    
+    //Teleport to clear room when the game has been cleared (useful for portal rooms)
+    if (global.gameStarted &amp;&amp; global.clear &amp;&amp; instance_exists(objPlayer) &amp;&amp; scrButtonPressed(global.clearButton)) {
+        with (objPlayer) {
+            instance_destroy();
+        }
+        
+        room_goto(global.clearRoom);
+    }
+}
+
+//Resetting game
+if (scrButtonPressed(vk_f2)) {
+    scrSaveGame(false);
+    scrSaveConfig();
+    audio_stop_all();
+    game_restart();
+}
+
+//Closing game
+if (scrButtonPressed(vk_escape)) {
+    scrSaveGame(false);
+    scrSaveConfig();
+    game_end();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Debug inputs
+if (global.debugMode &amp;&amp; global.gameStarted &amp;&amp; !global.gamePaused) {
+    //Hides the debug overlay
+    if (scrButtonPressed(global.debugHideButton)) {
+        global.debugOverlay = !global.debugOverlay;
+    }
+
+    //Toggles god mode
+    if (scrButtonPressed(global.debugGodButton)) {
+        global.debugGodMode = !global.debugGodMode;
+    }
+    
+    //Toggles infinite jump
+    if (scrButtonPressed(global.debugInfButton)) {
+        global.debugInfJump = !global.debugInfJump;
+    }
+    
+    if (global.debugInfJump) {
+        objPlayer.jumpsLeft = 1;
+    }
+
+    if (instance_exists(objPlayer)) {
+        //Save at any given time
+        if (scrButtonPressed(global.debugSaveButton)) {
+            scrSaveGame(true);
+            audio_play_sound(sndBlockChange, 0, false);
+        }
+        
+        //Teleport to the mouse's location
+        if (mouse_check_button_pressed(global.debugMouseButton)) {
+            with (objPlayer) {
+                instance_destroy();
+            }
+            
+            instance_create(mouse_x, mouse_y, objPlayer);
+        }
+    }
+    
+    //Go to previous room
+    if (scrButtonPressed(global.debugRoomButtonU)) {
+        if (room_get_name(room_previous(room)) != "rDiffs") {
+            with (objPlayer) {
+                instance_destroy();
+            }
+        
+            room_goto_previous();
+        }
+    }
+    
+    //Go to next room
+    if (scrButtonPressed(global.debugRoomButtonD)) {
+        if (room_get_name(room_next(room)) != "rTemplate") {
+            with (objPlayer) {
+                instance_destroy();
+            }
+        
+            room_goto_next();
+        }
+    }
+    
+    //Decrease room speed
+    if (scrButtonHeld(global.debugSpeedButtonD)) {
+        if (room_speed &gt; 1) {
+            room_speed--;
+        }
+    }
+    
+    //Increase room speed
+    if (scrButtonHeld(global.debugSpeedButtonU)) {
+        if (room_speed &lt; 250) {
+            room_speed++;
+        }
+    }
+    
+    //Reset room speed
+    if (scrButtonHeld(global.debugSpeedButtonR)) {
+        room_speed = 50;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -191,7 +332,8 @@ room_goto(rTitle);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.gamePaused) {
+            <string>///Pause overlay
+if (global.gamePaused) {
     if (!surface_exists(pauseSurf)) {
         instance_activate_all();
         pauseSurf = surface_create(display_get_gui_width(), display_get_gui_height());
@@ -205,18 +347,76 @@ room_goto(rTitle);
     draw_rectangle(0, 0, view_wview[0], view_hview[0], 0);
     
     draw_set_alpha(1);
+    draw_set_font(fntPause1);
     draw_set_colour(c_white);
     draw_set_halign(fa_center);
     draw_set_valign(fa_top);
-    draw_set_font(fntPause1);
     draw_text(view_wview[0] / 2, view_hview[0] / 2 - 24, "PAUSE");
     
+    draw_set_font(fntPause2);
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
-    draw_set_font(fntPause2);
     draw_text(20, 516, string_interp("Volume: {0}%", floor(global.soundVolume * 100)));
     draw_text(20, 541, string_interp("Deaths: {0}", global.deaths));
     draw_text(20, 566, string_interp("Time: {0}", scrFormattedTime(global.time)));
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Debug overlay
+if (global.debugMode &amp;&amp; global.debugOverlay) {
+    var spacing = 16;
+    draw_set_font(fntMenu3);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+
+    if (global.gameStarted) {
+        var xx = "N/A";
+        var yy = "N/A";
+        var align = "N/A";
+        
+        if (instance_exists(objPlayer)) {
+            xx = objPlayer.x;
+            yy = objPlayer.y;
+            align = xx % 3;
+        }
+    
+        scrDrawTextOutline(0, spacing * 0, string_interp("Player (X, Y, Align, Grav): ({0}, {1}, {2}, {3})", xx, yy, align, global.grav));
+        scrDrawTextOutline(0, spacing * 1, string_interp("Room: {0}", room_get_name(room)));
+        scrDrawTextOutline(0, spacing * 2, string_interp("Room speed: {0}", room_speed));
+        scrDrawTextOutline(0, spacing * 3, string_interp("FPS: {0}", fps));
+        scrDrawTextOutline(0, spacing * 4, string_interp("FPS real: {0}", fps_real));
+        
+        if (global.currentAvoidance != noone) {
+            scrDrawTextOutline(0, spacing * 5 + 6, string_interp("Object counter: {0}", instance_count));
+            scrDrawTextOutline(0, spacing * 6 + 6, string_interp("Killer counter: {0}", instance_number(objPlayerKiller)));
+            scrDrawTextOutline(0, spacing * 7 + 6, string_interp("Timeline: {0}", timeline_get_name(global.currentAvoidance.timeline_index)));
+            scrDrawTextOutline(0, spacing * 8 + 6, string_interp("Timeline position: {0}", global.currentAvoidance.timeline_position));
+            var musicPosition = audio_sound_get_track_position(global.currentMusic);
+            scrDrawTextOutline(0, spacing * 9 + 6, string_interp("Music time: {0} ({1}s)", scrFormattedTime(floor(musicPosition)), musicPosition));
+            var musicLength = audio_sound_length(global.currentMusic);
+            scrDrawTextOutline(0, spacing * 10 + 6, string_interp("Music length: {0} ({1}s)", scrFormattedTime(floor(musicLength)), musicLength));
+        }
+    } else {
+        scrDrawTextOutline(0, 0, "Debug Mode", c_red);
+    }
 }
 </string>
           </argument>
@@ -241,30 +441,6 @@ room_goto(rTitle);
           <argument>
             <kind>1</kind>
             <string>//Nothing
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="27">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>scrSaveGame(false);
-game_end();
 </string>
           </argument>
         </arguments>

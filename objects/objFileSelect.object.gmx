@@ -169,7 +169,7 @@ bossItemsImages = new_array(
         
     if (select[0] == i) {
         draw_sprite(sprCherry, 0, 48, y + 60 + spacing * i);
-        draw_sprite(sprCherry, 0, room_width - 80, y + 60 + spacing * i);
+        draw_sprite(sprCherry, 0, room_width - 56, y + 60 + spacing * i);
     }
 }
 
