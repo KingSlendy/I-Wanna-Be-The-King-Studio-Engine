@@ -12,7 +12,7 @@ var file = file_text_open_read(scrSaveName(global.saveNum));
 var saveMap = ds_map_create();
 ds_map_read(saveMap, scrDecrypt(base64_decode(file_text_read_string(file))));
 
-var currentRoom = saveMap[? "CurrentRoom"];
+global.savingRoom = saveMap[? "SavingRoom"];
 global.savingX = saveMap[? "SavingX"];
 global.savingY = saveMap[? "SavingY"];
 global.grav = saveMap[? "Grav"];
@@ -39,7 +39,7 @@ if (normal) {
     global.gameStarted = true;
     global.autosave = false;
     instance_create(global.savingX, global.savingY, objPlayer);
-    room_goto(currentRoom);
+    room_goto(global.savingRoom);
 }
 
 ds_map_destroy(saveMap);

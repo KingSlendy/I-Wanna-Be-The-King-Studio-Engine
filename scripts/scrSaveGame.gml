@@ -3,6 +3,7 @@
 var savePosition = argument[0];
 
 if (savePosition) {
+    global.savingRoom = room;
     global.savingX = objPlayer.x;
     global.savingY = objPlayer.y;
     
@@ -17,7 +18,7 @@ if (savePosition) {
 
 var saveMap = ds_map_create();
 
-saveMap[? "CurrentRoom"] = room;
+saveMap[? "SavingRoom"] = global.savingRoom;
 saveMap[? "SavingX"] = global.savingX;
 saveMap[? "SavingY"] = global.savingY;
 saveMap[? "Grav"] = global.grav;
