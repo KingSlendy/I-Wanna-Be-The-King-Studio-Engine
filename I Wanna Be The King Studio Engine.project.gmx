@@ -67,28 +67,28 @@
     </sprites>
     <sprites name="Killers">
       <sprite>sprites\sprPlayerKiller</sprite>
+      <sprites name="Cherries">
+        <sprite>sprites\sprCherry</sprite>
+        <sprite>sprites\sprCherryOrange</sprite>
+        <sprite>sprites\sprCherryYellow</sprite>
+        <sprite>sprites\sprCherryChartreuse</sprite>
+        <sprite>sprites\sprCherryGreen</sprite>
+        <sprite>sprites\sprCherryEmerald</sprite>
+        <sprite>sprites\sprCherryCyan</sprite>
+        <sprite>sprites\sprCherryAzure</sprite>
+        <sprite>sprites\sprCherryBlue</sprite>
+        <sprite>sprites\sprCherryViolet</sprite>
+        <sprite>sprites\sprCherryMagenta</sprite>
+        <sprite>sprites\sprCherryPink</sprite>
+        <sprite>sprites\sprCherryGray</sprite>
+        <sprite>sprites\sprCherryWhite</sprite>
+        <sprite>sprites\sprCherryBlack</sprite>
+      </sprites>
       <sprite>sprites\sprSpikeDown</sprite>
       <sprite>sprites\sprSpikeLeft</sprite>
       <sprite>sprites\sprSpikeRight</sprite>
       <sprite>sprites\sprSpikeUp</sprite>
       <sprite>sprites\sprKillerBlock</sprite>
-    </sprites>
-    <sprites name="Cherries">
-      <sprite>sprites\sprCherry</sprite>
-      <sprite>sprites\sprCherryOrange</sprite>
-      <sprite>sprites\sprCherryYellow</sprite>
-      <sprite>sprites\sprCherryChartreuse</sprite>
-      <sprite>sprites\sprCherryGreen</sprite>
-      <sprite>sprites\sprCherryEmerald</sprite>
-      <sprite>sprites\sprCherryCyan</sprite>
-      <sprite>sprites\sprCherryAzure</sprite>
-      <sprite>sprites\sprCherryBlue</sprite>
-      <sprite>sprites\sprCherryViolet</sprite>
-      <sprite>sprites\sprCherryMagenta</sprite>
-      <sprite>sprites\sprCherryPink</sprite>
-      <sprite>sprites\sprCherryGray</sprite>
-      <sprite>sprites\sprCherryWhite</sprite>
-      <sprite>sprites\sprCherryBlack</sprite>
     </sprites>
     <sprites name="Saves">
       <sprite>sprites\sprSaveMask</sprite>
@@ -184,6 +184,9 @@
       <script>scripts\scrKillPlayer.gml</script>
       <script>scripts\scrOutsideRoom.gml</script>
       <script>scripts\scrFlipGrav.gml</script>
+    </scripts>
+    <scripts name="Extra">
+      <script>scripts\scrMakeShape.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

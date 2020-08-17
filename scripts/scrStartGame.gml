@@ -14,8 +14,9 @@ if (diff == array_length_1d(global.difficultyNames) - 1) {
         game_end();
     }
 
-    if (file_exists(save))
+    if (file_exists(save)) {
         file_delete(save);
+    }
         
     global.gameStarted = true;
     global.autosave = true;

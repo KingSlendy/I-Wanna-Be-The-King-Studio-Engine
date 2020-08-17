@@ -99,7 +99,7 @@ with (objBow) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (scrOutsideRoom()) {
+            <string>if (global.borderKills &amp;&amp; scrOutsideRoom()) {
     scrKillPlayer();
 }
 </string>

@@ -1,4 +1,6 @@
 ///scrGetMusic()
+global.restartMusic = false;
+
 switch (room) {
     case rTitle:
     case rFiles:

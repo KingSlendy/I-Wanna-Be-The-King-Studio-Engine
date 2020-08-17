@@ -1,5 +1,6 @@
 ///scrInitOptions()
 global.debugMode = false;
+global.encodingNum = 39; //This will decide what encoding number will be applied for encoding saves
 
 global.gameName = "I Wanna Be The King Studio Engine";
 global.difficultyNames = new_array("Medium", "Hard", "Very Hard", "Impossible", "Load Game");
@@ -19,3 +20,4 @@ global.saveKey = global.shootButton;
 global.deathMusic = true;
 global.totalPauseDelay = 30;
 global.timeWhenDead = true;
+global.borderKills = true;

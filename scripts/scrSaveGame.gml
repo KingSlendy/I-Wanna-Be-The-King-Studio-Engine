@@ -1,3 +1,4 @@
+#define scrSaveGame
 ///scrSaveGame(save_position)
 var savePosition = argument[0];
 
@@ -16,28 +17,43 @@ if (savePosition) {
 
 var saveMap = ds_map_create();
 
-ds_map_add(saveMap, "CurrentRoom", room);
-ds_map_add(saveMap, "SavingX", global.savingX);
-ds_map_add(saveMap, "SavingY", global.savingY);
-ds_map_add(saveMap, "Grav", global.grav);
+saveMap[? "CurrentRoom"] = room;
+saveMap[? "SavingX"] = global.savingX;
+saveMap[? "SavingY"] = global.savingY;
+saveMap[? "Grav"] = global.grav;
 
-ds_map_add(saveMap, "Difficulty", global.difficulty);
-ds_map_add(saveMap, "Deaths", global.deaths);
-ds_map_add(saveMap, "Time", global.time);
+saveMap[? "Difficulty"] = global.difficulty;
+saveMap[? "Deaths"] = global.deaths;
+saveMap[? "Time"] = global.time;
 
 for (var i = 0; i < global.totalItems; i++) {
-    ds_map_add(saveMap, string_interp("Items[{0}]", i), global.items[i]);
+    saveMap[? string_interp("Items[{0}]", i)] = global.items[i];
 }
     
 for (var i = 0; i < global.totalBossItems; i++) {
-    ds_map_add(saveMap, string_interp("BossItems[{0}]", i), global.bossItems[i]);
+    saveMap[? string_interp("BossItems[{0}]", i)] = global.bossItems[i];
 }
     
 for (var i = 0; i < global.totalAchievements; i++) {
-    ds_map_add(saveMap, string_interp("Achievements[{0}]", i), global.achievements[i]);
+    saveMap[? string_interp("Achievements[{0}]", i)] = global.achievements[i];
 }
 
-ds_map_add(saveMap, "Clear", global.clear);
-    
-ds_map_secure_save(saveMap, string_interp("SaveData{0}", global.saveNum + 1));
+saveMap[? "Clear"] = global.clear;
+
+var file = file_text_open_write(scrSaveName(global.saveNum));
+file_text_write_string(file, base64_encode(scrEncrypt(ds_map_write(saveMap))));
 ds_map_destroy(saveMap);
+file_text_close(file);
+
+#define scrEncrypt
+///scrEncrypt(text)
+var text = argument[0];
+var encrypted = "";
+
+for (var i = 1; i <= string_length(text); i++) {
+    var n = ord(string_char_at(text, i));
+    var encoded = base64_encode(string(n + global.encodingNum));
+    encrypted += string_interp("{0}_", encoded);
+}
+
+return encrypted;

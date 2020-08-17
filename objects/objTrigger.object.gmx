@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>triggered = 0;
 trg = 0;
+snd = noone;
 </string>
           </argument>
         </arguments>
@@ -51,6 +52,10 @@ trg = 0;
             <kind>1</kind>
             <string>if (triggered != trg) {
     objTrigger.triggered = trg;
+    
+    if (snd != noone) {
+        audio_play_sound(snd, 0, false);
+    }
 }
 </string>
           </argument>

@@ -17,3 +17,5 @@ scrResetSave();
 global.soundVolume = 1;
 global.currentMusic = -1;
 global.restartMusic = false;
+
+randomize();
