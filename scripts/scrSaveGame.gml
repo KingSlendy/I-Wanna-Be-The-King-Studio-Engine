@@ -53,7 +53,7 @@ var encrypted = "";
 
 for (var i = 1; i <= string_length(text); i++) {
     var n = ord(string_char_at(text, i));
-    var encoded = base64_encode(string(n + global.encodingNum));
+    var encoded = base64_encode(string(n + global.encodingKey));
     encrypted += string_interp("{0}_", encoded);
 }
 

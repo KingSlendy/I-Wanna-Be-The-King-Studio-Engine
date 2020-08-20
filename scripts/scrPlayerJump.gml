@@ -1,5 +1,5 @@
 ///scrPlayerJump()
-if (jumps > 0 && (onLand || onPlatform || place_meeting(x, y + global.grav, objWater))) {
+if (jumps > 0 && (!notOnBlock || onPlatform || place_meeting(x, y + global.grav, objWater))) {
     vspeed = -(jumpsHeight[0] * global.grav);
     scrRecoverJumps();
     audio_play_sound(sndJump, 0, false);

@@ -409,10 +409,11 @@ if (global.debugMode &amp;&amp; global.debugOverlay) {
             scrDrawTextOutline(0, spacing * 6 + 6, string_interp("Killer counter: {0}", instance_number(objPlayerKiller)));
             scrDrawTextOutline(0, spacing * 7 + 6, string_interp("Timeline: {0}", timeline_get_name(global.currentAvoidance.timeline_index)));
             scrDrawTextOutline(0, spacing * 8 + 6, string_interp("Timeline position: {0}", global.currentAvoidance.timeline_position));
-            var musicPosition = audio_sound_get_track_position(global.currentMusic);
-            scrDrawTextOutline(0, spacing * 9 + 6, string_interp("Music time: {0} ({1}s)", scrFormattedTime(floor(musicPosition)), musicPosition));
             var musicLength = audio_sound_length(global.currentMusic);
-            scrDrawTextOutline(0, spacing * 10 + 6, string_interp("Music length: {0} ({1}s)", scrFormattedTime(floor(musicLength)), musicLength));
+            scrDrawTextOutline(0, spacing * 9 + 6, string_interp("Timeline end: {0}", musicLength * 50));
+            var musicPosition = audio_sound_get_track_position(global.currentMusic);
+            scrDrawTextOutline(0, spacing * 10 + 6, string_interp("Music time: {0} ({1}s)", scrFormattedTime(floor(musicPosition)), musicPosition));
+            scrDrawTextOutline(0, spacing * 11 + 6, string_interp("Music length: {0} ({1}s)", scrFormattedTime(floor(musicLength)), musicLength));
         }
     } else {
         scrDrawTextOutline(0, 0, "Debug Mode", c_red);

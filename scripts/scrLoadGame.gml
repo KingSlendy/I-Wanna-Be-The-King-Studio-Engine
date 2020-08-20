@@ -52,7 +52,7 @@ var decrypted = "";
 var encoded = string_split(text, "_");
 
 for (var i = 0; i < array_length_1d(encoded); i++) {
-    var decoded = chr(real(base64_decode(encoded[i])) - global.encodingNum);
+    var decoded = chr(real(base64_decode(encoded[i])) - global.encodingKey);
     decrypted += decoded
 }
 

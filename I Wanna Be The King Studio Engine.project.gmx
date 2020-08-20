@@ -334,6 +334,7 @@
     </rooms>
     <room>rooms\rMiku</room>
     <room>rooms\rTest</room>
+    <room>rooms\rTest2</room>
     <room>rooms\rTemplate</room>
   </rooms>
   <help>

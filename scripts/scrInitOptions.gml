@@ -25,7 +25,7 @@ global.debugInfJump = false;
 global.gameName = "I Wanna Be The King Studio Engine"; //Name that will be displayed on the game window
 global.difficultyNames = new_array("Medium", "Hard", "Very Hard", "Impossible", "Load Game"); //Names and difficulties the game will have (PS: Load Game is always the last difficulty and always keep at least 2 difficulties)
 global.menuMode = 0; //0: File Selection | 1: Difficulty Selection Room
-global.encodingNum = 39; //This will decide what encoding number will be applied for encoding saves
+global.encodingKey = 38; //This will decide what encoding number will be applied for encoding saves
 
 global.totalSaves = 3;
 global.totalItems = 8;
