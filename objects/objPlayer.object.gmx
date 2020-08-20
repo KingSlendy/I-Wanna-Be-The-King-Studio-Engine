@@ -301,11 +301,7 @@ if (onVineL || onVineR) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (scrIsBetterPlatform(other) || scrIsBetterBlock(other)) {
-    exit;
-}
-
-if (global.grav == 1) {
+            <string>if (global.grav == 1) {
     if (y - vspeed / 2 &lt;= other.y) {
         if (other.vspeed &gt;= 0) {
             y = other.y - 9;
@@ -348,11 +344,7 @@ if (global.grav == 1) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (scrIsBetterBlock(other) || scrIsBetterPlatform(other)) {
-    exit;
-}
-
-if (!place_free(x + hspeed, y)) {
+            <string>if (!place_free(x + hspeed, y)) {
     if (global.grav == 1) {
         if (hspeed &lt;= 0) {
             move_contact_solid(180, abs(hspeed));
