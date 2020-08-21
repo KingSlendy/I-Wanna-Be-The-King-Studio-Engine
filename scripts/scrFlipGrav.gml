@@ -7,10 +7,7 @@ if (flip)
 if (instance_exists(objPlayer)) {
     var nowX = objPlayer.x;
     var nowY = objPlayer.y;
-    
-    with (objPlayer) {
-        instance_destroy();
-    }
+    instance_destroy(objPlayer);
         
     if (flip) {
         nowY += 4 * global.grav;

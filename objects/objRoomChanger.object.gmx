@@ -51,9 +51,7 @@ warpY = noone;
           <argument>
             <kind>1</kind>
             <string>if (warpX == noone &amp;&amp; warpY == noone) {
-    with (objPlayer) {
-        instance_destroy();
-    }
+    instance_destroy(objPlayer);
 } else {
     if (warpX != noone) {
         objPlayer.x = warpX;

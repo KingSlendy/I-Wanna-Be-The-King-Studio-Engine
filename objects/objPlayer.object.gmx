@@ -73,10 +73,7 @@ if (global.autosave) {
           <argument>
             <kind>1</kind>
             <string>global.lastxScale = xScale;
-
-with (objBow) {
-    instance_destroy();
-}
+instance_destroy(objBow);
 </string>
           </argument>
         </arguments>

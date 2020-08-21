@@ -127,10 +127,7 @@ if (!global.gamePaused) {
     
     //Teleport to clear room when the game has been cleared (useful for portal rooms)
     if (global.gameStarted &amp;&amp; global.clear &amp;&amp; instance_exists(objPlayer) &amp;&amp; scrButtonPressed(global.clearButton)) {
-        with (objPlayer) {
-            instance_destroy();
-        }
-        
+        instance_destroy(objPlayer);
         room_goto(global.clearRoom);
     }
 }
@@ -199,10 +196,7 @@ if (global.debugMode &amp;&amp; global.gameStarted &amp;&amp; !global.gamePaused
         
         //Teleport to the mouse's location
         if (mouse_check_button_pressed(global.debugMouseButton)) {
-            with (objPlayer) {
-                instance_destroy();
-            }
-            
+            instance_destroy(objPlayer);
             instance_create(mouse_x, mouse_y, objPlayer);
         }
     }
@@ -210,10 +204,7 @@ if (global.debugMode &amp;&amp; global.gameStarted &amp;&amp; !global.gamePaused
     //Go to previous room
     if (scrButtonPressed(global.debugRoomButtonU)) {
         if (room_get_name(room_previous(room)) != "rDiffs") {
-            with (objPlayer) {
-                instance_destroy();
-            }
-        
+            instance_destroy(objPlayer);
             room_goto_previous();
         }
     }
@@ -221,10 +212,7 @@ if (global.debugMode &amp;&amp; global.gameStarted &amp;&amp; !global.gamePaused
     //Go to next room
     if (scrButtonPressed(global.debugRoomButtonD)) {
         if (room_get_name(room_next(room)) != "rTemplate") {
-            with (objPlayer) {
-                instance_destroy();
-            }
-        
+            instance_destroy(objPlayer);
             room_goto_next();
         }
     }

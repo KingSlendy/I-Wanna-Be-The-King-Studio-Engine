@@ -8,11 +8,13 @@ if (savePosition) {
     global.savingY = objPlayer.y;
     
     with (objPlayer) {
-        if (!place_free(floor(global.savingX), global.savingY))
+        if (!place_free(floor(global.savingX), global.savingY)) {
             global.savingX++;
+        }
         
-        if (!place_free(global.savingX, floor(global.savingY)))
+        if (!place_free(global.savingX, floor(global.savingY))) {
             global.savingY++;
+        }
     }
 }
 

@@ -3,9 +3,7 @@
 var normal = argument[0];
 
 if (instance_exists(objPlayer)) {
-    with (objPlayer) {
-        instance_destroy();
-    } 
+    instance_destroy(objPlayer);
 }
 
 var file = file_text_open_read(scrSaveName(global.saveNum));

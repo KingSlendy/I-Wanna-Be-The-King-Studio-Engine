@@ -21,10 +21,7 @@ if (diff == array_length_1d(global.difficultyNames) - 1) {
     global.gameStarted = true;
     global.autosave = true;
     global.difficulty = diff;
-    
-    with (objPlayer) {
-        instance_destroy();
-    }
 
+    instance_destroy(objPlayer);
     room_goto(global.startRoom);
 }
