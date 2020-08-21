@@ -18,8 +18,9 @@ if (!global.debugGodMode) {
             global.deaths++; 
         }
     } else {
-        with (objPlayer)
+        with (objPlayer) {
             instance_destroy();
+        }
             
         room_restart();
     }

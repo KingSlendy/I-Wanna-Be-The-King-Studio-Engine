@@ -325,7 +325,7 @@
     </timelines>
   </timelines>
   <rooms name="rooms">
-    <rooms name="Start">
+    <rooms name="System">
       <room>rooms\rInit</room>
       <room>rooms\rTitle</room>
       <room>rooms\rFiles</room>
@@ -334,7 +334,6 @@
     </rooms>
     <room>rooms\rMiku</room>
     <room>rooms\rTest</room>
-    <room>rooms\rTest2</room>
     <room>rooms\rTemplate</room>
   </rooms>
   <help>

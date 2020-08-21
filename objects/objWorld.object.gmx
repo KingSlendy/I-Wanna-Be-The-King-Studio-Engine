@@ -185,12 +185,12 @@ if (global.debugMode &amp;&amp; global.gameStarted &amp;&amp; !global.gamePaused
     if (scrButtonPressed(global.debugInfButton)) {
         global.debugInfJump = !global.debugInfJump;
     }
-    
-    if (global.debugInfJump) {
-        objPlayer.jumpsLeft = 1;
-    }
 
     if (instance_exists(objPlayer)) {
+        if (global.debugInfJump) {
+            objPlayer.jumpsLeft = 1;
+        }
+    
         //Save at any given time
         if (scrButtonPressed(global.debugSaveButton)) {
             scrSaveGame(true);

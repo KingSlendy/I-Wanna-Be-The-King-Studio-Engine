@@ -8,7 +8,6 @@ switch (room) {
     case rOptions:
     case rDiffs:
     case rTest:
-    case rTest2:
         music = bgmGuyRock;
         break;
         
