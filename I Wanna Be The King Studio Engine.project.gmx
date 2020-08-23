@@ -24,6 +24,7 @@
       <sound>sound\sndSpikeTrap</sound>
       <sound>sound\sndCherry</sound>
       <sound>sound\sndBossHit</sound>
+      <sound>sound\sndBreak</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
