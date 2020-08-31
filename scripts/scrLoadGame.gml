@@ -8,7 +8,7 @@ if (instance_exists(objPlayer)) {
 
 var file = file_text_open_read(scrSaveName(global.saveNum));
 var saveMap = ds_map_create();
-ds_map_read(saveMap, scrDecrypt(base64_decode(file_text_read_string(file))));
+ds_map_read(saveMap, scrDecrypt(file_text_read_string(file)));
 
 global.savingRoom = saveMap[? "SavingRoom"];
 global.savingX = saveMap[? "SavingX"];
@@ -43,15 +43,41 @@ if (normal) {
 ds_map_destroy(saveMap);
 file_text_close(file);
 
+#define scrDecompress
+///scrDecompress(text)
+var text = argument[0];
+var decompressed = "";
+var prevChar = "";
+
+for (var i = 1; i <= string_length(text); i++) {
+    var char = string_char_at(text, i);
+    var ascii = ord(char);
+    
+    if (ascii >= 48 && ascii <= 57 || ascii >= 65 && ascii <= 70) {
+        decompressed += char;
+    } else if (ascii > 70) {
+        repeat (ascii - 70) {
+            decompressed += prevChar;
+        }
+    }
+    
+    prevChar = char;
+}
+
+return decompressed;
+
 #define scrDecrypt
 ///scrDecrypt(text)
-var text = argument[0];
+var text = base64_decode(argument[0]);
 var decrypted = "";
+var length = string_length(global.savePassword);
+var pass = 0;
 var encoded = string_split(text, "_");
 
 for (var i = 0; i < array_length_1d(encoded); i++) {
-    var decoded = chr(real(base64_decode(encoded[i])) - global.encodingKey);
-    decrypted += chrdecoded;
+    var decoded = chr(real(encoded[i]) - ord(string_char_at(global.savePassword, pass + 1)));
+    pass += (length + 1) % length;
+    decrypted += decoded;
 }
 
-return decrypted;
+return scrDecompress(decrypted);

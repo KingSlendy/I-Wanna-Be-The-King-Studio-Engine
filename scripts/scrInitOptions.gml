@@ -5,7 +5,7 @@ global.difficultyNames = new_array("Medium", "Hard", "Very Hard", "Impossible", 
 global.menuMode = 0; //0: File Selection | 1: Difficulty Selection Room
 
 //Save related options
-global.encodingKey = 39 //This will decide what encoding number will be applied for encoding saves
+global.savePassword = "iwbtkse123456789"; //This will decide what password will be applied for encoding saves
 global.totalSaves = 3;
 global.totalItems = 8;
 global.totalBossItems = 8;

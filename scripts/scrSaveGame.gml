@@ -44,19 +44,52 @@ for (var i = 0; i < global.totalAchievements; i++) {
 saveMap[? "Clear"] = global.clear;
 
 var file = file_text_open_write(scrSaveName(global.saveNum));
-file_text_write_string(file, base64_encode(scrEncrypt(ds_map_write(saveMap))));
+file_text_write_string(file, scrEncrypt(ds_map_write(saveMap)));
 ds_map_destroy(saveMap);
 file_text_close(file);
 
+#define scrCompress
+///scrCompress(text)
+var text = argument[0];
+var compressed = "";
+var prev = "";
+var count = 0;
+
+for (var i = 1; i <= string_length(text); i++) {
+    var char = string_char_at(text, i);
+    
+    if (prev != "" && char != prev) {
+        if (count > 1) {
+            compressed += string_interp("{0}{1}", prev, chr(70 + count - 1));
+        } else {
+            compressed += prev;
+        }
+        
+        count = 0;
+    }
+    
+    prev = char;
+    count++;
+    
+    if (i == string_length(text)) {
+        compressed += prev;
+    }
+}
+
+return compressed;
+
 #define scrEncrypt
 ///scrEncrypt(text)
-var text = argument[0];
-var encrypted = "";
+var text = scrCompress(argument[0]);
+var encrypted;
+var length = string_length(global.savePassword);
+var pass = 0;
 
 for (var i = 1; i <= string_length(text); i++) {
     var n = ord(string_char_at(text, i));
-    var encoded = base64_encode(string(n + global.encodingKey));
-    encrypted += string_interp("{0}_", encoded);
+    var encoded = string(n + ord(string_char_at(global.savePassword, pass + 1)));
+    pass += (length + 1) % length;
+    encrypted[i - 1] = encoded;
 }
 
-return encrypted;
+return base64_encode(string_join(encrypted, "_"));
