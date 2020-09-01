@@ -134,7 +134,10 @@ if (!global.gamePaused) {
 
 //Resetting game
 if (scrButtonPressed(vk_f2)) {
-    scrSaveGame(false);
+    if (global.gameStarted) {
+        scrSaveGame(false);
+    }
+    
     scrSaveConfig();
     audio_stop_all();
     game_restart();
@@ -142,7 +145,10 @@ if (scrButtonPressed(vk_f2)) {
 
 //Closing game
 if (scrButtonPressed(vk_escape)) {
-    scrSaveGame(false);
+    if (global.gameStarted) {
+        scrSaveGame(false);
+    }
+    
     scrSaveConfig();
     game_end();
 }
