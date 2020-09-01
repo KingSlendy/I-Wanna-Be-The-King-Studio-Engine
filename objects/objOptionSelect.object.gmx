@@ -104,8 +104,8 @@ totalOptions = 5;
         case 4:
             if (scrButtonPressed(global.menuAcceptButton)) {
                 global.soundVolume = 1;
-                global.fullscreen = false;
-                global.vsync = false;
+                global.fullscreenMode = false;
+                global.vsyncMode = false;
                 global.smoothMode = false;
                 
                 audio_master_gain(global.soundVolume);
