@@ -52,30 +52,29 @@ file_text_close(file);
 ///scrCompress(text)
 var text = argument[0];
 var compressed = "";
-var prev = "";
+var prevChar = string_char_at(text, 1);
 var count = 0;
+var prevCount = 0;
 
-for (var i = 1; i <= string_length(text); i++) {
+for (var i = 1; i <= string_length(text) + 1; i++) {
     var char = string_char_at(text, i);
     
-    if (prev != "" && char != prev) {
-        if (count > 1) {
-            compressed += string_interp("{0}{1}", prev, chr(70 + count - 1));
+    if (char != prevChar) {
+        if (count != prevCount) {
+            compressed += string_interp("-{0}-{1}", count, prevChar);
         } else {
-            compressed += prev;
+            compressed += prevChar;
         }
         
+        prevCount = count;
         count = 0;
     }
     
-    prev = char;
-    count++;
-    
-    if (i == string_length(text)) {
-        compressed += prev;
-    }
+    prevChar = char;
+    count += 1;
 }
 
+compressed = string_delete(compressed, 1, 1);
 return compressed;
 
 #define scrEncrypt

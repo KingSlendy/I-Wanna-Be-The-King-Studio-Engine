@@ -17,6 +17,7 @@ scrInitAchievementInfo();
 
 //Misc. options
 global.startRoom = rTest;
+global.useClearRoom = false;
 global.clearRoom = rTest;
 global.clearButton = vk_backspace;
 global.saveButton = global.shootButton;

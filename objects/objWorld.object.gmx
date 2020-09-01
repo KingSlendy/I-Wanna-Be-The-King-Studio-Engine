@@ -126,7 +126,7 @@ if (!global.gamePaused) {
     }
     
     //Teleport to clear room when the game has been cleared (useful for portal rooms)
-    if (global.gameStarted &amp;&amp; global.clear &amp;&amp; instance_exists(objPlayer) &amp;&amp; scrButtonPressed(global.clearButton)) {
+    if (global.useClearRoom &amp;&amp; global.gameStarted &amp;&amp; global.clear &amp;&amp; instance_exists(objPlayer) &amp;&amp; scrButtonPressed(global.clearButton)) {
         instance_destroy(objPlayer);
         room_goto(global.clearRoom);
     }

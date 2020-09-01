@@ -47,21 +47,17 @@ file_text_close(file);
 ///scrDecompress(text)
 var text = argument[0];
 var decompressed = "";
-var prevChar = "";
+var sections = string_split(text, "-");
 
-for (var i = 1; i <= string_length(text); i++) {
-    var char = string_char_at(text, i);
-    var ascii = ord(char);
+for (var i = 0; i < array_length_1d(sections); i += 2) {
+    var count = real(sections[i]);
+    var chars = sections[i + 1];
     
-    if (ascii >= 48 && ascii <= 57 || ascii >= 65 && ascii <= 70) {
-        decompressed += char;
-    } else if (ascii > 70) {
-        repeat (ascii - 70) {
-            decompressed += prevChar;
+    for (var j = 1; j <= string_length(chars); j++) {
+        repeat (count) {
+            decompressed += string_char_at(chars, j);
         }
     }
-    
-    prevChar = char;
 }
 
 return decompressed;
