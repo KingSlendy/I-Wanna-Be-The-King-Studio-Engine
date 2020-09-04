@@ -140,6 +140,12 @@
     <instance objName="objMovingPlatform" x="32" y="480" name="inst_69020646" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMovingPlatform" x="32" y="352" name="inst_96536B84" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMovingPlatform" x="32" y="416" name="inst_42BE0AD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNormalizerBeam" x="480" y="320" name="inst_93521F90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrvUpBeam" x="512" y="320" name="inst_0A9F49D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrvDownBeam" x="544" y="320" name="inst_BE434D22" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objBlock" x="480" y="384" name="inst_6120D9D7" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpdUpBeam" x="576" y="320" name="inst_7508B76F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpdDownBeam" x="608" y="320" name="inst_B04197F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tlsDefault" x="0" y="576" w="32" h="32" xo="32" yo="96" id="10000220" name="inst_EF323507" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -264,6 +270,12 @@
     <tile bgName="tlsDefault" x="64" y="384" w="32" h="32" xo="32" yo="64" id="10000611" name="inst_708652DF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tlsDefault" x="64" y="448" w="32" h="32" xo="32" yo="64" id="10000612" name="inst_F11B5ECF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tlsDefault" x="64" y="480" w="32" h="32" xo="32" yo="96" id="10000613" name="inst_38E1EA22" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tlsDefault" x="640" y="384" w="32" h="32" xo="32" yo="96" id="10000698" name="inst_301BD241" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tlsDefault" x="480" y="384" w="32" h="32" xo="32" yo="96" id="10000699" name="inst_E81FF3D0" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tlsDefault" x="512" y="384" w="32" h="32" xo="0" yo="96" id="10000700" name="inst_93703F4A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tlsDefault" x="544" y="384" w="32" h="32" xo="0" yo="96" id="10000701" name="inst_DFCEE2AF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tlsDefault" x="576" y="384" w="32" h="32" xo="0" yo="96" id="10000702" name="inst_EE81CE40" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tlsDefault" x="608" y="384" w="32" h="32" xo="0" yo="96" id="10000703" name="inst_6E4C8AE0" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

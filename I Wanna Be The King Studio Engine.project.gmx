@@ -139,6 +139,11 @@
     <sprites name="Extra">
       <sprite>sprites\sprExtraJump</sprite>
       <sprite>sprites\sprSign</sprite>
+      <sprite>sprites\sprNormalizerBeam</sprite>
+      <sprite>sprites\sprGrvUpBeam</sprite>
+      <sprite>sprites\sprGrvDownBeam</sprite>
+      <sprite>sprites\sprSpdUpBeam</sprite>
+      <sprite>sprites\sprSpdDownBeam</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -319,6 +324,11 @@
     <objects name="Extra">
       <object>objects\objExtraJump</object>
       <object>objects\objSign</object>
+      <object>objects\objNormalizerBeam</object>
+      <object>objects\objGrvUpBeam</object>
+      <object>objects\objGrvDownBeam</object>
+      <object>objects\objSpdUpBeam</object>
+      <object>objects\objSpdDownBeam</object>
     </objects>
   </objects>
   <timelines name="timelines">

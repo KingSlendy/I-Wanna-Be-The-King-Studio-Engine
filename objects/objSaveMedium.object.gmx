@@ -8,7 +8,7 @@
   <parentName>objSave</parentName>
   <maskName>sprSaveMask</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,10 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0;
-canSave = true;
-
-if (global.difficulty &gt; 0) {
+            <string>if (global.difficulty &gt; 0) {
     instance_destroy();
 }
 </string>
