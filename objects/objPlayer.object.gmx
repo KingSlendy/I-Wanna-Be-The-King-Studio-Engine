@@ -212,7 +212,9 @@ if (abs(vspeed) &gt; maxVSpeed) {
 if (!frozen) {
     if (scrButtonPressed(global.jumpButton)) {
         scrPlayerJump();
-    } else if (scrButtonReleased(global.jumpButton)) {
+    }
+    
+    if (scrButtonReleased(global.jumpButton)) {
         scrPlayerVJump();
     }
         
