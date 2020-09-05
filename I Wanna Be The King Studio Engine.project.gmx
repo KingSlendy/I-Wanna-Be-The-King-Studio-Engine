@@ -31,6 +31,7 @@
   <sprites name="sprites">
     <sprites name="System">
       <sprite>sprites\sprWorld</sprite>
+      <sprite>sprites\sprSystem</sprite>
       <sprite>sprites\sprPlayMusic</sprite>
       <sprite>sprites\sprCamera</sprite>
       <sprite>sprites\sprAchievement</sprite>

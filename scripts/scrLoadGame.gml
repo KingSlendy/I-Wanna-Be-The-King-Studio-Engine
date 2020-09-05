@@ -1,6 +1,6 @@
 #define scrLoadGame
-///scr_loadGame(normal)
-var normal = argument[0];
+///scrLoadGame(load_position)
+var loadPosition = argument[0];
 
 if (instance_exists(objPlayer)) {
     instance_destroy(objPlayer);
@@ -33,7 +33,7 @@ for (var i = 0; i < global.totalAchievements; i++) {
 
 global.clear = saveMap[? "Clear"];
 
-if (normal) {
+if (loadPosition) {
     global.gameStarted = true;
     global.autosave = false;
     instance_create(global.savingX, global.savingY, objPlayer);
