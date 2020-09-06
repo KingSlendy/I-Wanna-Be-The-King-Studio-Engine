@@ -9,6 +9,7 @@ ini_write_real("Controls", "DownButton", global.downButton);
 ini_write_real("Controls", "UpButton", global.upButton);
 ini_write_real("Controls", "RestartButton", global.restartButton);
 ini_write_real("Controls", "PauseButton", global.pauseButton);
+ini_write_real("Controls", "SuicideButton", global.suicideButton);
 
 ini_write_real("System", "SoundVolume", global.soundVolume);
 ini_write_real("System", "Fullscreen", global.fullscreenMode);

@@ -397,9 +397,9 @@ if (global.debugMode &amp;&amp; global.debugOverlay) {
         scrDrawTextOutline(0, spacing * 2, string_interp("Room speed: {0}", room_speed));
         scrDrawTextOutline(0, spacing * 3, string_interp("FPS: {0}", fps));
         scrDrawTextOutline(0, spacing * 4, string_interp("FPS real: {0}", fps_real));
+        scrDrawTextOutline(0, spacing * 5, string_interp("Object counter: {0}", instance_count));
         
         if (global.currentAvoidance != noone) {
-            scrDrawTextOutline(0, spacing * 5 + 6, string_interp("Object counter: {0}", instance_count));
             scrDrawTextOutline(0, spacing * 6 + 6, string_interp("Killer counter: {0}", instance_number(objPlayerKiller)));
             scrDrawTextOutline(0, spacing * 7 + 6, string_interp("Timeline: {0}", timeline_get_name(global.currentAvoidance.timeline_index)));
             scrDrawTextOutline(0, spacing * 8 + 6, string_interp("Timeline position: {0}", global.currentAvoidance.timeline_position));

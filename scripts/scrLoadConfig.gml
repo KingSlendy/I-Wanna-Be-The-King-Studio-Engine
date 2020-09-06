@@ -1,14 +1,15 @@
 ///scrLoadConfig()
 ini_open("Config.ini");
 
-global.leftButton = ini_read_real("Controls", "LeftButton", vk_left);
-global.rightButton = ini_read_real("Controls", "RightButton", vk_right);
-global.jumpButton = ini_read_real("Controls", "JumpButton", vk_shift);
-global.shootButton = ini_read_real("Controls", "ShootButton", ord("Z"));
-global.downButton = ini_read_real("Controls", "DownButton", vk_down);
-global.upButton = ini_read_real("Controls", "UpButton", vk_up);
-global.restartButton = ini_read_real("Controls", "RestartButton", ord("R"));
-global.pauseButton = ini_read_real("Controls", "PauseButton", ord("P"));
+global.leftButton = ini_read_real("Controls", "LeftButton", global.defLeftButton);
+global.rightButton = ini_read_real("Controls", "RightButton", global.defRightButton);
+global.jumpButton = ini_read_real("Controls", "JumpButton", global.defJumpButton);
+global.shootButton = ini_read_real("Controls", "ShootButton", global.defShootButton);
+global.downButton = ini_read_real("Controls", "DownButton", global.defDownButton);
+global.upButton = ini_read_real("Controls", "UpButton", global.defUpButton);
+global.restartButton = ini_read_real("Controls", "RestartButton", global.defRestartButton);
+global.pauseButton = ini_read_real("Controls", "PauseButton", global.defPauseButton);
+global.suicideButton = ini_read_real("Controls", "SuicideButton", global.defSuicideButton);
 
 global.menuLeftButton = vk_left;
 global.menuRightButton = vk_right;

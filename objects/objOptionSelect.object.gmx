@@ -28,7 +28,22 @@
             <string>menu = 0;
 select = array_repeat(0, 2);
 spacing = 50;
-totalOptions = 5;
+totalOptions = 6;
+totalControls = 10;
+changingControls = false;
+keyNames = new_array(
+    "Left",
+    "Right",
+    "Jump",
+    "Shoot",
+    "Down",
+    "Up",
+    "Restart",
+    "Pause",
+    "Suicide"
+);
+
+event_user(0);
 </string>
           </argument>
         </arguments>
@@ -51,17 +66,43 @@ totalOptions = 5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (menu == 0) {
-    if (scrButtonPressed(global.menuUpButton)) {
-        select[menu]--;
-        audio_play_sound(sndDoubleJump, 0, false);
+            <string>if (changingControls &amp;&amp; scrButtonPressed(vk_anykey)) {
+    var key = keyboard_key;
+    
+    if (key == 160 || key == 161) {
+        key = 16;
     }
     
-    if (scrButtonPressed(global.menuDownButton)) {
-        select[menu]++;
-        audio_play_sound(sndDoubleJump, 0, false);
+    switch (select[menu]) {
+        case 0: global.leftButton = key; break;
+        case 1: global.rightButton = key; break;
+        case 2: global.jumpButton = key; break;
+        case 3: global.shootButton = key; break;
+        case 4: global.downButton = key; break;
+        case 5: global.upButton = key; break;
+        case 6: global.restartButton = key; break;
+        case 7: global.pauseButton = key; break;
+        case 8: global.suicideButton = key; break;
     }
     
+    event_user(0);
+    scrSaveConfig();
+    audio_play_sound(sndJump, 0, false);
+    changingControls = false;
+    exit;
+}
+
+if (scrButtonPressed(global.menuUpButton)) {
+    select[menu]--;
+    audio_play_sound(sndDoubleJump, 0, false);
+}
+
+if (scrButtonPressed(global.menuDownButton)) {
+    select[menu]++;
+    audio_play_sound(sndDoubleJump, 0, false);
+}
+
+if (menu == 0) {
     select[menu] += totalOptions;
     select[menu] %= totalOptions;
 
@@ -113,13 +154,73 @@ totalOptions = 5;
                 audio_play_sound(sndJump, 0, false);
             }
             break;
+            
+        case 5:
+            if (scrButtonPressed(global.menuAcceptButton)) {
+                menu = 1;
+                audio_play_sound(sndJump, 0, false);
+            }
+            break;
     }
     
     if (scrButtonPressed(global.menuBackButton)) {
         scrSaveConfig();
         room_goto(rFiles);
     }
+} else if (menu == 1) {
+    select[menu] += totalControls;
+    select[menu] %= totalControls;
+    
+    if (scrButtonPressed(global.menuAcceptButton)) {
+        if (select[menu] == 9) {
+            scrDefaultControls();
+            event_user(0);
+            scrSaveConfig();
+            audio_play_sound(sndJump, 0, false);
+        } else {
+            changingControls = true;
+            audio_play_sound(sndJump, 0, false);
+        }
+    }
+
+    if (scrButtonPressed(global.menuBackButton)) {
+        menu = 0;
+        audio_play_sound(sndJump, 0, false);
+    }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>keyBinds = new_array(
+    scrGetKeybind(global.leftButton),
+    scrGetKeybind(global.rightButton),
+    scrGetKeybind(global.jumpButton),
+    scrGetKeybind(global.shootButton),
+    scrGetKeybind(global.downButton),
+    scrGetKeybind(global.upButton),
+    scrGetKeybind(global.restartButton),
+    scrGetKeybind(global.pauseButton),
+    scrGetKeybind(global.suicideButton),
+);
 </string>
           </argument>
         </arguments>
@@ -148,11 +249,24 @@ draw_set_colour(c_black);
 draw_set_font(fntOptions);
 
 if (menu == 0) {
-    draw_text(x, y + spacing * 0, string_interp("Sound Volume: {0}%", ceil(global.soundVolume * 100)));
+    draw_text(x, y + spacing * 0, string_interp("Sound Volume: {0}%", round(global.soundVolume * 100)));
     draw_text(x, y + spacing * 1, string_interp("Fullscreen: {0}", cond_exp(global.fullscreenMode, "Yes", "No")));
     draw_text(x, y + spacing * 2, string_interp("VSync: {0}", cond_exp(global.vsyncMode, "Yes", "No")));
     draw_text(x, y + spacing * 3, string_interp("Smooth Mode: {0}", cond_exp(global.smoothMode, "Yes", "No")));
     draw_text(x, y + spacing * 4, "Reset To Defaults");
+    draw_text(x, y + spacing * 5, "Change Controls");
+} else if (menu == 1) {
+    for (var i = 0; i &lt; 9; i++) {
+        var bind = keyBinds[i];
+        
+        if (changingControls &amp;&amp; select[menu] == i) {
+            bind = "---";
+        }
+        
+        draw_text(x, y + spacing * i, string_interp("{0} Button: {1}", keyNames[i], bind));
+    }
+
+    draw_text(x, y + spacing * 9, "Default Controls");
 }
 
 draw_sprite(sprCherry, 0, x - 20, y + 25 + spacing * select[menu]);

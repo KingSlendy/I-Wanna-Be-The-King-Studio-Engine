@@ -1,4 +1,5 @@
 ///scrInitGlobals()
+scrDefaultControls();
 scrLoadConfig();
 scrInitOptions();
 

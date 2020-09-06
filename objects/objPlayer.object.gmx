@@ -222,7 +222,7 @@ if (!frozen) {
         scrPlayerShoot();
     }
         
-    if (scrButtonPressed(ord("Q"))) {
+    if (scrButtonPressed(global.suicideButton)) {
         scrKillPlayer();
     }
         
@@ -404,7 +404,15 @@ if (!place_free(x + hspeed, y + vspeed)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(sprite_index, image_index, x, y, image_xscale * xScale, image_yscale * global.grav, image_angle, image_blend, image_alpha);
+            <string>if (global.debugColoring) {
+    if (global.debugGodMode) {
+        image_blend = c_fuchsia;
+    } else {
+        image_blend = c_white;
+    }
+}
+
+draw_sprite_ext(sprite_index, image_index, x, y, image_xscale * xScale, image_yscale * global.grav, image_angle, image_blend, image_alpha);
 
 if (global.dotKid) {
     draw_sprite(sprBoxDotKid, 0, x, y);

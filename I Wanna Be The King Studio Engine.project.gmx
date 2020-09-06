@@ -163,6 +163,7 @@
         <script>scripts\scrInitGlobals.gml</script>
         <script>scripts\scrInitOptions.gml</script>
         <script>scripts\scrInitAchievementInfo.gml</script>
+        <script>scripts\scrInitDebug.gml</script>
         <script>scripts\scrSetDisplay.gml</script>
         <script>scripts\scrSetCaption.gml</script>
         <script>scripts\scrFormattedTime.gml</script>
@@ -171,6 +172,8 @@
         <script>scripts\scrButtonReleased.gml</script>
       </scripts>
       <scripts name="Game">
+        <script>scripts\scrDefaultControls.gml</script>
+        <script>scripts\scrGetKeybind.gml</script>
         <script>scripts\scrLoadConfig.gml</script>
         <script>scripts\scrSaveConfig.gml</script>
         <script>scripts\scrSaveName.gml</script>
