@@ -87,7 +87,7 @@ var pass = 0;
 for (var i = 1; i <= string_length(text); i++) {
     var n = ord(string_char_at(text, i));
     var encoded = string(n + ord(string_char_at(global.savePassword, pass + 1)));
-    pass += (length + 1) % length;
+    pass = (pass + 1) % length;
     encrypted[i - 1] = encoded;
 }
 

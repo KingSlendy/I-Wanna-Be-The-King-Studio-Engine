@@ -72,7 +72,7 @@ var encoded = string_split(text, "_");
 
 for (var i = 0; i < array_length_1d(encoded); i++) {
     var decoded = chr(real(encoded[i]) - ord(string_char_at(global.savePassword, pass + 1)));
-    pass += (length + 1) % length;
+    pass = (pass + 1) % length;
     decrypted += decoded;
 }
 
