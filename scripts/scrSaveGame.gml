@@ -79,7 +79,7 @@ return compressed;
 
 #define scrEncrypt
 ///scrEncrypt(text)
-var text = scrCompress(argument[0]);
+var text = scrCompress(string_copy(argument[0], 9, string_length(argument[0]) - 8));
 var encrypted;
 var length = string_length(global.savePassword);
 var pass = 0;

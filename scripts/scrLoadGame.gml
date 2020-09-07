@@ -76,4 +76,4 @@ for (var i = 0; i < array_length_1d(encoded); i++) {
     decrypted += decoded;
 }
 
-return scrDecompress(decrypted);
+return "92010000" + scrDecompress(decrypted);
