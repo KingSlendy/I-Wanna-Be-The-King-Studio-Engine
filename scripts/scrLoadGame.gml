@@ -37,7 +37,7 @@ if (loadPosition) {
     global.gameStarted = true;
     global.autosave = false;
     instance_create(global.savingX, global.savingY, objPlayer);
-    room_goto(global.savingRoom);
+    room_goto(asset_get_index(global.savingRoom));
 }
 
 ds_map_destroy(saveMap);

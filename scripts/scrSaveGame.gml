@@ -3,7 +3,7 @@
 var savePosition = argument[0];
 
 if (savePosition) {
-    global.savingRoom = room;
+    global.savingRoom = room_get_name(room);
     global.savingX = objPlayer.x;
     global.savingY = objPlayer.y;
     
