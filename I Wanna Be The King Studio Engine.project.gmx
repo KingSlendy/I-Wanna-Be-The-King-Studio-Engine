@@ -62,8 +62,8 @@
       <sprite>sprites\sprSlideBlock</sprite>
       <sprite>sprites\sprSlideBlockL</sprite>
       <sprite>sprites\sprSlideBlockR</sprite>
-      <sprite>sprites\sprWalljumpL</sprite>
       <sprite>sprites\sprWalljumpR</sprite>
+      <sprite>sprites\sprWalljumpL</sprite>
       <sprite>sprites\sprWater</sprite>
       <sprite>sprites\sprBlock</sprite>
     </sprites>
@@ -247,8 +247,8 @@
       <object>objects\objSlideBlock</object>
       <object>objects\objSlideBlockL</object>
       <object>objects\objSlideBlockR</object>
-      <object>objects\objWalljumpL</object>
       <object>objects\objWalljumpR</object>
+      <object>objects\objWalljumpL</object>
       <object>objects\objWater</object>
       <object>objects\objWater2</object>
       <object>objects\objWater3</object>

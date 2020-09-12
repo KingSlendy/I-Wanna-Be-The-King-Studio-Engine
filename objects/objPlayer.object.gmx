@@ -142,8 +142,8 @@ if (!frozen) {
 
 notOnBlock = !place_meeting(x, y + global.grav, objBlock);
 var onSlipBlock = instance_place(x, y + global.grav, objSlipBlock);
-var onVineL = (place_meeting(x - 1, y, objWalljumpL) &amp;&amp; notOnBlock);
-var onVineR = (place_meeting(x + 1, y, objWalljumpR) &amp;&amp; notOnBlock);
+var onVineR = (place_meeting(x - 1, y, objWalljumpR) &amp;&amp; notOnBlock);
+var onVineL = (place_meeting(x + 1, y, objWalljumpL) &amp;&amp; notOnBlock);
 
 if (h != 0) {
     if (!onVineR &amp;&amp; !onVineL) {
@@ -238,19 +238,19 @@ if (!frozen) {
 }
 
 if (onVineL || onVineR) {
-    xScale = cond_exp(onVineR, -1, 1); 
+    xScale = cond_exp(onVineR, 1, -1); 
     vspeed = 2 * global.grav;
     sprite_index = sprPlayerSliding;
     image_speed = 1 / 2;
     
-    if ((onVineL &amp;&amp; scrButtonPressed(global.rightButton)) || (onVineR &amp;&amp; scrButtonPressed(global.leftButton))) {
+    if ((onVineL &amp;&amp; scrButtonPressed(global.leftButton)) || (onVineR &amp;&amp; scrButtonPressed(global.rightButton))) {
         if (scrButtonHeld(global.jumpButton)) {
-            hspeed = cond_exp(onVineR, -15, 15);
+            hspeed = cond_exp(onVineR, 15, -15);
             vspeed = -9 * global.grav;
             audio_play_sound(sndWalljump,0,false);
             sprite_index = sprPlayerJump;
         } else {
-            hspeed = cond_exp(onVineR, -3, 3);
+            hspeed = cond_exp(onVineR, 3, -3);
             sprite_index = sprPlayerFall;
         }
     }
