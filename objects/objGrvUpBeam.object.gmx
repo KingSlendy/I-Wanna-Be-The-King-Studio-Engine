@@ -48,8 +48,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (other.gravity == 0.4) {
-    other.gravity = grav;
+            <string>if (other.gravity == 0.4 * global.grav) {
+    other.gravity = grav * global.grav;
     audio_play_sound(sndBlockChange, 0, false);
 }
 </string>

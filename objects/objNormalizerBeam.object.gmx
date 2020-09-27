@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (other.maxSpeed != 3 || other.gravity != 0.4) {
+            <string>if (other.maxSpeed != 3 || other.gravity != 0.4 * global.grav) {
     other.maxSpeed = 3;
-    other.gravity = 0.4;
+    other.gravity = 0.4 * global.grav;
     audio_play_sound(sndBlockChange, 0, false);
 }
 </string>

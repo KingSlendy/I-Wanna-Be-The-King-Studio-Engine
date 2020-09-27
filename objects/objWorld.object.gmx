@@ -330,7 +330,7 @@ room_goto(rTitle);
 if (global.gamePaused) {
     if (!surface_exists(pauseSurf)) {
         instance_activate_all();
-        pauseSurf = surface_create(display_get_gui_width(), display_get_gui_height());
+        pauseSurf = surface_create(view_wport[0], view_hport[0]);
         surface_copy(pauseSurf, 0, 0, application_surface);
         instance_deactivate_all(true);
     }
@@ -338,14 +338,14 @@ if (global.gamePaused) {
     draw_surface(pauseSurf, 0, 0);
     draw_set_alpha(0.4);
     draw_set_colour(c_black);
-    draw_rectangle(0, 0, view_wview[0], view_hview[0], 0);
+    draw_rectangle(0, 0, view_wport[0], view_hport[0], 0);
     
     draw_set_alpha(1);
     draw_set_font(fntPause1);
     draw_set_colour(c_white);
     draw_set_halign(fa_center);
     draw_set_valign(fa_top);
-    draw_text(view_wview[0] / 2, view_hview[0] / 2 - 24, "PAUSE");
+    draw_text(view_wport[0] / 2, view_hport[0] / 2 - 24, "PAUSE");
     
     draw_set_font(fntPause2);
     draw_set_halign(fa_left);
