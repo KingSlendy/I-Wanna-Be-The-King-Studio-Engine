@@ -89,7 +89,7 @@ vspd = 0;
         hspeed = 0;
     }
 
-    if (place_meeting(x,y+vspeed,obj_triggerStop)) {
+    if (place_meeting(x, y + vspeed, objTriggerStop)) {
         while (!place_meeting(x, y + sign(vspeed), objTriggerStop)) {
             y += sign(vspeed);
         }
