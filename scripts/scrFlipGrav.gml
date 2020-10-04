@@ -1,5 +1,6 @@
-///scrFlipGrav(flip)
+///scrFlipGrav(flip, jumps)
 var flip = argument[0];
+var jumps = argument[1];
 
 if (flip) {
     global.grav *= -1;
@@ -8,15 +9,28 @@ if (flip) {
 if (instance_exists(objPlayer)) {
     var nowX = objPlayer.x;
     var nowY = objPlayer.y;
-    instance_destroy(objPlayer);
+    //var prevJumps = objPlayer.jumpsLeft;
+    
+    with (objPlayer) {
+        var prevJumps = jumpsLeft;
+        vspeed = 0;
         
-    if (flip) {
-        nowY += 4 * global.grav;
-    } else {
-        nowY++;
+        if (!global.dotKid) {
+            if (flip) {
+                y += 4 * global.grav;
+            }
+        }
+        
+        gravity = abs(gravity) * global.grav;
+        
+        if (jumps) {
+            jumpsLeft = prevJumps;
+        }
     }
     
-    instance_create(nowX, nowY, objPlayer);
+    if (!jumps) {
+        objPlayer.jumpsLeft = prevJumps;
+    }
 }
 
 with (objSave) {

@@ -276,7 +276,7 @@ if (!instance_exists(objPlayMusic)) {
 }
     
 if (global.grav == -1) {
-    scrFlipGrav(false);
+    scrFlipGrav(false, false);
 }
     
 if (room == rTest) {
