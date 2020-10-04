@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objTriggerMove</parentName>
+  <parentName>objTriggerPath</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="7" enumb="4">

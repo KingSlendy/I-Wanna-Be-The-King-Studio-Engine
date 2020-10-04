@@ -294,11 +294,16 @@
       <object>objects\objTriggerTouchBacktrack</object>
       <object>objects\objTriggerStop</object>
       <object>objects\objTriggerButton</object>
-      <object>objects\objKillerTrigger</object>
+      <object>objects\objTriggerMove</object>
       <object>objects\objSpikeTriggerDown</object>
       <object>objects\objSpikeTriggerLeft</object>
       <object>objects\objSpikeTriggerRight</object>
       <object>objects\objSpikeTriggerUp</object>
+      <object>objects\objTriggerPath</object>
+      <object>objects\objSpikePathDown</object>
+      <object>objects\objSpikePathLeft</object>
+      <object>objects\objSpikePathRight</object>
+      <object>objects\objSpikePathUp</object>
       <object>objects\objTriggerJumps</object>
     </objects>
     <objects name="Items">

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objPlayerKiller</parentName>
+  <parentName>objTriggerMove</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,10 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>triggered = false;
-trg = 0;
-hspd = 0;
-vspd = 0;
+            <string>event_inherited();
+pth = noone;
+spd = 0;
 </string>
           </argument>
         </arguments>
@@ -53,52 +52,8 @@ vspd = 0;
             <kind>1</kind>
             <string>if (instance_exists(objTrigger)) {
     if (!triggered &amp;&amp; objTrigger.triggered == trg) {
-        hspeed = hspd;
-        vspeed = vspd;
+        path_start(pth, spd, path_action_stop, false);
         triggered = true;
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objTriggerStop">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (trg == other.trg) {
-    if (place_meeting(x + hspeed, y, objTriggerStop)) {
-        while (!place_meeting(x + sign(hspeed), y, objTriggerStop)) {
-            x += sign(hspeed);
-        }
-            
-        hspeed = 0;
-    }
-
-    if (place_meeting(x, y + vspeed, objTriggerStop)) {
-        while (!place_meeting(x, y + sign(vspeed), objTriggerStop)) {
-            y += sign(vspeed);
-        }
-        
-        vspeed = 0;
-    }
-    
-    if (place_meeting(x + hspeed, y + vspeed, objTriggerStop)) {
-        hspeed = 0;
     }
 }
 </string>
