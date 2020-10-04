@@ -65,6 +65,8 @@
       <sprite>sprites\sprWalljumpR</sprite>
       <sprite>sprites\sprWalljumpL</sprite>
       <sprite>sprites\sprWater</sprite>
+      <sprite>sprites\sprWater2</sprite>
+      <sprite>sprites\sprWater3</sprite>
       <sprite>sprites\sprBlock</sprite>
     </sprites>
     <sprites name="Platforms">
