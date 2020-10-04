@@ -1,8 +1,9 @@
 ///scrFlipGrav(flip)
 var flip = argument[0];
 
-if (flip)
+if (flip) {
     global.grav *= -1;
+}
 
 if (instance_exists(objPlayer)) {
     var nowX = objPlayer.x;

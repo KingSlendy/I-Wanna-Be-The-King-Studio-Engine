@@ -20,7 +20,6 @@ global.startRoom = rTest; //The room where the game will start
 global.useClearRoom = false; //If you wanna use the clear room (like a portal room) set this to true
 global.clearRoom = rTest; //The room you wanna be sent to as a clear room
 global.clearButton = vk_backspace; //The button you wanna use to return to the clear room
-global.saveButton = global.shootButton; //The button you need to press for when you're touching a save
 global.deathMusic = true; //If the death music should play when dying
 global.noPause = false; //If this is set to true you won't be able to pause the game
 global.totalPauseDelay = 30; //Total of frames that should pass before the game lets you pause again

@@ -329,8 +329,8 @@
       <object>objects\objExtraJump</object>
       <object>objects\objSign</object>
       <object>objects\objNormalizerBeam</object>
-      <object>objects\objGrvUpBeam</object>
       <object>objects\objGrvDownBeam</object>
+      <object>objects\objGrvUpBeam2</object>
       <object>objects\objSpdUpBeam</object>
       <object>objects\objSpdDownBeam</object>
     </objects>

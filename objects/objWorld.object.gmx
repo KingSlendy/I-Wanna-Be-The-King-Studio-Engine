@@ -25,7 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>timeMicro = 0;
+            <string>if (instance_number(object_index) &gt; 1) {
+    instance_destroy();
+    exit;
+}
+
+timeMicro = 0;
 pauseDelay = 0;
 pauseSurf = noone;
 </string>
