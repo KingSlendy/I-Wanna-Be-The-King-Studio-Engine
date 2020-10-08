@@ -58,48 +58,24 @@ vspd = 0;
         triggered = true;
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objTriggerStop">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (trg == other.trg) {
-    if (place_meeting(x + hspeed, y, objTriggerStop)) {
-        while (!place_meeting(x + sign(hspeed), y, objTriggerStop)) {
-            x += sign(hspeed);
-        }
-            
-        hspeed = 0;
-    }
 
-    if (place_meeting(x, y + vspeed, objTriggerStop)) {
-        while (!place_meeting(x, y + sign(vspeed), objTriggerStop)) {
-            y += sign(vspeed);
-        }
-        
-        vspeed = 0;
+var stopH = instance_place(x + hspeed, y, objTriggerStop);
+var stopV = instance_place(x, y + vspeed, objTriggerStop);
+
+if (stopH != noone &amp;&amp; stopH.trg == trg) {
+    while (!place_meeting(x + sign(hspeed), y, stopH)) {
+        x += sign(hspeed);
     }
     
-    if (place_meeting(x + hspeed, y + vspeed, objTriggerStop)) {
-        hspeed = 0;
+    hspeed = 0;
+}
+
+if (stopV != noone &amp;&amp; stopV.trg == trg) {
+    while (!place_meeting(x, y + sign(vspeed), stopV)) {
+        y += sign(vspeed);
     }
+    
+    vspeed = 0;
 }
 </string>
           </argument>

@@ -130,8 +130,8 @@
     <instance objName="objWater" x="512" y="448" name="inst_19B0E44A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWater2" x="576" y="448" name="inst_349C4852" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWater3" x="640" y="448" name="inst_5B8D0DD3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSpikeTriggerDown" x="288" y="320" name="inst_DCFFA92C" locked="0" code="trg = 1;&#xA;vspd = 3;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objTriggerTouch" x="288" y="544" name="inst_EA814886" locked="0" code="trg = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeTriggerDown" x="288" y="320" name="inst_DCFFA92C" locked="0" code="trg = 0;&#xA;vspd = 3;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTriggerTouch" x="288" y="544" name="inst_EA814886" locked="0" code="trg = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSave" x="128" y="320" name="inst_4F149735" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSave" x="192" y="384" name="inst_97F4D1A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="704" y="416" name="inst_406562A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -149,6 +149,9 @@
     <instance objName="objAlignR" x="256" y="416" name="inst_833D2C2E" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="objAlignL" x="672" y="480" name="inst_234A4FD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objAlignL" x="672" y="416" name="inst_78A37B83" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTriggerTouch" x="160" y="256" name="inst_F2A38047" locked="0" code="trg = 1;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTriggerStop" x="128" y="256" name="inst_E8165C69" locked="0" code="trg = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikeTriggerDown" x="128" y="192" name="inst_D35D6F8C" locked="0" code="trg = 1;&#xA;vspd = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tlsDefault" x="0" y="576" w="32" h="32" xo="32" yo="96" id="10000220" name="inst_EF323507" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
