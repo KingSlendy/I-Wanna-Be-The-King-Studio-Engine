@@ -13,6 +13,7 @@ global.autosave = false;
 global.savingRoom = noone;
 global.savingX = noone;
 global.savingY = noone;
+global.savingGrav = 1;
 global.lastxScale = 1;
 scrResetSave();
 

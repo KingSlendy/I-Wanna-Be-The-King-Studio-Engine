@@ -6,6 +6,7 @@ if (savePosition) {
     global.savingRoom = room_get_name(room);
     global.savingX = objPlayer.x;
     global.savingY = objPlayer.y;
+    global.savingGrav = global.grav;
     
     with (objPlayer) {
         if (!place_free(floor(global.savingX), global.savingY)) {
@@ -23,7 +24,7 @@ var saveMap = ds_map_create();
 saveMap[? "SavingRoom"] = global.savingRoom;
 saveMap[? "SavingX"] = global.savingX;
 saveMap[? "SavingY"] = global.savingY;
-saveMap[? "Grav"] = global.grav;
+saveMap[? "SavingGrav"] = global.savingGrav;
 
 saveMap[? "Difficulty"] = global.difficulty;
 saveMap[? "Deaths"] = global.deaths;

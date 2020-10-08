@@ -13,7 +13,7 @@ ds_map_read(saveMap, scrDecrypt(file_text_read_string(file)));
 global.savingRoom = saveMap[? "SavingRoom"];
 global.savingX = saveMap[? "SavingX"];
 global.savingY = saveMap[? "SavingY"];
-global.grav = saveMap[? "Grav"];
+global.savingGrav = saveMap[? "SavingGrav"];
 
 global.difficulty = saveMap[? "Difficulty"];
 global.deaths = saveMap[? "Deaths"];
@@ -36,6 +36,7 @@ global.clear = saveMap[? "Clear"];
 if (loadPosition) {
     global.gameStarted = true;
     global.autosave = false;
+    global.grav = global.savingGrav;
     instance_create(global.savingX, global.savingY, objPlayer);
     room_goto(asset_get_index(global.savingRoom));
 }
