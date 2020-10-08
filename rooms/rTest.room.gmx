@@ -146,6 +146,9 @@
     <instance objName="objBlock" x="480" y="384" name="inst_6120D9D7" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpdUpBeam" x="576" y="320" name="inst_7508B76F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpdDownBeam" x="608" y="320" name="inst_B04197F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objAlignR" x="256" y="416" name="inst_833D2C2E" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="objAlignL" x="672" y="480" name="inst_234A4FD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objAlignL" x="672" y="416" name="inst_78A37B83" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tlsDefault" x="0" y="576" w="32" h="32" xo="32" yo="96" id="10000220" name="inst_EF323507" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

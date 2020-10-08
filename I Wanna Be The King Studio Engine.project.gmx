@@ -147,6 +147,8 @@
       <sprite>sprites\sprGrvDownBeam</sprite>
       <sprite>sprites\sprSpdUpBeam</sprite>
       <sprite>sprites\sprSpdDownBeam</sprite>
+      <sprite>sprites\sprAlignR</sprite>
+      <sprite>sprites\sprAlignL</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -340,6 +342,8 @@
       <object>objects\objGrvUpBeam2</object>
       <object>objects\objSpdUpBeam</object>
       <object>objects\objSpdDownBeam</object>
+      <object>objects\objAlignR</object>
+      <object>objects\objAlignL</object>
     </objects>
   </objects>
   <timelines name="timelines">

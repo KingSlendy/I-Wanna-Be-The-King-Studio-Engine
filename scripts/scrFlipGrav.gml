@@ -9,8 +9,7 @@ if (flip) {
 if (instance_exists(objPlayer)) {
     var nowX = objPlayer.x;
     var nowY = objPlayer.y;
-    //var prevJumps = objPlayer.jumpsLeft;
-    
+
     with (objPlayer) {
         var prevJumps = jumpsLeft;
         vspeed = 0;
@@ -20,8 +19,6 @@ if (instance_exists(objPlayer)) {
                 y += 4 * global.grav;
             }
         }
-        
-        gravity = abs(gravity) * global.grav;
         
         if (jumps) {
             jumpsLeft = prevJumps;

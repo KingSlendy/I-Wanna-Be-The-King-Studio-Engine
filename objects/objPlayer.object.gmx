@@ -128,7 +128,9 @@ if (global.borderKills &amp;&amp; scrOutsideRoom()) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var L = scrButtonHeld(global.leftButton);
+            <string>gravity = 0.4 * global.grav;
+
+var L = scrButtonHeld(global.leftButton);
 var R = scrButtonHeld(global.rightButton);
 var h = 0;
 
@@ -150,7 +152,7 @@ if (h != 0) {
         xScale = h;
     }
     
-    if ((h == -1 &amp;&amp; !onVineR) || (h == 1 &amp;&amp; !onVineL)) {
+    if ((h == -1 &amp;&amp; !onVineL) || (h == 1 &amp;&amp; !onVineR)) {
         if (onSlipBlock == noone) {
             hspeed = maxSpeed * h;
         } else {
@@ -412,7 +414,14 @@ if (!place_free(x + hspeed, y + vspeed)) {
     }
 }
 
-draw_sprite_ext(sprite_index, image_index, x, y, image_xscale * xScale, image_yscale * global.grav, image_angle, image_blend, image_alpha);
+var drawX = x;
+var drawY = y;
+
+if (global.grav == -1 &amp;&amp; !global.dotKid) {
+    drawY++;
+}
+
+draw_sprite_ext(sprite_index, image_index, drawX, drawY, image_xscale * xScale, image_yscale * global.grav, image_angle, image_blend, image_alpha);
 
 if (global.dotKid) {
     draw_sprite(sprBoxDotKid, 0, x, y);
