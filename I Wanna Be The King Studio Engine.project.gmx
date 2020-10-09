@@ -72,6 +72,7 @@
     <sprites name="Platforms">
       <sprite>sprites\sprPlatform</sprite>
       <sprite>sprites\sprMovingPlatform</sprite>
+      <sprite>sprites\sprMovingPlatformSide</sprite>
     </sprites>
     <sprites name="Killers">
       <sprite>sprites\sprPlayerKiller</sprite>
@@ -262,6 +263,7 @@
     <objects name="Platforms">
       <object>objects\objPlatform</object>
       <object>objects\objMovingPlatform</object>
+      <object>objects\objMovingPlatformSide</object>
       <object>objects\objBlockRise</object>
       <object>objects\objBlockFall</object>
     </objects>

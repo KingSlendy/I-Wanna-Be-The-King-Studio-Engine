@@ -9,10 +9,10 @@ global.debugGodMode = false;
 global.debugInfJump = false;
 
 //Buttons
-global.debugHideButton = vk_enter;
+global.debugHideButton = vk_backspace;
 global.debugGodButton = ord("G");
 global.debugInfButton = ord("I");
-global.debugSaveButton = vk_insert;
+global.debugSaveButton = vk_enter;
 global.debugMouseButton = mb_middle;
 global.debugRoomButtonU = vk_pageup;
 global.debugRoomButtonD = vk_pagedown;
