@@ -25,8 +25,10 @@ if (instance_exists(objPlayer)) {
         }
     }
     
-    if (!jumps) {
+    if (jumps) {
         objPlayer.jumpsLeft = prevJumps;
+    } else {
+        scrRecoverJumps();
     }
 }
 

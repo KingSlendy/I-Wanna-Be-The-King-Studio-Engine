@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>if (global.grav == -1) {
-    scrFlipGrav(true, true);
+    scrFlipGrav(true, false);
 }
 </string>
           </argument>

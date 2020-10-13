@@ -4,16 +4,16 @@ var savePosition = argument[0];
 
 if (savePosition) {
     global.savingRoom = room_get_name(room);
-    global.savingX = objPlayer.x;
-    global.savingY = objPlayer.y;
+    global.savingX = floor(objPlayer.x);
+    global.savingY = floor(objPlayer.y);
     global.savingGrav = global.grav;
     
     with (objPlayer) {
-        if (!place_free(floor(global.savingX), global.savingY)) {
+        if (!place_free(global.savingX, global.savingY)) {
             global.savingX++;
         }
         
-        if (!place_free(global.savingX, floor(global.savingY))) {
+        if (!place_free(global.savingX, global.savingY)) {
             global.savingY++;
         }
     }

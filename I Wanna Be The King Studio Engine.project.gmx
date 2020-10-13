@@ -144,8 +144,8 @@
       <sprite>sprites\sprExtraJump</sprite>
       <sprite>sprites\sprSign</sprite>
       <sprite>sprites\sprNormalizerBeam</sprite>
-      <sprite>sprites\sprGrvUpBeam</sprite>
       <sprite>sprites\sprGrvDownBeam</sprite>
+      <sprite>sprites\sprGrvUpBeam</sprite>
       <sprite>sprites\sprSpdUpBeam</sprite>
       <sprite>sprites\sprSpdDownBeam</sprite>
       <sprite>sprites\sprAlignR</sprite>
@@ -239,8 +239,6 @@
       <object>objects\objPlayer</object>
       <object>objects\objBow</object>
       <object>objects\objBullet</object>
-      <object>objects\objGravUp</object>
-      <object>objects\objGravDown</object>
       <object>objects\objBloodEmitter</object>
       <object>objects\objBlood</object>
       <object>objects\objGameOver</object>
@@ -337,11 +335,13 @@
       <object>objects\objBossItem8</object>
     </objects>
     <objects name="Extra">
+      <object>objects\objGravUp</object>
+      <object>objects\objGravDown</object>
       <object>objects\objExtraJump</object>
       <object>objects\objSign</object>
       <object>objects\objNormalizerBeam</object>
       <object>objects\objGrvDownBeam</object>
-      <object>objects\objGrvUpBeam2</object>
+      <object>objects\pbjGrvUpBeam</object>
       <object>objects\objSpdUpBeam</object>
       <object>objects\objSpdDownBeam</object>
       <object>objects\objAlignR</object>

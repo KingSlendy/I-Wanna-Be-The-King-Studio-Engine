@@ -142,7 +142,7 @@
     <instance objName="objMovingPlatform" x="32" y="416" name="inst_42BE0AD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objNormalizerBeam" x="480" y="320" name="inst_93521F90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrvDownBeam" x="512" y="320" name="inst_0A9F49D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrvUpBeam2" x="544" y="320" name="inst_BE434D22" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="pbjGrvUpBeam" x="544" y="320" name="inst_BE434D22" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBlock" x="480" y="384" name="inst_6120D9D7" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpdUpBeam" x="576" y="320" name="inst_7508B76F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpdDownBeam" x="608" y="320" name="inst_B04197F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
