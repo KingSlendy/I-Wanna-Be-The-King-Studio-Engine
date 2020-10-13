@@ -96,15 +96,36 @@ instance_destroy(objBow);
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>if (global.borderKills &amp;&amp; scrOutsideRoom()) {
+    scrKillPlayer();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>if (global.dotKid) {
     mask_index = sprDotKid;
     sprite_index = sprDotKid;
-} else if (mask_index == sprDotKid) {
+} else {
     mask_index = cond_exp(global.grav == 1, sprMaskPlayer, sprMaskPlayerFlip);
-}
-
-if (global.borderKills &amp;&amp; scrOutsideRoom()) {
-    scrKillPlayer();
 }
 </string>
           </argument>
@@ -409,6 +430,8 @@ if (!place_free(x + hspeed, y + vspeed)) {
             <string>if (global.debugColoring) {
     if (global.debugGodMode) {
         image_blend = c_fuchsia;
+    } else if (global.debugInfJump) {
+        image_blend = c_blue;
     } else {
         image_blend = c_white;
     }

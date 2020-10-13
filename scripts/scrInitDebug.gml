@@ -1,7 +1,7 @@
 ///scrInitDebug()
 //Debug variables
 global.debugMode = true;
-global.debugOverlay = true;
+global.debugOverlay = false;
 global.debugColoring = true;
 
 //Toggles

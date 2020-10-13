@@ -33,6 +33,7 @@
 timeMicro = 0;
 pauseDelay = 0;
 pauseSurf = noone;
+prevSpd = 50;
 </string>
           </argument>
         </arguments>
@@ -60,6 +61,10 @@ if (global.gameStarted) {
     if (!global.gamePaused) {
         //Restarting game
         if (scrButtonPressed(global.restartButton)) {
+            if (global.debugMode) {
+                prevSpd = room_speed;
+            }    
+        
             scrRestartGame();
         }
             
@@ -269,7 +274,7 @@ if (global.debugMode &amp;&amp; global.gameStarted &amp;&amp; !global.gamePaused
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_speed = 50;
+            <string>room_speed = prevSpd;
 
 if (!instance_exists(objPlayMusic)) {
     scrGetMusic();
