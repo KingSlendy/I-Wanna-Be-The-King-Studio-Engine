@@ -23,7 +23,7 @@ global.clearButton = ord("E"); //The button you wanna use to return to the clear
 global.deathMusic = true; //If the death music should play when dying
 global.noPause = false; //If this is set to true you won't be able to pause the game
 global.totalPauseDelay = 30; //Total of frames that should pass before the game lets you pause again
-global.timeWhenDead = true; //Decides if it should continue running the timer when The Kid is dead
+global.timeWhenDead = false; //Decides if it should continue running the timer when The Kid is dead
 global.borderKills = true; //If the room border should kill you
 global.dotKid = false; //Whether you wanna use Dot Kid instead of The Kid
 
