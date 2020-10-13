@@ -341,7 +341,7 @@
       <object>objects\objSign</object>
       <object>objects\objNormalizerBeam</object>
       <object>objects\objGrvDownBeam</object>
-      <object>objects\pbjGrvUpBeam</object>
+      <object>objects\objGrvUpBeam</object>
       <object>objects\objSpdUpBeam</object>
       <object>objects\objSpdDownBeam</object>
       <object>objects\objAlignR</object>
