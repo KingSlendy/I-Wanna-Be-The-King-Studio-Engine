@@ -280,10 +280,6 @@ if (!instance_exists(objPlayMusic)) {
     scrGetMusic();
 }
     
-if (global.grav == -1) {
-    scrFlipGrav(false, false);
-}
-    
 if (room == rTest) {
     with (all) {
         visible = true;

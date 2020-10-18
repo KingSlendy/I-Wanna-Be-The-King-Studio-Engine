@@ -10,10 +10,6 @@ if (savePosition) {
     
     with (objPlayer) {
         if (!place_free(global.savingX, global.savingY)) {
-            global.savingX++;
-        }
-        
-        if (!place_free(global.savingX, global.savingY)) {
             global.savingY++;
         }
     }

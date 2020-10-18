@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>image_speed = 0;
 canSave = true;
+grav = 1;
 </string>
           </argument>
         </arguments>
@@ -124,7 +125,7 @@ with (other) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (canSave &amp;&amp; instance_exists(objPlayer)) {
+            <string>if (instance_exists(objPlayer) &amp;&amp; global.grav == grav &amp;&amp; canSave) {
     canSave = false;
     alarm[0] = 30;
     image_index = 1;

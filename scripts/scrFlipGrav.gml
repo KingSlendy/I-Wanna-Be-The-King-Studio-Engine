@@ -1,12 +1,12 @@
-///scrFlipGrav(flip, jumps)
-var flip = argument[0];
-var jumps = argument[1];
+///scrFlipGrav(jumps)
+var jumps = false;
 
-if (flip) {
-    global.grav *= -1;
+if (argument_count >= 1) {
+    jumps = argument[0];
 }
 
 if (instance_exists(objPlayer)) {
+    global.grav *= -1;
     var nowX = objPlayer.x;
     var nowY = objPlayer.y;
 
@@ -15,10 +15,10 @@ if (instance_exists(objPlayer)) {
         vspeed = 0;
         
         if (!global.dotKid) {
-            if (flip) {
-                y += 4 * global.grav;
-            }
+            y += 4 * global.grav;
         }
+        
+        gravity *= -1;
         
         if (jumps) {
             jumpsLeft = prevJumps;
@@ -29,17 +29,5 @@ if (instance_exists(objPlayer)) {
         objPlayer.jumpsLeft = prevJumps;
     } else {
         scrRecoverJumps();
-    }
-}
-
-with (objSave) {
-    if (global.grav == -1) {
-        image_angle = 180;
-        x += 32;
-        y += 32;
-    } else {
-        image_angle = 0;
-        x -= 32;
-        y -= 32;
     }
 }

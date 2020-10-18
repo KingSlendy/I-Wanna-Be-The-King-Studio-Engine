@@ -104,6 +104,9 @@
       <sprite>sprites\sprSaveMedium</sprite>
       <sprite>sprites\sprSave</sprite>
       <sprite>sprites\sprSaveVeryHard</sprite>
+      <sprite>sprites\sprSaveMediumFlip</sprite>
+      <sprite>sprites\sprSaveFlip</sprite>
+      <sprite>sprites\sprSeveVeryHardFlip</sprite>
     </sprites>
     <sprites name="Warps">
       <sprite>sprites\sprWarp</sprite>
@@ -283,6 +286,9 @@
       <object>objects\objSaveMedium</object>
       <object>objects\objSave</object>
       <object>objects\objSaveVeryHard</object>
+      <object>objects\objSaveMediumFlip</object>
+      <object>objects\objSaveFlip</object>
+      <object>objects\objSaveVeryHardFlip</object>
       <object>objects\objGameClear</object>
     </objects>
     <objects name="Warps">
