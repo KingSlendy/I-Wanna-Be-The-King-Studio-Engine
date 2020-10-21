@@ -49,8 +49,6 @@
       <sprite>sprites\sprBoxDotKid</sprite>
       <sprite>sprites\sprBow</sprite>
       <sprite>sprites\sprBullet</sprite>
-      <sprite>sprites\sprGravUp</sprite>
-      <sprite>sprites\sprGravDown</sprite>
       <sprite>sprites\sprBloodEmitter</sprite>
       <sprite>sprites\sprBlood</sprite>
       <sprite>sprites\sprGameOver</sprite>
@@ -144,6 +142,8 @@
       <sprite>sprites\sprBossItem8</sprite>
     </sprites>
     <sprites name="Extra">
+      <sprite>sprites\sprGravUp</sprite>
+      <sprite>sprites\sprGravDown</sprite>
       <sprite>sprites\sprExtraJump</sprite>
       <sprite>sprites\sprSign</sprite>
       <sprite>sprites\sprNormalizerBeam</sprite>
