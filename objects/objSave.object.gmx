@@ -74,10 +74,7 @@ grav = 1;
           <argument>
             <kind>1</kind>
             <string>event_user(0);
-
-with (other) {
-    instance_destroy();
-}
+instance_destroy(other);
 </string>
           </argument>
         </arguments>

@@ -128,9 +128,7 @@ if (global.borderKills &amp;&amp; scrOutsideRoom()) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gravity = 0.4 * global.grav;
-
-var L = scrButtonHeld(global.leftButton);
+            <string>var L = scrButtonHeld(global.leftButton);
 var R = scrButtonHeld(global.rightButton);
 var h = 0;
 
