@@ -298,6 +298,7 @@ if (room == rTest) {
           <argument>
             <kind>1</kind>
             <string>if (global.gameStarted) {
+    scrRestartGame();
     scrSaveGame(false);
 }
 
