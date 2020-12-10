@@ -77,8 +77,8 @@ event_user(0);
     var yFollow = objPlayer.y;
     
     if (!leaveRoom) {
-        xFollow = clamp(xFollow, 0, room_width - 1); 
-        yFollow = clamp(yFollow, 0, room_height - 1);   
+        xFollow = clamp(xFollow, 0, room_width - view_wview[0]); 
+        yFollow = clamp(yFollow, 0, room_height - view_hview[0]);   
     }
     
     view_xview[0] = floor(xFollow / view_wview[0]) * view_wview[0];

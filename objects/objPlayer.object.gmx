@@ -247,7 +247,7 @@ if (onVineL || onVineR) {
         if (scrButtonHeld(global.jumpButton)) {
             hspeed = cond_exp(onVineR, 15, -15);
             vspeed = -9 * global.grav;
-            audio_play_sound(sndWalljump,0,false);
+            audio_play_sound(sndWalljump, 0, false);
             sprite_index = sprPlayerJump;
         } else {
             hspeed = cond_exp(onVineR, 3, -3);

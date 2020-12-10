@@ -89,18 +89,22 @@ if (global.gameStarted) {
     if (pauseDelay &lt; global.totalPauseDelay) {
         pauseDelay++;
     } else if (!global.noPause &amp;&amp; scrButtonPressed(global.pauseButton)) {
+        global.gamePaused = !global.gamePaused;
+    
         if (global.gamePaused) {
+            pauseSpr = sprite_create_from_surface(application_surface, 0, 0, view_wport[0], view_hport[0], false, false, 0, 0);
+            instance_deactivate_all(true);
+        } else {
             instance_activate_all();
             
-            if (surface_exists(pauseSurf)) {
-                surface_free(pauseSurf);
+            if (sprite_exists(pauseSpr)) {
+                sprite_delete(pauseSpr);
             }
                 
             scrSaveConfig();
             io_clear();
         }
         
-        global.gamePaused = !global.gamePaused;
         pauseDelay = 0;
     }
 }
@@ -352,16 +356,8 @@ room_goto(rTitle);
             <kind>1</kind>
             <string>///Pause overlay
 if (global.gamePaused) {
-    if (!surface_exists(pauseSurf)) {
-        instance_activate_all();
-        pauseSurf = surface_create(view_wport[0], view_hport[0]);
-        surface_copy(pauseSurf, 0, 0, application_surface);
-        instance_deactivate_all(true);
-    }
+    draw_sprite(pauseSpr, 0, 0, 0);
 
-    draw_enable_alphablend(false);
-    draw_surface(pauseSurf, 0, 0);
-    draw_enable_alphablend(true);
     draw_set_alpha(0.4);
     draw_set_colour(c_black);
     draw_rectangle(0, 0, view_wport[0], view_hport[0], 0);
@@ -376,7 +372,7 @@ if (global.gamePaused) {
     draw_set_font(fntPause2);
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
-    draw_text(20, 516, string_interp("Volume: {0}%", floor(global.soundVolume * 100)));
+    draw_text(20, 516, string_interp("Volume: {0}%", ceil(global.soundVolume * 100)));
     draw_text(20, 541, string_interp("Deaths: {0}", global.deaths));
     draw_text(20, 566, string_interp("Time: {0}", scrFormattedTime(global.time)));
 }

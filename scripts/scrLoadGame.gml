@@ -49,12 +49,14 @@ file_text_close(file);
 var text = argument[0];
 var decompressed = "";
 var sections = string_split(text, "-");
+var length = array_length_1d(sections);
 
-for (var i = 0; i < array_length_1d(sections); i += 2) {
+for (var i = 0; i < length; i += 2) {
     var count = real(sections[i]);
     var chars = sections[i + 1];
+    var strLength = string_length(chars);
     
-    for (var j = 1; j <= string_length(chars); j++) {
+    for (var j = 1; j <= strLength; j++) {
         repeat (count) {
             decompressed += string_char_at(chars, j);
         }
@@ -70,8 +72,9 @@ var decrypted = "";
 var length = string_length(global.savePassword);
 var pass = 0;
 var encoded = string_split(text, "_");
+var arrLength = array_length_1d(encoded);
 
-for (var i = 0; i < array_length_1d(encoded); i++) {
+for (var i = 0; i < arrLength; i++) {
     var decoded = chr(real(encoded[i]) - ord(string_char_at(global.savePassword, pass + 1)));
     pass = (pass + 1) % length;
     decrypted += decoded;

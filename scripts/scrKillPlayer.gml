@@ -3,7 +3,7 @@ if (!global.debugGodMode) {
     if (global.gameStarted) {
         if (instance_exists(objPlayer)) {
             with (objPlayer) {
-                instance_create(x,y,objBloodEmitter);
+                instance_create(x, y, objBloodEmitter);
                 instance_destroy();
             }
             

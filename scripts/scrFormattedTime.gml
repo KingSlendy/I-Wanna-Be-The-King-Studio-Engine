@@ -6,10 +6,4 @@ var mm1 = (time div 60) mod 10;
 var mm2 = ((time div 60) div 10) mod 6;
 var hh = (time div 60) div 60;
 
-/*var ss = time mod 60;
-var mm = (time div 60) mod 60;
-var hh = (time div 60) div 60;
-
-return string_interp("{0}:{1}:{2}", hh, mm, ss);*/
-
 return string_interp("{0}:{1}{2}:{3}{4}", hh, mm2, mm1, ss2, ss1);

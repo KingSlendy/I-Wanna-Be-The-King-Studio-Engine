@@ -249,7 +249,7 @@ draw_set_colour(c_black);
 draw_set_font(fntOptions);
 
 if (menu == 0) {
-    draw_text(x, y + spacing * 0, string_interp("Sound Volume: {0}%", round(global.soundVolume * 100)));
+    draw_text(x, y + spacing * 0, string_interp("Sound Volume: {0}%", ceil(global.soundVolume * 100)));
     draw_text(x, y + spacing * 1, string_interp("Fullscreen: {0}", cond_exp(global.fullscreenMode, "Yes", "No")));
     draw_text(x, y + spacing * 2, string_interp("VSync: {0}", cond_exp(global.vsyncMode, "Yes", "No")));
     draw_text(x, y + spacing * 3, string_interp("Smooth Mode: {0}", cond_exp(global.smoothMode, "Yes", "No")));

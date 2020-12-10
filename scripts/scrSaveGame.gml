@@ -52,8 +52,9 @@ var compressed = "";
 var prevChar = string_char_at(text, 1);
 var count = 0;
 var prevCount = 0;
+var length = string_length(text);
 
-for (var i = 1; i <= string_length(text) + 1; i++) {
+for (var i = 1; i <= length + 1; i++) {
     var char = string_char_at(text, i);
     
     if (char != prevChar) {
@@ -80,8 +81,9 @@ var text = scrCompress(string_copy(argument[0], 9, string_length(argument[0]) - 
 var encrypted;
 var length = string_length(global.savePassword);
 var pass = 0;
+var strLength = string_length(text);
 
-for (var i = 1; i <= string_length(text); i++) {
+for (var i = 1; i <= strLength; i++) {
     var n = ord(string_char_at(text, i));
     var encoded = string(n + ord(string_char_at(global.savePassword, pass + 1)));
     pass = (pass + 1) % length;
