@@ -57,6 +57,8 @@ prevSpd = 50;
           <argument>
             <kind>1</kind>
             <string>///Main inputs
+texture_set_interpolation(global.smoothMode);
+
 if (global.gameStarted) {
     if (!global.gamePaused) {
         //Restarting game
