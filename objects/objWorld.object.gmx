@@ -362,14 +362,14 @@ if (global.gamePaused) {
 
     draw_set_alpha(0.4);
     draw_set_colour(c_black);
-    draw_rectangle(0, 0, view_wport[0], view_hport[0], 0);
+    draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), 0);
     
     draw_set_alpha(1);
     draw_set_font(fntPause1);
     draw_set_colour(c_white);
     draw_set_halign(fa_center);
     draw_set_valign(fa_top);
-    draw_text(view_wport[0] / 2, view_hport[0] / 2 - 24, "PAUSE");
+    draw_text(display_get_gui_width() / 2, display_get_gui_height() / 2 - 24, "PAUSE");
     
     draw_set_font(fntPause2);
     draw_set_halign(fa_left);
