@@ -172,7 +172,7 @@ if (menu == 0) {
     select[menu] %= totalControls;
     
     if (scrButtonPressed(global.menuAcceptButton)) {
-        if (select[menu] == 9) {
+        if (select[menu] == totalControls - 1) {
             scrDefaultControls();
             event_user(0);
             scrSaveConfig();
@@ -256,7 +256,7 @@ if (menu == 0) {
     draw_text(x, y + spacing * 4, "Reset To Defaults");
     draw_text(x, y + spacing * 5, "Change Controls");
 } else if (menu == 1) {
-    for (var i = 0; i &lt; 9; i++) {
+    for (var i = 0; i &lt; totalControls - 1; i++) {
         var bind = keyBinds[i];
         
         if (changingControls &amp;&amp; select[menu] == i) {
@@ -266,7 +266,7 @@ if (menu == 0) {
         draw_text(x, y + spacing * i, string_interp("{0} Button: {1}", keyNames[i], bind));
     }
 
-    draw_text(x, y + spacing * 9, "Default Controls");
+    draw_text(x, y + spacing * (totalControls - 1), "Default Controls");
 }
 
 draw_sprite(sprCherry, 0, x - 20, y + 25 + spacing * select[menu]);
