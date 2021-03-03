@@ -1,15 +1,13 @@
 ///scrFlipGrav(jumps)
-var jumps = false;
+var jumps = true;
 
 if (argument_count >= 1) {
     jumps = argument[0];
 }
 
-if (instance_exists(objPlayer)) {
-    global.grav *= -1;
-    var nowX = objPlayer.x;
-    var nowY = objPlayer.y;
+global.grav *= -1;
 
+if (instance_exists(objPlayer)) {
     with (objPlayer) {
         var prevJumps = jumpsLeft;
         vspeed = 0;
@@ -21,13 +19,7 @@ if (instance_exists(objPlayer)) {
         gravity *= -1;
         
         if (jumps) {
-            jumpsLeft = prevJumps;
+            scrRecoverJumps();
         }
-    }
-    
-    if (jumps) {
-        objPlayer.jumpsLeft = prevJumps;
-    } else {
-        scrRecoverJumps();
     }
 }
