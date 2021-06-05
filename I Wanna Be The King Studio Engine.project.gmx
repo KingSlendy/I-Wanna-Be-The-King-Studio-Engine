@@ -95,6 +95,10 @@
       <sprite>sprites\sprSpikeLeft</sprite>
       <sprite>sprites\sprSpikeRight</sprite>
       <sprite>sprites\sprSpikeUp</sprite>
+      <sprite>sprites\sprMiniDown</sprite>
+      <sprite>sprites\sprMiniLeft</sprite>
+      <sprite>sprites\sprMiniRight</sprite>
+      <sprite>sprites\sprMiniUp</sprite>
       <sprite>sprites\sprKillerBlock</sprite>
     </sprites>
     <sprites name="Saves">
@@ -275,6 +279,10 @@
       <object>objects\objSpikeLeft</object>
       <object>objects\objSpikeRight</object>
       <object>objects\objSpikeUp</object>
+      <object>objects\objMiniDown</object>
+      <object>objects\objMiniLeft</object>
+      <object>objects\objMiniRight</object>
+      <object>objects\objMiniUp</object>
       <object>objects\objKillerBlock</object>
       <objects name="Bosses">
         <objects name="Miku">
